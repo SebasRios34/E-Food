@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crear Usuarios</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/E-Food/CSS/design.css">
+    <link rel="stylesheet" href="/E-Food/CSS/crearUsuario.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="/E-Food/HTML/MainPage.html">E-Food</a>
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Administracion
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Consecutivos</a>
+                    <a class="dropdown-item" href="#">Tarjetas Credito/Debito</a>
+                    <a class="dropdown-item" href="#">Metodos de pago</a>
+                    <a class="dropdown-item" href="#">Tipo de Precio</a>
+                    <a class="dropdown-item" href="#">Tiquetes de Descuento</a>
+                    <a class="dropdown-item" href="#">Lineas de Comida
+                        <a class="dropdown-item" href="#">Productos</a>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Seguridad
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Usuarios</a>
+                    <a class="dropdown-item" href="#">Roles</a>
+                    <a class="dropdown-item" href="#">Cambiar Contraseña</a>
+                    <a class="dropdown-item" href="/E-Food/HTML/CrearUsuario.html">Crear Usuario</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Consultas
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Pedidos</a>
+                    <a class="dropdown-item" href="#">Productos</a>
+                    <a class="dropdown-item" href="#">Bitacora</a>
+                    <a class="dropdown-item" href="#">Errores</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <img class="img1" src="/E-Food/IMG/background.jpg" alt="">
+
+    <div class="menuPrincipalCrearSesion">
+        <div class="welcome">
+            <h1 style="margin-left: 50%;">Crear Sesion</h1>
+        </div>
+
+        <div class="container">
+            <form id="frmCrearSesion" class="form-horizontal">
+                <fieldset>
+
+                    <div class="form-group row">
+                        <label class="col-md-1 control-label" for="usuario">Usuario: </label>
+                        <div class="col-md-5">
+                            <input id="usuario" name="usuario" type="text" placeholder="Nombre de Usuario"
+                                class="form-control input-md">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-1 control-label" for="contraseña">Contraseña: </label>
+                        <div class="col-md-5">
+                            <input id="contraseña" name="contraseña" type="text" placeholder="Contraseña"
+                                class="form-control input-md">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-1 control-label" for="confirmarContraseña">Confirmar Contraseña: </label>
+                        <div class="col-md-5">
+                            <input id="confirmarContraseña" name="confirmarContraseña" type="text"
+                                placeholder="Confirmar Contraseña" class="form-control input-md">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-1 control-label" for="emial">Correo Electronico: </label>
+                        <div class="col-md-5">
+                            <input id="email" name="email" type="email" placeholder="Correo Electronico"
+                                class="form-control input-md">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-1 control-label" for="preguntaSeguridad">Pregunta de Seguridad: </label>
+                        <div class="col-md-5">
+                            <select name="preguntaSeguridad" id="preguntaSeguridad">
+                                <option value="">Nombre de Primera Mascota</option>
+                                <option value="">Equipo de Basketball favorito</option>
+                                <option value="">Nombre de tu abuelo/a</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-1 control-label" for="emial">Respuesta de Seguridad: </label>
+                        <div class="col-md-5">
+                            <input id="respuestaSeguridad" name="respuestaSeguridad" type="text"
+                                placeholder="Respuesta de Seguridad" class="form-control input-md">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-1 control-label" for="btnRedondo"></label>
+                        <div class="col-md-8">
+                            <button id="btnRedondoCrearUsuario" type="button" class="btn btn-primary" href="">
+                                Crear Usuario</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+    </div>
+
+</body>
+
+</html>

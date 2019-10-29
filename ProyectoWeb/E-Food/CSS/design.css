@@ -1,0 +1,73 @@
+#navbardrop
+{
+  color: #ffffff;
+}
+
+#navbardrop:hover
+{
+  background: #133840;
+  color: #3fbebc ;
+}
+
+
+.img1
+{
+/*top right bottom left*/
+padding:  0px 200px 0px 210px;
+position: absolute;
+margin-left: 5%;
+width: 1300px;
+height: 250px;
+background: url(image.png);
+}
+
+.menuPrincipal
+{
+  margin-left: 15%;
+}
+
+.welcome{
+  margin-left: 10%;
+    padding: 300px 400px 0px 210px;
+    margin-bottom: 2%;
+}
+
+
+.btnVerUsuarios
+{
+    width: 150px;
+    height: 170px;
+    background: url(/E-Food/IMG/admin1.jpg);
+}
+
+.btnCrearUsuarios
+{
+  width: 150px;
+    height: 170px;
+  background: url(/E-Food/IMG/mant11111.jpg);
+}
+
+
+
+
+#btnRedondo
+{
+  font-family: Arial;
+  width: 150px;
+  font-size: 13px;
+  color:#ffffff;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid #133840(58, 133, 191, 0.75);
+  border-radius: 40px;
+  background: #133840;
+  transition: all 0.3s ease 0s;
+  margin-left: 65%;
+}
+
+#btnRedondo:hover
+{
+    color: #133840;
+    background: #ffffff;
+    border: 2px solid #133840(58, 133, 191, 0.75);
+}
