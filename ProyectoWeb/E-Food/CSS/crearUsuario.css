@@ -4,6 +4,12 @@
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
+    width: 1300px;
+}
+
+#fieldset
+{
+  width: 1200px;
 }
 
 input[type=email], select {
@@ -47,4 +53,12 @@ input[type=email], select {
     background: #ffffff;
     border: 2px solid #133840(58, 133, 191, 0.75);
 }
+
+/*Titulos de los Inputs*/
+.col-md-1
+{
+  margin-left: 20%;
+}
+
+
   
