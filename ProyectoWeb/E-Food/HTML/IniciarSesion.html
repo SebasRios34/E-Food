@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Iniciar Sesion</title>
+
+    <link rel="stylesheet" href="/ProyectoWeb/E-Food/CSS/iniciarSesion.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <img src="/ProyectoWeb/E-Food/IMG/EFoodLogo.png" alt="" >
+
+    <form class="modal-content animate" action="/action_page.php" method="post">
+        <div class="imgcontainer">
+            <img src="/ProyectoWeb/E-Food/IMG/iniciarsesionlogo.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+            <label for="uname"><b>Usuario: </b></label>
+            <input id="idUsuario" type="text" placeholder="Nombre de Usuario" name="uname" required>
+
+            <label for="psw"><b>Contraseña: </b></label>
+            <input id="idContraseña" type="password" placeholder="Contraseña" name="psw" required>
+
+            <button type="submit">Ingresar</button>
+            <label>
+                <input id="idRecuerdam" type="checkbox" checked="checked" name="remember"> Recuerdame
+            </label>
+        </div>
+
+        <div class="container" style="background-color:#ffffff;">
+            <span class="psw" style="margin-left: 60%; margin-right: 3%;">Olvidaste tu <a href="#">contraseña?</a></span>
+            <span class="psw" >No tienes cuenta?<a href="#"> Registrate</a></span>
+        </div>
+    </form>
+
+</body>
+
+</html>
