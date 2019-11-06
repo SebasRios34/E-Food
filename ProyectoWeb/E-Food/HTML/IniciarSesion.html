@@ -125,42 +125,7 @@
         </div>
     </div>
 
-
-    <script>
-
-        var modal = document.getElementById('id01');
-        var modal2 = document.getElementById('id02');
-
-
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-
-            if (event.target == modal2) {
-                modal2.style.display = "none";
-            }
-        }
-    </script>
-
-    <script>
-        var slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {
-                slideIndex = 1
-            }
-            slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 2000);
-        }
-    </script>
+    <script src="/ProyectoWeb/E-Food/JS/inicioSesion.js"></script>
 </body>
 
 </html>
