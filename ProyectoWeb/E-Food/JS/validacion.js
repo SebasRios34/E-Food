@@ -30,7 +30,6 @@ var validaciones =(e)=> {
     }else if(confirmcontra.value !== contrasenia.value){
         alert('las contraseñas no son iguales, favor verifique');
         constrasenia.focus();
-        confirmcontra.focus();
         verify = false;
     }else if(!respuestaSeguridad.value){
         alert('por favor introduzca su respuesta de seguridad');
