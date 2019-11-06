@@ -1,63 +1,52 @@
-(function(){
-    var val ={
-        usuario:{},
-        contrasenia:{},
-        confirmcontra:{},
-        email:{},
-        respuestaSeguridad:{},
-        btnRedondoCrearUsuario:{},
-        form:{},
-        inicializar: function(){
-            this.form = document.getElementById('frmCrearSesion');
-            this.btnRedondoCrearUsuario = document.getElementById('btnRedondoCrearUusario');
-            this.confirmcontra= document.getElementById('ConfirmarContrasenia');
-            this.constrasenia = document.getElementById('contrasenia');
-            this.email = document.getElementById('email');
-            this.respuestaSeguridad = document.getElementById('respuestaSeguridad');
-            this.usuario = document.getElementById('usuario');
-            this.bind();
-        },
-        bind: function(){
-            this.btnRedondoCrearUsuario = this.validar;
-
-        },
-        validar = function (e) {
-            e.preventDefault();
-            var verify = true;
-            var expRegEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-            if(!val.usuario.value){
-                alert('El campo usuario es requerido');
-                validacion.usuario.focus();
-                verify = false;
-            }
-            else if(!val.email.value){
-                alert('El campo email o correo es requerido');
-                val.email.focus();
-                verify = false;
-            }else if(!expRegEmail.exec(validacion.email.value)){
-                alert('El campo email no tiene formato');
-                val.email.focus();
-                verify = false;
-            }else if(!val.contrasenia.value){
-                alert('El campo contraseña es requerido');
-                val.email.focus();
-                verify = false;
-            }else if(val.confirmcontra.value !== val.contrasenia.value){
-                alert('las contraseñas no son iguales, favor verifique');
-                val.constrasenia.focus();
-                val.confirmcontra.focus();
-                verify = false;
-            }else if(!val.respuestaSeguridad.value){
-                alert('por favor introduzca su respuesta de seguridad');
-                val.respuestaSeguridad.focus();
-                verfiy = false;
-            }
-
-            if(verify){
-                alert('el usuario se ha creado correctamente');
-                val.form.onsubmit();
-            }
-        }
+          
+var validaciones =(e)=> {
+    e.preventDefault();
+    var verify = true;
+    var form = document.getElementById('frmCrearSesion');
+    var confirmcontra= document.getElementById('ConfirmarContrasenia');
+    var contrasenia = document.getElementById('contrasenia');
+    var email = document.getElementById('email');
+    var respuestaSeguridad = document.getElementById('respuestaSeguridad');
+    var usuario = document.getElementById('usuario');
+    var verify = true;
+    var expRegEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    if(!usuario.value){
+        alert('El campo usuario es requerido');
+        usuario.focus();
+        verify = false;
     }
-    val.inicializar();
-})()
+    else if(!email.value){
+        alert('El campo email o correo es requerido');
+        email.focus();
+        verify = false;
+    }else if(!expRegEmail.exec(email.value)){
+        alert('El campo email no tiene formato');
+        email.focus();
+        verify = false;
+    }else if(!contrasenia.value){
+        alert('El campo contraseña es requerido');
+        email.focus();
+        verify = false;
+    }else if(confirmcontra.value !== contrasenia.value){
+        alert('las contraseñas no son iguales, favor verifique');
+        constrasenia.focus();
+        confirmcontra.focus();
+        verify = false;
+    }else if(!respuestaSeguridad.value){
+        alert('por favor introduzca su respuesta de seguridad');
+        respuestaSeguridad.focus();
+        verfiy = false;
+    }
+    if(verify){
+        alert('el usuario se ha creado correctamente');
+        form.onsubmit();
+    }    
+}
+
+window.onload = function () {
+    
+    var btnRedondoCrearUsuario =  document.getElementById('btnRedondoCrearUsuario');
+    btnRedondoCrearUsuario.onclick = validaciones;
+
+}
+
