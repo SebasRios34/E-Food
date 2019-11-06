@@ -3,7 +3,7 @@ var validaciones =(e)=> {
     e.preventDefault();
     var verify = true;
     var form = document.getElementById('frmCrearSesion');
-    var confirmcontra= document.getElementById('ConfirmarContrasenia');
+    var confirmcontra= document.getElementById('confirmarContrasenia');
     var contrasenia = document.getElementById('contrasenia');
     var email = document.getElementById('email');
     var respuestaSeguridad = document.getElementById('respuestaSeguridad');
@@ -25,9 +25,9 @@ var validaciones =(e)=> {
         verify = false;
     }else if(!contrasenia.value){
         alert('El campo contraseña es requerido');
-        email.focus();
+        constrasenia.focus();
         verify = false;
-    }else if(confirmcontra.value !== contrasenia.value){
+    }else if(!(confirmcontra.value === contrasenia.value)){
         alert('las contraseñas no son iguales, favor verifique');
         constrasenia.focus();
         verify = false;
