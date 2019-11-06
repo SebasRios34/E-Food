@@ -8,6 +8,7 @@
     <title>Información Consecutivos</title>
 
     <link rel="stylesheet" href="/ProyectoWeb/E-Food/CSS/design.css">
+    <link rel="stylesheet" href="/ProyectoWeb/E-Food/CSS/informacionConsecutivo.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -93,29 +94,28 @@
                 </div>
 
                 <div class="form-group row">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                        <label class="custom-control-label" for="defaultUnchecked">Sí</label>
+                    <label class="col-md-1 control-label" for="consecutivo">Consecutivo: </label>
+                    <div class="col-md-5">
+                        <div class="custom-control custom-checkbox">
+                            <input id="prefijoCheck" type="checkbox">
+                            <label for="prefijoCheck">Sí</label>
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-1 control-label" for="email">Correo Electronico: </label>
+                    <label class="col-md-1 control-label" for="email">Prefijo: </label>
                     <div class="col-md-5">
-                        <input id="email" name="email" type="email" placeholder="Correo Electronico"
+                        <input id="prefjio" name="prefjio" type="text" placeholder="Prefijo"
                             class="form-control input-md">
                     </div>
                 </div>
 
-
-
-
-
                 <div class="form-group row">
                     <label class="col-md-2 control-label" for="btnRedondo"></label>
                     <div class="col-md-8">
-                        <button id="btnRedondoCrearUsuario" type="button" class="btn btn-primary">
-                            Crear Usuario</button>
+                        <button id="btnRedondoCrearConsecutivo" type="button" class="btn btn-primary">
+                            Crear Consecutivo</button>
                     </div>
                 </div>
             </fieldset>
