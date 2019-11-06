@@ -33,14 +33,14 @@ background: url(background.jpg);
 }
 
 
-.btnVerUsuarios
+#btnVerUsuarios
 {
   width: 200px;
   height: 220px;
   background: url(/ProyectoWeb/E-Food/IMG/verusuario.png);
 }
 
-.btnCrearUsuarios
+#btnCrearUsuarios
 {
   width: 200px;
     height: 220px;
