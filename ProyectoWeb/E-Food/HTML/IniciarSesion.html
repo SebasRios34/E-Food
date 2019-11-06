@@ -14,101 +14,111 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-4">
-                <div class="slideshow-container">
-                    <div class="mySlides fade">
-                        <img src="/ProyectoWeb/E-Food/IMG/ImagesSlideShow/5.jpg" style="width:100%">
-                    </div>
-                    <div class="mySlides fade">
-                        <div class="numbertext"></div>
-                        <img src="/ProyectoWeb/E-Food/IMG/ImagesSlideShow/2.jpg" style="width:100%">
-                        <div class="text"></div>
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="/ProyectoWeb/E-Food/IMG/ImagesSlideShow/4.jpg" style="width:100%">
+    <div class="iniciarSesionTodo">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <div class="iniciarSesionFotos">
+                        <div class="slideshow-container">
+                            <div class="mySlides fade">
+                                <img src="/ProyectoWeb/E-Food/IMG/ImagesSlideShow/5.jpg">
+                            </div>
+                            <div class="mySlides fade">
+                                <div class="numbertext"></div>
+                                <img src="/ProyectoWeb/E-Food/IMG/ImagesSlideShow/2.jpg">
+                                <div class="text"></div>
+                            </div>
+                            <div class="mySlides fade">
+                                <img src="/ProyectoWeb/E-Food/IMG/ImagesSlideShow/4.jpg">
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-4">
-                <div class="iniciarSesionTodo">
+                <div class="col-4">
+                    <div class="iniciarSesionBlocks">
 
-                    <h2 style="margin-left: 75px;">E-Food</h2>
+                        <div class="iniciarSesionButtons">
+                            <h2 style="margin-left: 75px;">E-Food</h2>
 
-                    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Iniciar
-                        Sesion</button>
-                    <button onclick="document.getElementById('id02').style.display='block'"
-                        style="width:auto;">Registrarme</button>
+                            <button onclick="document.getElementById('id01').style.display='block'"
+                                style="width:auto;">Iniciar
+                                Sesion</button>
+                            <button onclick="document.getElementById('id02').style.display='block'"
+                                style="width:auto;">Registrarme</button>
+                        </div>
 
-                    <div id="id01" class="modal">
+                        <div id="id01" class="modaly">
 
-                        <form class="modalx animate" action="/action_page.php" method="post">
-                            <div class="imgcontainer">
-                                <img src="/ProyectoWeb/E-Food/IMG/iniciarsesionlogo.png" alt="Avatar" class="avatar">
-                            </div>
-
-                            <div class="container">
-                                <label for="usuarios"><b>Usuario: </b></label>
-                                <input id="usuarios" type="text" placeholder="Nombre de Usuario" name="usuarios"
-                                    required>
-
-                                <label for="contrasenaUsuarios"><b>Contraseña: </b></label>
-                                <input id="contrasenaUsuarios" type="password" placeholder="Contraseña" name="contrasenaUsuarios"
-                                    required>
-
-                                <button type="submit">Ingresar</button>
-                                <label>
-                                    <input id="idRecuerdam" type="checkbox" checked="checked" name="remember">
-                                    Recuerdame
-                                </label>
-
-                                <div class="container" style="background-color:#ffffff;">
-                                    <span class="psw" style="margin-left: 60%; margin-right: 3%;">Olvidaste tu <a
-                                            href="#">contraseña?</a></span>
-                                    <span class="psw">No tienes cuenta?<a href="#"> Registrate</a></span>
+                            <form class="modalx animate" action="/action_page.php" method="post">
+                                <div class="imgcontainer">
+                                    <img src="/ProyectoWeb/E-Food/IMG/iniciarsesionlogo.png" alt="Avatar"
+                                        class="avatar">
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div id="id02" class="modal">
 
-                        <form class="modalx animate" action="/action_page.php" method="post">
-                            <div class="imgcontainer">
-                                <img src="/ProyectoWeb/E-Food/IMG/registrarUsuarios.png" alt="Avatar" class="avatar">
-                            </div>
+                                <div class="container">
+                                    <label for="usuarios"><b>Usuario: </b></label>
+                                    <input id="usuarios" type="text" placeholder="Nombre de Usuario" name="usuarios"
+                                        required>
 
-                            <div class="container">
-                                <label for="usuariosCrear"><b>Usuario: </b></label>
-                                <input id="usuariosCrear" type="text" placeholder="Nombre de Usuario" name="usuariosCrear"
-                                    required>
+                                    <label for="contrasenaUsuarios"><b>Contraseña: </b></label>
+                                    <input id="contrasenaUsuarios" type="password" placeholder="Contraseña"
+                                        name="contrasenaUsuarios" required>
 
-                                <label for="contrasena"><b>Contraseña: </b></label>
-                                <input id="contrasena" type="password" placeholder="Contraseña" name="contrasena"
-                                    required>
+                                    <button type="submit">Ingresar</button>
+                                    <label>
+                                        <input id="idRecuerdam" type="checkbox" checked="checked" name="remember">
+                                        Recuerdame
+                                    </label>
 
-                                <label for="confirmarContrasena"><b>Confirmar Contraseña: </b></label>
-                                <input id="confirmarContrasena" type="password" placeholder="Confirmar Contraseña"
-                                    name="confirmarContrasena" required>
+                                    <div class="container" style="background-color:#ffffff;">
+                                        <span class="psw" style="margin-left: 60%; margin-right: 3%;">Olvidaste tu
+                                            <a href="#">contraseña?</a></span>
+                                        <span class="psw">No tienes cuenta?<a href="#"> Registrate</a></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="id02" class="modaly">
 
-                                <label for="email"><b>Correo Electronico: </b></label>
-                                <input id="email" type="email" placeholder="Correo Electronico" name="email" required>
+                            <form class="modalx animate" action="/action_page.php" method="post">
+                                <div class="imgcontainer">
+                                    <img src="/ProyectoWeb/E-Food/IMG/registrarUsuarios.png" alt="Avatar"
+                                        class="avatar">
+                                </div>
 
-                                <label for="preguntaSeguridad">Pregunta de Seguridad</label>
-                                <select name="preguntaSeguridad" id="preguntaSeguridad">
-                                    <option value="">Nombre de Primera Mascota</option>
-                                    <option value="">Equipo de Basketball favorito</option>
-                                    <option value="">Nombre de tu abuelo/a</option>
-                                </select>
+                                <div class="container">
+                                    <label for="usuariosCrear"><b>Usuario: </b></label>
+                                    <input id="usuariosCrear" type="text" placeholder="Nombre de Usuario"
+                                        name="usuariosCrear" required>
 
-                                <label for="respuestaSeguridad"><b>Respuest de Seguridad: </b></label>
-                                <input id="respuestaSeguridad" type="text" placeholder="Respuesta de Seguridad"
-                                    name="respuestaSeguridad" required>
+                                    <label for="contrasena"><b>Contraseña: </b></label>
+                                    <input id="contrasena" type="password" placeholder="Contraseña" name="contrasena"
+                                        required>
 
-                                <button type="submit">Ingresar</button>
-                            </div>
-                        </form>
+                                    <label for="confirmarContrasena"><b>Confirmar Contraseña: </b></label>
+                                    <input id="confirmarContrasena" type="password" placeholder="Confirmar Contraseña"
+                                        name="confirmarContrasena" required>
+
+                                    <label for="email"><b>Correo Electronico: </b></label>
+                                    <input id="email" type="email" placeholder="Correo Electronico" name="email"
+                                        required>
+
+                                    <label for="preguntaSeguridad">Pregunta de Seguridad</label>
+                                    <select name="preguntaSeguridad" id="preguntaSeguridad">
+                                        <option value="">Nombre de Primera Mascota</option>
+                                        <option value="">Equipo de Basketball favorito</option>
+                                        <option value="">Nombre de tu abuelo/a</option>
+                                    </select>
+
+                                    <label for="respuestaSeguridad"><b>Respuesta de Seguridad: </b></label>
+                                    <input id="respuestaSeguridad" type="text" placeholder="Respuesta de Seguridad"
+                                        name="respuestaSeguridad" required>
+
+                                    <button type="submit">Ingresar</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

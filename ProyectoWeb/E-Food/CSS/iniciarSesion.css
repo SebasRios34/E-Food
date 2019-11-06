@@ -22,7 +22,7 @@ button {
   width: 100%;
 }
 
-.iniciarSesionTodo
+.iniciarSesionBlocks
 {
   overflow: auto;
 }
@@ -53,7 +53,7 @@ span.psw {
   padding-top: 16px;
 }
 
-.modal 
+.modaly
 {
   display: none;
   position: fixed;
