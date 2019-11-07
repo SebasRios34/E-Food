@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tipos de Precio</title>
+    <title>Información Tipo de Precio</title>
 
     <link rel="stylesheet" href="/ProyectoWeb/E-Food/CSS/design.css">
+    <link rel="stylesheet" href="/ProyectoWeb/E-Food/CSS/informacionTarjetas.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -26,9 +27,9 @@
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaConsecutivos.html">Consecutivos</a>
-                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/InformacionTarjetas.html">Tarjetas Credito/Debito</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTarjetas.html">Tarjetas Credito/Debito</a>
                     <a class="dropdown-item" href="#">Metodos de pago</a>
-                    <a class="dropdown-item" href="#">Tipo de Precio</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTipoPrecio.html">Tipo de Precio</a>
                     <a class="dropdown-item" href="#">Tiquetes de Descuento</a>
                     <a class="dropdown-item" href="#">Lineas de Comida
                         <a class="dropdown-item" href="#">Productos</a>
@@ -64,55 +65,41 @@
 
     <div class="menuPrincipal">
         <div class="welcome">
-            <h1 class="ffff">Lista Tipos de Precio</h1>
+            <h1 class="ffff">Información Tarjeta Crédito/Debito</h1>
         </div>
     </div>
 
     <div class="container">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Código</th>
-                    <th>Nombre</th>
-                    <th>Opcion 1</th>
-                    <th>Opcion 2</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Regular</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionTipoPrecio.html">Editar</a>
-                    </td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionTipoPrecio.html">Eliminar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Normal</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionTipoPrecio.html">Editar</a>
-                    </td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionTipoPrecio.html">Eliminar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Agrandado</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionTipoPrecio.html">Editar</a>
-                    </td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionTipoPrecio.html">Eliminar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <button id="btnNuevoConsecutivo" type="button" class="btn btn-info"
-            onclick="location.href='InformacionTipoPrecio.html'">Nuevo Tipo Precio</button>
+        <form id="frmInfromacionConsecutivo" class="form-horizontal">
+            <fieldset id="fieldset">
+
+                <div class="form-group row">
+                    <label class="col-md-1 control-label" for="codigoTipoTarjeta">Código: </label>
+                    <div class="col-md-5">
+                        <input id="codigoTipoTarjeta" name="codigoTipoTarjeta" type="number" placeholder="Código"
+                            class="form-control input-md">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-1 control-label" for="descripcion">Descripción: </label>
+                    <div class="col-md-5">
+                        <input id="descripcion" name="descripcion" type="text" placeholder="Descripción"
+                            class="form-control input-md">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-2 control-label" for="btnRedondo"></label>
+                    <div class="col-md-8">
+                        <button id="btnRedondoTarjetas" type="button" class="btn btn-primary">
+                            Guardar</button>
+                        <button id="btnRedondoTarjetas" type="button" class="btn btn-primary">
+                            Eliminar</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
     </div>
 
 
