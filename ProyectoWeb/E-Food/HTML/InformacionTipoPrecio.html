@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lista Consecutivos</title>
+    <title>Información Tipo de Precio</title>
 
     <link rel="stylesheet" href="/ProyectoWeb/E-Food/CSS/design.css">
+    <link rel="stylesheet" href="/ProyectoWeb/E-Food/CSS/informacionTipoPrecio.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -25,7 +26,7 @@
                     Administracion
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Consecutivos</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaConsecutivos.html">Consecutivos</a>
                     <a class="dropdown-item" href="#">Tarjetas Credito/Debito</a>
                     <a class="dropdown-item" href="#">Metodos de pago</a>
                     <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTipoPrecio.html">Tipo de Precio</a>
@@ -64,52 +65,41 @@
 
     <div class="menuPrincipal">
         <div class="welcome">
-            <h1 class="ffff">Lista Consecutivos</h1>
+            <h1 class="ffff">Información Tipo de Precio</h1>
         </div>
     </div>
 
     <div class="container">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Descripción</th>
-                    <th>Consecutivos</th>
-                    <th>Opcion</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Tipos de Precios</td>
-                    <td>1</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionConsecutivo.html">Editar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Procesadores de Pago</td>
-                    <td>2</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionConsecutivo.html">Editar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Lineas de Comida</td>
-                    <td>5</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionConsecutivo.html">Editar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Productos</td>
-                    <td>10</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionConsecutivo.html">Editar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <button id="btnNuevoConsecutivo" type="button" class="btn btn-info"
-            onclick="location.href='InformacionConsecutivo.html'">Agregar Consecutivo</button>
+        <form id="frmInfromacionConsecutivo" class="form-horizontal">
+            <fieldset id="fieldset">
+
+                <div class="form-group row">
+                    <label class="col-md-1 control-label" for="codigoTipoPrecio">Código: </label>
+                    <div class="col-md-5">
+                        <input id="codigoTipoPrecio" name="codigoTipoPrecio" type="number" placeholder="Consecutivo"
+                            class="form-control input-md">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-1 control-label" for="descripcion">Descripción: </label>
+                    <div class="col-md-5">
+                        <input id="descripcion" name="descripcion" type="text" placeholder="Descripción"
+                            class="form-control input-md">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-2 control-label" for="btnRedondo"></label>
+                    <div class="col-md-8">
+                        <button id="btnRedondoTipoPrecio" type="button" class="btn btn-primary">
+                            Guardar</button>
+                        <button id="btnRedondoTipoPrecio" type="button" class="btn btn-primary">
+                            Eliminar</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
     </div>
 
 

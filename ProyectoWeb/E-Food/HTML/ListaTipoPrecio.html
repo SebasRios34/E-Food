@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lista Consecutivos</title>
+    <title>Tipos de Precio</title>
 
     <link rel="stylesheet" href="/ProyectoWeb/E-Food/CSS/design.css">
 
@@ -25,10 +25,10 @@
                     Administracion
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Consecutivos</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaConsecutivos.html">Consecutivos</a>
                     <a class="dropdown-item" href="#">Tarjetas Credito/Debito</a>
                     <a class="dropdown-item" href="#">Metodos de pago</a>
-                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTipoPrecio.html">Tipo de Precio</a>
+                    <a class="dropdown-item" href="#">Tipo de Precio</a>
                     <a class="dropdown-item" href="#">Tiquetes de Descuento</a>
                     <a class="dropdown-item" href="#">Lineas de Comida
                         <a class="dropdown-item" href="#">Productos</a>
@@ -64,7 +64,7 @@
 
     <div class="menuPrincipal">
         <div class="welcome">
-            <h1 class="ffff">Lista Consecutivos</h1>
+            <h1 class="ffff">Lista Tipos de Precio</h1>
         </div>
     </div>
 
@@ -72,44 +72,47 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Descripción</th>
-                    <th>Consecutivos</th>
-                    <th>Opcion</th>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Opcion 1</th>
+                    <th>Opcion 2</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Tipos de Precios</td>
                     <td>1</td>
+                    <td>Regular</td>
                     <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionConsecutivo.html">Editar</a>
+                        <a href="#">Editar</a>
+                    </td>
+                    <td>
+                        <a href="#">Eliminar</a>
                     </td>
                 </tr>
                 <tr>
-                    <td>Procesadores de Pago</td>
                     <td>2</td>
+                    <td>Normal</td>
                     <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionConsecutivo.html">Editar</a>
+                        <a href="#">Editar</a>
+                    </td>
+                    <td>
+                        <a href="#">Eliminar</a>
                     </td>
                 </tr>
                 <tr>
-                    <td>Lineas de Comida</td>
-                    <td>5</td>
+                    <td>3</td>
+                    <td>Agrandado</td>
                     <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionConsecutivo.html">Editar</a>
+                        <a href="#">Editar</a>
                     </td>
-                </tr>
-                <tr>
-                    <td>Productos</td>
-                    <td>10</td>
                     <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionConsecutivo.html">Editar</a>
+                        <a href="#">Eliminar</a>
                     </td>
                 </tr>
             </tbody>
         </table>
         <button id="btnNuevoConsecutivo" type="button" class="btn btn-info"
-            onclick="location.href='InformacionConsecutivo.html'">Agregar Consecutivo</button>
+            onclick="location.href='InformacionTipoPrecio.html'">Nuevo Tipo Precio</button>
     </div>
 
 
