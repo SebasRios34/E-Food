@@ -8,7 +8,6 @@ var validaciones =(e)=> {
     var email = document.getElementById('email');
     var respuestaSeguridad = document.getElementById('respuestaSeguridad');
     var usuario = document.getElementById('usuario');
-    var verify = true;
     var expRegEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     if(!usuario.value){
         alert('El campo usuario es requerido');
