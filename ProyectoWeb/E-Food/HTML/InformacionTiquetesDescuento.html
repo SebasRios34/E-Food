@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tiquetes de Descuento</title>
+    <title>Información Tiquetes de Descuento</title>
 
     <link rel="stylesheet" href="/ProyectoWeb/E-Food/CSS/design.css">
+    <link rel="stylesheet" href="/ProyectoWeb/E-Food/CSS/informacionConsecutivo.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -26,10 +27,12 @@
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaConsecutivos.html">Consecutivos</a>
-                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTarjetas.html">Tarjetas Credito/Debito</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTarjetas.html">Tarjetas
+                        Credito/Debito</a>
                     <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaMetodoPago.html">Metodos de pago</a>
                     <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTipoPrecio.html">Tipo de Precio</a>
-                    <a class="dropdown-item" href="#">Tiquetes de Descuento</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTiquetesDescuento.html">Tiquetes de
+                        Descuento</a>
                     <a class="dropdown-item" href="#">Lineas de Comida
                         <a class="dropdown-item" href="#">Productos</a>
                     </a>
@@ -64,59 +67,64 @@
 
     <div class="menuPrincipal">
         <div class="welcome">
-            <h1 class="ffff">Lista Tiquetes de Descuento</h1>
+            <h1 class="ffff">Información Tiquete de Descuento</h1>
         </div>
     </div>
 
     <div class="container">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Código</th>
-                    <th>Nombre</th>
-                    <th>Disponibles</th>
-                    <th>Opcion 1</th>
-                    <th>Opcion 2</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>D001</td>
-                    <td>Descuento Mes de Diciembre</td>
-                    <td>20</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionTiquetesDescuento.html">Editar</a>
-                    </td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionTiquetesDescuento.html">Eliminar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>DM1</td>
-                    <td>Descuento Dia de la Madre</td>
-                    <td>5</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionTiquetesDescuento.html">Editar</a>
-                    </td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionTiquetesDescuento.html">Eliminar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>DF011</td>
-                    <td>Descuento Fin de Semana</td>
-                    <td>15</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionTiquetesDescuento.html">Editar</a>
-                    </td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionTiquetesDescuento.html">Eliminar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <button id="btnNuevoConsecutivo" type="button" class="btn btn-info"
-            onclick="location.href='InformacionTiquetesDescuento.html'">Nuevo Tiquete de Descuento</button>
+        <form id="frmInfromacionTiquetesDescuento" class="form-horizontal">
+            <fieldset id="fieldset">
+
+                <div class="form-group row">
+                    <label class="col-md-1 control-label" for="codigo">Código: </label>
+                    <div class="col-md-5">
+                        <input id="codigo" name="codigo" type="number" placeholder="Código"
+                            class="form-control input-md">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-1 control-label" for="descripcion">Descripción: </label>
+                    <div class="col-md-5">
+                        <input id="descripcion" name="descripcion" type="text" placeholder="Descripción"
+                            class="form-control input-md">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-1 control-label" for="disponibles">Disponibles: </label>
+                    <div class="col-md-5">
+                        <input id="disponibles" name="disponibles" type="number" placeholder="Disponibles"
+                            class="form-control input-md">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-1 control-label" for="descuento">Descuento: </label>
+                    <div class="col-md-5">
+                        <input id="descuento" name="descuento" type="number" placeholder="Descuento"
+                            class="form-control input-md">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-2 control-label" for="btnRedondo"></label>
+                    <div class="col-md-8">
+                        <button id="btnRedondoCrearConsecutivo" type="button" class="btn btn-primary">
+                            Crear</button>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-2 control-label" for="btnRedondo"></label>
+                    <div class="col-md-8">
+                        <button id="btnRedondoCrearConsecutivo" type="button" class="btn btn-primary">
+                            Eliminar</button>
+                    </div>
+                </div>
+                
+            </fieldset>
+        </form>
     </div>
 
 
