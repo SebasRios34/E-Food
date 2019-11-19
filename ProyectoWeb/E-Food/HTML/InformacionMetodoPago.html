@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="/ProyectoWeb/E-Food/CSS/design.css">
     <link rel="stylesheet" href="/ProyectoWeb/E-Food/CSS/informacionTarjetas.css">
+    <link rel="stylesheet" href="/ProyectoWeb/E-Food/CSS/informacionMetodoPago.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -31,7 +32,7 @@
                         Credito/Debito</a>
                     <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaMetodoPago.html">Metodos de pago</a>
                     <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTipoPrecio.html">Tipo de Precio</a>
-                    <a class="dropdown-item" href="#">Tiquetes de Descuento</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTiquetesDescuento.html">Tiquetes de Descuento</a>
                     <a class="dropdown-item" href="#">Lineas de Comida
                         <a class="dropdown-item" href="#">Productos</a>
                     </a>
@@ -130,12 +131,47 @@
                 </div>
 
                 <div class="form-group row">
-                        <label class="col-md-1 control-label" for="metodo">Método: </label>
-                        <div class="col-md-5">
-                            <input id="metodo" name="metodo" type="text" placeholder="Método"
-                                class="form-control input-md">
+                    <label class="col-md-1 control-label" for="metodo">Método: </label>
+                    <div class="col-md-5">
+                        <input id="metodo" name="metodo" type="text" placeholder="Método" class="form-control input-md">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                        <label class="col-md-1 control-label" for="metodo">Tarjetas: </label>
+                    <div class="col-md-8">
+                        <div class="wrapper">
+                            <div style="float:left; width:33.3%;">
+                                    <label id="disponibles" class="col-md-2 control-label" for="">Disponibles</label>
+                                <ul id="listUL" class="tarjetasDisponibles">
+                                    <li id="listLI">Visa</li>
+                                    <li id="listLI">MasterCard</li>
+                                    <li id="listLI">American Express</li>
+                                    <li id="listLI">Visa Electron</li>
+                                    <li id="listLI">Diners Club</li>
+                                </ul>
+                            </div>
+                            <!-- <div style="float:left; width:33.3%;">
+                                <hr>
+                                <button id="btnTarjetas">></button>
+                                <br>
+                                <button id="btnTarjetas">>></button>
+                                <br>
+                                <button id="btnTarjetas"><<</button>
+                                <br>
+                                <button id="btnTarjetas"><</button>
+                                <hr>
+                            </div> -->
+                        
+                            <div style="float:left; width:33.3%;">
+                                <label id="asginadas" class="col-md-2 control-label" for="">Asignadas</label>
+                                <ul id="listUL" class="tarjetasAsignadas">
+                                </ul>
+                            </div>
+
                         </div>
                     </div>
+                </div>
 
                 <div class="form-group row">
                     <label class="col-md-2 control-label" for="btnRedondo"></label>
@@ -150,6 +186,7 @@
         </form>
     </div>
 
+    <script src="/ProyectoWeb/E-Food/JS/informacionMetodoPago.js"></script>
 
 </body>
 

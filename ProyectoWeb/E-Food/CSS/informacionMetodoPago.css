@@ -1,0 +1,68 @@
+
+  
+  .list {
+    display: inline-block;
+    width: 330px;
+    vertical-align: top;
+    margin: 0 50px;
+  }
+  
+  #listUL {
+    font-size: 18px;
+    background-color: #f5f5f2;
+    padding: 0;
+    min-height: 50px;
+    border: 1px solid #DBDBD3;
+  }
+  
+  #listUL #listLI {
+    color: #66665D;
+    list-style-type: none;
+    padding: 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #DBDBD3;
+  }
+  
+  #listUL #listLI:last-child {
+    border-bottom: none;
+  }
+  
+  #listUL.done #listLI {
+    color: #ABABA4;
+    text-decoration: line-through;
+  }
+
+#asginadas
+{
+    font-size: 110%;
+}
+
+#disponibles{
+    font-size: 110%;
+}
+
+.left
+{
+  float: left;
+  background: green;
+}
+
+.center
+{
+  position:absolute;
+  background: blue;
+
+  
+}
+
+#btnTarjetas
+{
+  margin-left: 45%;
+}
+
+.right
+{
+  float: right;
+  background: red;
+}
+
