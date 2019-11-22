@@ -9,7 +9,7 @@
                 data = JSON.parse(data)
                 arrayDatosRoles = data;
                 console.table(arrayDatosRoles)
-                //cargarTablaUsuarios();
+                cargarTablaRoles();
             })
             .catch(err => console.log('error', err));
     }
@@ -17,7 +17,7 @@
     var cargarTablaRoles = () => {
         var div = document.getElementById('datosRol');
 
-        var listaRoles = arrayDatosUsuariosAdmin.map(function (x) {
+        var listaRoles = arrayDatosRoles.map(function (x) {
 
             return `<tr>
            <td>${x.RolID}</td>
