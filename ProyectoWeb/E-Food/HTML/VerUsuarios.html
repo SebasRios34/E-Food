@@ -87,7 +87,27 @@
         1. Nombre Usuarios
         2. Estado actual del Usuarios
     -->
+
     <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Rol</th>
+                    <th>Correo</th>
+                    <th>Opción</th>
+                    <th>Opción</th>
+                </tr>
+            </thead>
+            <tbody id="datosUsuariosAdmin">
+            </tbody>
+        </table>
+        <button id="btnNuevoConsecutivo" type="button" class="btn btn-info"
+            onclick="location.href='InformacionConsecutivo.html'">Agregar Consecutivo</button>
+    </div>
+
+    <!-- <div class="container">
         <form id="frmListaUsuarios" class="form-vertical">
             <div class="row">
                 <div id="lstUsuarios" class="col-4">
@@ -166,7 +186,7 @@
                 </div>
             </div>
         </form>
-    </div>
+    </div> -->
 
     <script src="/ProyectoWeb/E-Food/JS/cargarUsuariosAdmin.js"></script>
 
