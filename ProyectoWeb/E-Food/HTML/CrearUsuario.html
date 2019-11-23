@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src= "/ProyectoWeb/E-Food/JS/validacion.js"></script>
+    <!-- <script src= "/ProyectoWeb/E-Food/JS/validacion.js"></script> -->
 
 
 </head>
@@ -88,7 +88,7 @@
                     <div class="form-group row">
                         <label class="col-md-1 control-label" for="contraseña">Contraseña: </label>
                         <div class="col-md-5">
-                            <input id="contrasenia" name="contraseña" type="password" placeholder="Contraseña"
+                            <input id="contrasenia" name="contrasenia" type="password" placeholder="Contraseña"
                                 class="form-control input-md">
                         </div>
                     </div>
@@ -116,7 +116,8 @@
                             <option value=""></option>
                               <option value="1">1. Administrador</option>
                               <option value="2">2. Seguridad</option>
-                              <option value="3">3. Consultas</option>
+                              <option value="3">3. Mantenimiento</option>
+                              <option value="4">4. Consulta</option>
                           </select>
                       </div>
                   </div>
@@ -125,9 +126,9 @@
                         <label class="col-md-1 control-label" for="preguntaSeguridad">Pregunta de Seguridad: </label>
                         <div class="col-md-5">
                             <select name="preguntaSeguridad" id="preguntaSeguridad">
-                                <option value="">Nombre de Primera Mascota</option>
-                                <option value="">Equipo de Basketball favorito</option>
-                                <option value="">Nombre de tu abuelo/a</option>
+                                <option value="1">Nombre de Primera Mascota</option>
+                                <option value="2">Equipo de Basketball favorito</option>
+                                <option value="3">Nombre de tu abuelo/a</option>
                             </select>
                         </div>
                     </div>
@@ -153,6 +154,8 @@
 
     </div>
     </div>
+
+    <script src="/ProyectoWeb/E-Food/JS/JSListas/crearUsuarios.js"></script>
 
 </body>
 
