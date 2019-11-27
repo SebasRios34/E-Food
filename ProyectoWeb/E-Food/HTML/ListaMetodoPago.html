@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Procesadores de Pago</title>
+
+    <link rel="stylesheet" href="/ProyectoWeb/E-Food/CSS/design.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm" style="background: #133840;">
+        <a class="navbar-brand" id="navbardrop" href="/ProyectoWeb/E-Food/HTML/OpcionesUsuario.html">E-Food</a>
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Administracion
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaConsecutivos.html">Consecutivos</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTarjetas.html">Tarjetas Credito/Debito</a>
+                    <a class="dropdown-item" href="#">Metodos de pago</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTipoPrecio.html">Tipo de Precio</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTiquetesDescuento.html">Tiquetes de Descuento</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaLineaComida.html">Lineas de Comida
+                        <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaProductos.html">Productos</a>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Seguridad
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/OpcionesUsuario.html">Usuarios</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaRoles.html">Roles</a>
+                    <a class="dropdown-item" href="#">Cambiar Contraseña</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/CrearUsuario.html">Crear Usuario</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Consultas
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Pedidos</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/Productos.html">Productos</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/Bitacora.html">Bitacora</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/Errores.html">Errores</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <img class="img1" style="margin-left: 15%;" src="/ProyectoWeb/E-Food/IMG/background.jpg" alt="">
+
+    <div class="menuPrincipal">
+        <div class="welcome">
+            <h1 class="ffff">Lista Metodos de Pago</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Procesador</th>
+                    <th>Tipo</th>
+                    <th>Activo</th>
+                    <th>Opcion 1</th>
+                    <th>Opcion 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Process Net</td>
+                    <td>Tarjeta de Crédito o Débito</td>
+                    <td>Si</td>
+                    <td>
+                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Editar</a>
+                    </td>
+                    <td>
+                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Eliminar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Efectivo</td>
+                    <td>Efectivo</td>
+                    <td>Si</td>
+                    <td>
+                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Editar</a>
+                    </td>
+                    <td>
+                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Eliminar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>ECheck</td>
+                    <td>Cheque Electrónico</td>
+                    <td>Si</td>
+                    <td>
+                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Editar</a>
+                    </td>
+                    <td>
+                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Eliminar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>ATH</td>
+                    <td>Tarjeta de Crédito o Débito</td>
+                    <td>No</td>
+                    <td>
+                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Editar</a>
+                    </td>
+                    <td>
+                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="btnNuevoConsecutivo" type="button" class="btn btn-info"
+            onclick="location.href='InformacionMetodoPago.html'">Nuevo Metodo de Pago</button>
+    </div>
+
+
+</body>
+
+</html>
