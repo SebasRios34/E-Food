@@ -15,7 +15,7 @@ export default class Buscador extends Component {
     }
     
     handleSubmit(event) {
-        console.log('va a buscar: ' + this.state.value);
+        alert('va a buscar: ' + this.state.value);
         event.preventDefault();
     }
     
@@ -34,9 +34,8 @@ export default class Buscador extends Component {
                     <div className="input-group">
                         <input id="buttondropdown" name="buttondropdown" className="form-control" type="text"></input> 
                     </div>
-                    <Link to="/detalleProducto">
+                    
                         <input type="submit" value="Submit" />
-                    </Link>
                 </div>
             </label>
             
