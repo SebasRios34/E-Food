@@ -10,6 +10,7 @@ import Productos from './Components/Productos';
 import Checkout from './Components/Checkout';
 import './App.css';
 
+
 function App() {
   return (
     <body>
