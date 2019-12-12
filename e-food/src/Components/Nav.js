@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link } from "react-router-dom";
+import Buscador from './Buscador';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 export default class Nav extends Component {
@@ -19,6 +20,7 @@ export default class Nav extends Component {
                     </nav>
                 </div>
                 <div className="col-md-4">
+                    {/*
                     <Dropdown>
                         <Dropdown.Toggle variant="success" id="dropdown-basic">
                             Opciones
@@ -30,15 +32,18 @@ export default class Nav extends Component {
                             <Dropdown.Item href="#/action-3">no se que opciones puede ver el cliente aca</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
+                    */}
+                    <Buscador/>
                     </div>
+                    {/*
                     <div className="col-md-4 row">
                         <div className="input-group">
                             <input id="buttondropdown" name="buttondropdown" className="form-control" type="text"></input> 
                         </div>
-                        <Link to="/producto">
+                        <Link to="/detalleProducto">
                         <button>Buscar</button>
                         </Link>
-                    </div>
+                    </div>*/}
             </body>
         )
     }
