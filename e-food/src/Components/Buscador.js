@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
+import DetalleProducto from './DetalleProducto';
 
 export default class Buscador extends Component {
     constructor(props) {
@@ -29,6 +30,12 @@ export default class Buscador extends Component {
             "Buscar": this.state.Buscar
         }
         console.log(arreglo);
+
+        //se tira el array y se manda a la base de datos.
+        // implementar un post para retornar si encontro un objeto con la bd
+        // <Link to="/detalleProducto">
+            
+        // </Link>
     }
     
     render() {
@@ -46,7 +53,6 @@ export default class Buscador extends Component {
                     <div className="input-group">
                         <input id="buttondropdown" name="Buscar" className="form-control" type="text" onChange={this.handleChange}></input> 
                     </div>
-                    
                         <input type="submit" value="Submit" />
                 </div>
             </label>
