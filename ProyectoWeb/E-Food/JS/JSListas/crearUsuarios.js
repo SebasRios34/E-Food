@@ -27,7 +27,7 @@
             headers: 
             {
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Origin": 'http://127.0.0.1:5500',
                 "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS"
             },
         }).then(res => res.json())
