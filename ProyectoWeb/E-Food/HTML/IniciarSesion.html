@@ -9,56 +9,12 @@
 
     <link rel="stylesheet" href="/ProyectoWeb/E-Food/CSS/iniciarSesion.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
-
-    <!--este script es el que se utiliza para implementar el API de facebook
-segun la documentacion de developers.facebook.com de donde se consigue el
-API se debe implementar en el codigo HTML. Se corre de manera asincrona por 
-lo que no tendra ningun efecto en el resto del codigo-->
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '988215714846225',
-                cookie: true,
-                xfbml: true,
-                version: 'v5.0'
-            });
-
-            //esta funcion verifica si ya hay un usuario loggeado a la aplicacion
-            FB.getLoginStatus(function (response) {
-                statusChangeCallback(response);
-            });
-
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        function statusChangeCallBack(response) {
-            if (response.status === 'connected') {
-                console.log('loggeado');
-            } else {
-                console.log('no loggeado');
-            }
-        }
-
-
-        function checkLoginState() {
-            FB.getLoginStatus(function (response) {
-                statusChangeCallback(response);
-            });
-        }
-    </script>
-
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-    </fb:login-button>
 
     <div class="container">
         <form id="form" onsubmit="return validation()" action="/ProyectoWeb/E-Food/HTML/OpcionesUsuario.html">

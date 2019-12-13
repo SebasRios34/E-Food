@@ -72,46 +72,20 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Descripción</th>
-                    <th>Consecutivos</th>
+                    <th>Consecutivo</th>
+                    <th>Prefijo</th>
+                    <th>Rol Asignado</th>
                     <th>Opcion</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Tipos de Precios</td>
-                    <td>1</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionConsecutivo.html">Editar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Procesadores de Pago</td>
-                    <td>2</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionConsecutivo.html">Editar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Lineas de Comida</td>
-                    <td>5</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionConsecutivo.html">Editar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Productos</td>
-                    <td>10</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionConsecutivo.html">Editar</a>
-                    </td>
-                </tr>
+            <tbody id="datosConsecutivos">
             </tbody>
         </table>
         <button id="btnNuevoConsecutivo" type="button" class="btn btn-info"
-            onclick="location.href='InformacionConsecutivo.html'">Agregar Consecutivo</button>
+            onclick="location.href='InformacionConsecutivo.html'">Modificar Consecutivo</button>
     </div>
 
+    <script src="/ProyectoWeb/E-Food/JS/cargarListaConsecutivo.js"></script>
 
 </body>
 

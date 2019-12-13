@@ -1,98 +1,86 @@
 (function () {
 
-    /*
-    (function () {
-        // var init =()=>{
-        //     var modal = document.getElementById('id01');
-        //     var modal2 = document.getElementById('id02');
-    
-        //     window.onclick = function (event) {
-        //         if (event.target == modal) {
-        //             modal.style.display = "none";
-        //         }
-    
-        //         if (event.target == modal2) {
-        //             modal2.style.display = "none";
-        //         }
-        //     }
-        // }
-        // var backgroundPics =()=>{
-        //     var slideIndex = 0;
-        //     showSlides();
-    
-        //     function showSlides() {
-        //         var i;
-        //         var slides = document.getElementsByClassName("mySlides");
-        //         for (i = 0; i < slides.length; i++) {
-        //             slides[i].style.display = "none";
-        //         }
-        //         slideIndex++;
-        //         if (slideIndex > slides.length) {
-        //             slideIndex = 1
-        //         }
-        //         slides[slideIndex - 1].style.display = "block";
-        //         setTimeout(showSlides, 2000);
-        //     }
-        // }
-    
-        var myIndex = 0;
-        
-    
-        var carousel = () =>
-        {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
+    var arrayUsuariosAdmin = [];
+
+    var cargarUsuariosAdmin = () => {
+        $.get("https://localhost:44360/api/UsuariosAdmin/", function (data, status) {
+            data = JSON.parse(data)
+            arrayUsuariosAdmin = data;
+            console.table(data);
+            console.table(arrayUsuariosAdmin);
+        });
+    }
+
+    var validarUsuarioContrasena = () => {
+        var usuarioNombre = $('#usuario').val();
+        var contrasena = $('#password').val();
+        verifica = false;
+        console.table(arrayUsuariosAdmin);
+
+        for(var i = 0; i < arrayUsuariosAdmin.length; i++){
+            if((usuarioNombre == $(arrayUsuariosAdmin).eq(i).attr('UsuarioNombre')) && (contrasena == $(arrayUsuariosAdmin).eq(i).attr('Contrasena'))){
+                verifica = true;
+                console.log('Usuario: ' + usuarioNombre + '\nPassword: ' + contrasena + 'Tiene acceso!');
+                break;
+            } 
+        }
+        return verifica;
+    }
+
+    var validarEstado = () => {
+        verifica = false;
+        console.table(arrayUsuariosAdmin);
+
+        for(var i = 0; i < arrayUsuariosAdmin.length; i++){
+            if('Activo' == $(arrayUsuariosAdmin).eq(i).attr('Estado')){
+                verifica = true;
+                console.log('Usuario: ' + $('#usuario').val() + ':\nEstado: Activo');
+                break;
             }
-            myIndex++;
-            if (myIndex > x.length) { myIndex = 1 }
-            x[myIndex - 1].style.display = "block";
-            setTimeout(carousel, 2000); // Change image every 2 seconds
         }
-    
-        //init();
-        carousel();
-        //backgroundPics();
-        
-    })()
-    */
-
-    var arrayDatosUsuariosAdmin = [];
-
-    var usuario = document.getElementById('usuario');
-    var password = document.getElementById('password');
-    var verifica = true;
-
-    var cargarUsuarios = () => {
-        fetch('https://localhost:44360/api/UsuariosAdmin')
-            .then(res => res.json())
-            .then(data => {
-                data = JSON.parse(data)
-                arrayDatosUsuariosAdmin = data;
-                console.table(arrayDatosUsuariosAdmin)
-                validation();
-            })
-            .catch(err => console.log('error', err));
+        return verifica;
     }
 
-    var validation = () => {
+    var validar = () => {
+        $('#btnIngresar').click(function (e) {
+            e.preventDefault();
 
-        if (arrayDatosUsuariosAdmin.indexOf(usuario) && arrayDatosUsuariosAdmin.indexOf(password)) {
-            alert('Bienvenido: ' + usuarioInput);
-            window.location.href("/ProyectoWeb/E-Food/HTML/MenuPrincipal.html");
-        } else {
-            alert('Datos Incorrectos');
-            verifica = false;
-            usuario.focus();
-            password.focus();
-        }
+            var usuarioNombre = $('#usuario').val();
+            var contrasena = $('#password').val();
+
+            var verifica = true;
+
+            if (usuarioNombre == '') {
+                alert('Introduzca un nombre usuario');
+                $('#usuario').focus();
+                verifica = false;
+            } else if (contrasena == '') {
+                alert('Introduzca una contraseña')
+                $('#password').focus();
+                verifica = false;
+            } else if (!validarUsuarioContrasena()){
+                alert('Usuario: ' + usuarioNombre + ' Contraseña: ' + contrasena + '\nNo estan en la base de datos');
+                $('#usuario').focus();
+                verifica = false;
+            } else if(!validarEstado()){
+                alert('Usuario: '+ usuarioNombre + '\nSu estado se encuentra: Inactivo');
+                $('#usuario').focus();
+                verifica = false;
+            }
+
+            if(verifica){
+                alert('Bienvenido: ' + usuarioNombre);
+                $(location).attr('href', 'http://127.0.0.1:5501/ProyectoWeb/E-Food/HTML/MenuPrincipal.html')
+            }
+        })
     }
 
-    var btnIngresar = document.getElementById('btnIngresar');
-    btnIngresar.onclick = function () {
-        cargarUsuarios();
+    var init = () => {
+        cargarUsuariosAdmin();
+        validar();
     }
+
+    init();
 
 })()
 
