@@ -16,10 +16,7 @@ class Buscador extends Component {
     }
     
     handleSubmit(event) {
-        alert('esta buscando: ' + this.state.value);
-        {/*<Link to="/detalleProducto"></Link>*/}
-        if(this.state.value == 'combos'){
-        }
+        alert('va a buscar: ' + this.state.value);
         event.preventDefault();
     }
 
@@ -52,6 +49,7 @@ class Buscador extends Component {
                             onChange={this.handleInput}>
                         </input> 
                     </div>
+                    
                         <input type="submit" value="Submit" />
                 </div>
             </label>
