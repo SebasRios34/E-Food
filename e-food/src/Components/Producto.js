@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default class Producto extends Component {
     render() {
@@ -12,7 +13,7 @@ export default class Producto extends Component {
                     <div className = "img-container p-5" 
                         onClick={ ()=> console.log ('aqui se va a redirigir al producto completo')}
                         > 
-                        <Link to="/detalleProducto"></Link>
+                        <Link to="/detalleProducto"><p>{contenido}</p></Link>
                         <button classsName="cart-btn" 
                             disabled = 
                             {enCarrito?true : false} onClick={()=> 
@@ -23,6 +24,7 @@ export default class Producto extends Component {
                             en el carrito
                             </p>) : 
                             (<i className="fas fa-cart-plus"></i>)}
+                            Agregar
                         </button>
                     </div>
                     <div className="card-footer d-flex justify-content-between">
@@ -36,3 +38,12 @@ export default class Producto extends Component {
         )
     }
 }
+
+Producto.propType ={
+    producto:PropTypes.shape({
+        id:PropTypes.number,
+        nombreProducto:PropTypes.string,
+        contenido: PropTypes.string,
+        enCarrito: PropTypes.bool
+    }).isRequired
+};

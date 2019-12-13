@@ -6,8 +6,8 @@ import {withRouter} from 'react-router-dom';
 class Buscador extends Component {
     constructor(props) {
         super(props);
-        this.state = {dropdown: 'refrescos',
-                      Buscar: ""};
+        this.state = {dropdown: 'refrescos',              
+        Buscar: ""};
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);

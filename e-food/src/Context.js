@@ -10,10 +10,26 @@ const Productos = React.createContext();
 class ContextProvider extends Component {
     
     state = {
-        productos:arrProductos,
-        detalleProd:detalleProducto
+        productos:[],
+        detalleProducto:detalleProducto
+    };
+
+    componentDidMount(){
+        this.setProductos();
     }
 
+    setProductos =()=>{
+        let productosTemp = [];
+        arrProductos.forEach(item => {
+            const itemSolito = {...item};
+            productosTemp = [...productosTemp,itemSolito];
+            
+        })
+
+        this.setState(()=>{
+            return {productos:productosTemp}
+        })
+    }
     manejoDetalle = () =>{
         console.log('buenas buenas desde  el manejo de detalle');
     }
