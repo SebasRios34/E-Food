@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 import DetalleProducto from './DetalleProducto';
+import {withRouter} from 'react-router-dom';
 
-export default class Buscador extends Component {
+class Buscador extends Component {
     constructor(props) {
         super(props);
         this.state = {dropdown: 'refrescos',
@@ -10,6 +11,7 @@ export default class Buscador extends Component {
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInput = this.handleInput.bind(this);
     }
     
     handleChange(event) {
@@ -37,6 +39,13 @@ export default class Buscador extends Component {
             
         // </Link>
     }
+
+    handleInput(event){
+        const target = event.target;
+        this.setState({
+            [target.name]: target.value
+        })
+    }
     
     render() {
         return (
@@ -62,3 +71,5 @@ export default class Buscador extends Component {
     
     }
 }
+
+export default withRouter(Buscador)
