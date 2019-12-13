@@ -62,7 +62,7 @@ class Buscador extends Component {
                     <div className="input-group">
                         <input id="buttondropdown" name="Buscar" className="form-control" type="text" onChange={this.handleChange}></input> 
                     </div>
-                        <input type="submit" value="Submit" />
+                        <input type="submit" value="Buscar" />
                 </div>
             </label>
             

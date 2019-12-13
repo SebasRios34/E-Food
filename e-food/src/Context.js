@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {arrProductos, detalleProducto} from './data';
+import {arrProductos, detalleProducto, precios} from './data';
 
 
 const Productos = React.createContext();
@@ -11,7 +11,8 @@ class ContextProvider extends Component {
     
     state = {
         productos:[],
-        detalleProducto:detalleProducto
+        detalleProducto:detalleProducto,
+        precios:precios
     };
 
     componentDidMount(){

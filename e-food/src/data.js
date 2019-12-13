@@ -31,3 +31,10 @@ export const detalleProducto = {
         cant:0,
         total:0
 }
+
+export const precios = {
+    pequenio: 1100,
+    mediano: 1350,
+    grande:1520
+}
+

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {ContextConsumer} from '../Context';
 import {Link } from 'react-router-dom';
-import Precios from './Precios';
 
 
 
@@ -10,7 +9,8 @@ export default class DetalleProducto extends Component {
     constructor(props) {
         super(props);
         this.state={
-            value: 'option1'
+            radio: 'option1',
+            cantidad: ""
         };
 
         this.handleOptionChange = this.handleOptionChange.bind(this);
@@ -19,13 +19,26 @@ export default class DetalleProducto extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log('Valor del dropdown: ' + this.state.radios);
+        console.log('Valor del radio: ' + this.state.radio);
+        console.log('valor de cantidad: ' + this.state.cantidad);
+
+        let arreglo ={
+            'radio': this.state.radio,
+            'cantidad': this.state.cantidad
+        }
+        console.log(arreglo);
     }
 
     handleOptionChange(event) {
+        
+        console.log(event.target);
+
+        const {name, value} = event.target;
         this.setState({
-            selectedOption: event.target.value
+            selectedOption: event.target.value,
+            [name]:value
         });
+        console.log(event.target.value);
     }
     
 
@@ -34,6 +47,7 @@ export default class DetalleProducto extends Component {
             <ContextConsumer>
                 {(value) =>{
                     const {id, nombreProducto, contenido, cant} = value.detalleProducto;
+                    const {pequenio, mediano, grande} = value.precios;
                     return (
                         <div className="container py-5">
                             <div className="row">
@@ -63,7 +77,7 @@ export default class DetalleProducto extends Component {
                                                     <input type="radio" value="option1" 
                                                             checked={this.state.selectedOption === 'option1'} 
                                                             onChange={this.handleOptionChange} />
-                                                    Pequeño - 1100
+                                                    Pequeño - {pequenio}
                                                 </label>
                                             </div>
                                             <div className="radio">
@@ -71,7 +85,7 @@ export default class DetalleProducto extends Component {
                                                     <input type="radio" value="option2" 
                                                             checked={this.state.selectedOption === 'option2'} 
                                                             onChange={this.handleOptionChange} />
-                                                        Mediano - 1350
+                                                        Mediano - {mediano}
                                                 </label>
                                             </div>
                                             <div className="radio">
@@ -79,8 +93,16 @@ export default class DetalleProducto extends Component {
                                                     <input type="radio" value="option3" 
                                                             checked={this.state.selectedOption === 'option3'} 
                                                             onChange={this.handleOptionChange} />
-                                                    Grande - 1520
+                                                    Grande - {grande}
                                                 </label>
+                                                <br/>
+                                            </div>
+                                            {/*cantidad de platos a carrito*/}
+                                                <h6> Cantidad: </h6>
+                                                <input type="int" name="cantidad"  className="col-md-2" onChange={this.handleOptionChange}></input>
+                                                <input type="submit" value="Agregar"></input>
+                                            <div>
+
                                             </div>
                                         </form>
                                     </div>
