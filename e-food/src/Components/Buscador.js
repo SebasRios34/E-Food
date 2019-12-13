@@ -4,19 +4,31 @@ import {Link} from 'react-router-dom';
 export default class Buscador extends Component {
     constructor(props) {
         super(props);
-        this.state = {value: 'refrescos'};
+        this.state = {dropdown: 'refrescos',
+                      Buscar: ""};
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     
     handleChange(event) {
-        this.setState({value: event.target.value});
+        console.log(event.target);
+        const {name, value} = event.target;
+        this.setState({
+            [name]: value
+        })
+        //this.setState({value: event.target.value});
     }
-    
+
     handleSubmit(event) {
-        alert('va a buscar: ' + this.state.value);
         event.preventDefault();
+        console.log('Valor del dropdown: ' + this.state.dropdown);
+        console.log('Valor del input: ' + this.state.Buscar);
+        let arreglo = {
+            "Dropdown": this.state.dropdown,
+            "Buscar": this.state.Buscar
+        }
+        console.log(arreglo);
     }
     
     render() {
@@ -24,7 +36,7 @@ export default class Buscador extends Component {
         <form onSubmit={this.handleSubmit}>
             <label>
             elija una opcion:  
-                <select className="ml-1 mr-1" value={this.state.value} onChange={this.handleChange}>
+                <select name="dropdown" className="ml-1 mr-1" value={this.state.dropdown} onChange={this.handleChange}>
                     <option value="combos">Combos</option>
                     <option value="refrescos">Refrescos</option>
                     <option value="postres">Postres</option>
@@ -32,7 +44,7 @@ export default class Buscador extends Component {
                 </select>
                 <div >
                     <div className="input-group">
-                        <input id="buttondropdown" name="buttondropdown" className="form-control" type="text"></input> 
+                        <input id="buttondropdown" name="Buscar" className="form-control" type="text" onChange={this.handleChange}></input> 
                     </div>
                     
                         <input type="submit" value="Submit" />
