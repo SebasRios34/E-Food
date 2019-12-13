@@ -100,7 +100,10 @@ export default class DetalleProducto extends Component {
                                             {/*cantidad de platos a carrito*/}
                                                 <h6> Cantidad: </h6>
                                                 <input type="int" name="cantidad"  className="col-md-2" onChange={this.handleOptionChange}></input>
-                                                <input type="submit" value="Agregar"></input>
+                                                <button type="submit" 
+                                                onClick={() => {
+                                                    value.agregarAlCarrito(id);
+                                                }}>Agregar</button>
                                             <div>
 
                                             </div>

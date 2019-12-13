@@ -35,8 +35,8 @@ class ContextProvider extends Component {
         console.log('buenas buenas desde  el manejo de detalle');
     }
 
-    agregarAlCarrito =()=>{
-        console.log('buenas buenas desde agregar al carrito');
+    agregarAlCarrito =(id)=>{
+        console.log(`buenas buenas desde agregar al carrito.id is ${id}`);
     }
 
     render() {
