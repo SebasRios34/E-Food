@@ -30,14 +30,23 @@ class ContextProvider extends Component {
         this.setState(()=>{
             return {productos:productosTemp}
         })
+    };
+
+    getItem = (id) => {
+        const producto = this.state.productos.find(item => item.id === id);
+        return producto;
     }
-    manejoDetalle = () =>{
-        console.log('buenas buenas desde  el manejo de detalle');
-    }
+
+    manejoDetalle = id =>{
+        const producto = this.getItem(id);
+        this.setState(() =>{
+            return {detalleProducto:producto}
+        })
+    };
 
     agregarAlCarrito =(id)=>{
         console.log(`buenas buenas desde agregar al carrito.id is ${id}`);
-    }
+    };
 
     render() {
         return (
