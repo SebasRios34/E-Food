@@ -66,12 +66,7 @@ class Buscador extends Component {
                 </select>
             </label>
             </div>
-                <div className="col-10 mx-auto col-md-6 my-3">
-                    <div className="input-group">
-                        <input id="buttondropdown" name="Buscar" className="form-control" type="text" onChange={this.handleChange}></input> 
-                    </div>
-                        <input type="submit" value="Buscar" />
-                    </div>
+               
                 
         </div>
         </form>
