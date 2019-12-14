@@ -13,6 +13,8 @@ class Buscador extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
     }
+
+    
     
     handleChange(event) {
         console.log(event.target);
