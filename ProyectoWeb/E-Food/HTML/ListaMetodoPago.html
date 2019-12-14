@@ -75,66 +75,20 @@
                     <th>Código</th>
                     <th>Procesador</th>
                     <th>Tipo</th>
-                    <th>Activo</th>
+                    <th>Estado</th>
+                    <th>Verificación</th>
                     <th>Opcion 1</th>
                     <th>Opcion 2</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Process Net</td>
-                    <td>Tarjeta de Crédito o Débito</td>
-                    <td>Si</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Editar</a>
-                    </td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Eliminar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Efectivo</td>
-                    <td>Efectivo</td>
-                    <td>Si</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Editar</a>
-                    </td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Eliminar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>ECheck</td>
-                    <td>Cheque Electrónico</td>
-                    <td>Si</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Editar</a>
-                    </td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Eliminar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>ATH</td>
-                    <td>Tarjeta de Crédito o Débito</td>
-                    <td>No</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Editar</a>
-                    </td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionMetodoPago.html">Eliminar</a>
-                    </td>
-                </tr>
+            <tbody id="datosProcesador">
             </tbody>
         </table>
         <button id="btnNuevoConsecutivo" type="button" class="btn btn-info"
             onclick="location.href='InformacionMetodoPago.html'">Nuevo Metodo de Pago</button>
     </div>
 
+    <script src="/ProyectoWeb/E-Food/JS/cargarMetodoPago.js"></script>
 
 </body>
 

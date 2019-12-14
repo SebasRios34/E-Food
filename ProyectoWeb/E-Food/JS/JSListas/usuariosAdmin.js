@@ -14,7 +14,6 @@
                 console.table(arrayDatosUsuariosAdmin)
                 cargarTablaUsuarios();
 
-
             })
             .catch(err => console.log('error', err));
     }

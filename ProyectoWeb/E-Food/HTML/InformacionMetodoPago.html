@@ -32,8 +32,10 @@
                         Credito/Debito</a>
                     <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaMetodoPago.html">Metodos de pago</a>
                     <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTipoPrecio.html">Tipo de Precio</a>
-                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTiquetesDescuento.html">Tiquetes de Descuento</a>
-                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/InformacionLineaComida.html">Lineas de Comida
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaTiquetesDescuento.html">Tiquetes de
+                        Descuento</a>
+                    <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/InformacionLineaComida.html">Lineas de
+                        Comida
                         <a class="dropdown-item" href="/ProyectoWeb/E-Food/HTML/ListaMetodoPago.html">Productos</a>
                     </a>
                 </div>
@@ -92,41 +94,33 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-1 control-label" for="opcionPago">Opción de pago: </label>
-                    <div class="col-md-5">
-                        <input id="opcionPago" name="opcionPago" type="text" placeholder="Opción de Pago"
-                            class="form-control input-md">
-                    </div>
-                </div>
-
-                <div class="form-group row">
                     <label class="col-md-1 control-label" for="tipo">Tipo: </label>
                     <div class="col-md-5">
                         <select name="tipo" id="tipo">
-                            <option value="">Trajeta de Crédito o Debito</option>
-                            <option value="">Efectivo</option>
-                            <option value="">Cheque Electrónico</option>
+                            <option value="Tarjeta de Crédito o Debito">Tarjeta de Crédito o Debito</option>
+                            <option value="Efectivo">Efectivo</option>
+                            <option value="Cheque Electrónico">Cheque Electrónico</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-1 control-label" for="estado">Estado: </label>
+                    <label class="col-md-1 control-label" for="tipo">Estado: </label>
                     <div class="col-md-5">
-                        <div class="custom-control custom-checkbox">
-                            <input id="estado" type="checkbox">
-                            <label for="estado">Activo</label>
-                        </div>
+                        <select name="estado" id="estado">
+                            <option value="Activo">Activo</option>
+                            <option value="Inactivo">Inactivo</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-1 control-label" for="verificacion">Requiere Verificación: </label>
+                    <label class="col-md-1 control-label" for="requiereVerificacion">Requiere Verificacion: </label>
                     <div class="col-md-5">
-                        <div class="custom-control custom-checkbox">
-                            <input id="verificacion" type="checkbox">
-                            <label for="verificacion"></label>
-                        </div>
+                        <select name="requiereVerificacion" id="requiereVerificacion">
+                            <option value="Si">Si</option>
+                            <option value="No">No</option>
+                        </select>
                     </div>
                 </div>
 
@@ -138,48 +132,22 @@
                 </div>
 
                 <div class="form-group row">
-                        <label class="col-md-1 control-label" for="metodo">Tarjetas: </label>
-                    <div class="col-md-8">
-                        <div class="wrapper">
-                            <div style="float:left; width:33.3%;">
-                                    <label id="disponibles" class="col-md-2 control-label" for="">Disponibles</label>
-                                <ul id="listUL" class="tarjetasDisponibles">
-                                    <li id="listLI">Visa</li>
-                                    <li id="listLI">MasterCard</li>
-                                    <li id="listLI">American Express</li>
-                                    <li id="listLI">Visa Electron</li>
-                                    <li id="listLI">Diners Club</li>
-                                </ul>
-                            </div>
-                            <!-- <div style="float:left; width:33.3%;">
-                                <hr>
-                                <button id="btnTarjetas">></button>
-                                <br>
-                                <button id="btnTarjetas">>></button>
-                                <br>
-                                <button id="btnTarjetas"><<</button>
-                                <br>
-                                <button id="btnTarjetas"><</button>
-                                <hr>
-                            </div> -->
-                        
-                            <div style="float:left; width:33.3%;">
-                                <label id="asginadas" class="col-md-2 control-label" for="">Asignadas</label>
-                                <ul id="listUL" class="tarjetasAsignadas">
-                                </ul>
-                            </div>
-
-                        </div>
+                    <label class="col-md-1 control-label" for="codigoTarjeta">Código Tarjeta: </label>
+                    <div class="col-md-5">
+                        <input id="codigoTarjeta" name="codigoTarjeta" type="number" placeholder="Código Tarjeta"
+                            class="form-control input-md">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-2 control-label" for="btnRedondo"></label>
                     <div class="col-md-8">
-                        <button id="btnRedondoTarjetas" type="button" class="btn btn-primary">
+                        <button id="btnRedondoTarjetas" name="btnGuardar" type="button" class="btn btn-primary">
                             Guardar</button>
-                        <button id="btnRedondoTarjetas" type="button" class="btn btn-primary">
+                        <button id="btnRedondoTarjetas" name="btnEliminar" type="button" class="btn btn-primary">
                             Eliminar</button>
+                        <button id="btnRedondoTarjetas" name="btnModificar" type="button" class="btn btn-primary">
+                            Modificar</button>
                     </div>
                 </div>
             </fieldset>
