@@ -4,7 +4,7 @@
     var arrayPreguntaSeguridad = [];
 
     var cargarUsuariosAdmin = () => {
-        $.get("https://localhost:44360/api/UsuariosAdmin/1", function (data, status) {
+        $.get("https://localhost:44360/api/UsuariosAdmin/", function (data, status) {
             data = JSON.parse(data)
             arrayUsuariosAdmin = data;
             console.table(data);
@@ -18,6 +18,15 @@
             arrayRol = data;
             console.table(data);
             console.table(arrayRol);
+        });
+    }
+
+    var cargarPreguntasSeguridad = () =>{
+        $.get("https://localhost:44360/api/PreguntaSeguridad", function (data, status) {
+            data = JSON.parse(data)
+            arrayPreguntaSeguridad = data;
+            console.table(data);
+            console.table(arrayPreguntaSeguridad);
         });
     }
 
@@ -54,131 +63,49 @@
 
     }
 
-    var validarUsuariosAdminId = () => {
-        var usuariosAdminId = $('#usuarioId').val();
-        var verifica = false;
-        console.table(arrayUsuariosAdmin);
+    var validarUsuariosAdminId = () =>{
+        var usuarioID = $('#usuarioId').val();
 
-        for(var i = 0; i<arrayUsuariosAdmin.length; i++){
-            var idArray = arrayUsuariosAdmin[i];
-            if(idArray != usuariosAdminId){
-                console.log('UsuarioAdminId: ' + usuariosAdminId + ' existe');
+        var verifica = false;
+
+        for(var i = 0; i < arrayUsuariosAdmin.length; i++){
+            if(usuarioID != $(arrayUsuariosAdmin).eq(i).attr('UsuarioAdminID')){
+                console.log('verificaCodigo: ' + verifica);
                 verifica = true;
                 break;
             }
-            continue;
         }
-
         return verifica;
-
-        // if(jQuery.inArray(usuariosAdminId, arrayUsuariosAdmin) != -1){
-        //     verifica = true;
-        //     console.log('codigoVerifica: ' + verifica);
-        //     return verifica;
-        // }else {
-        //     verifica = false;
-        //     console.log('codigoVerifica: ' + verifica);
-        //     return verifica;
-        // }
-
-        //for(var i = 0; arrayUsuariosAdmin.length < i; i++){
-            // if(/*$(arrayUsuariosAdmin).eq(i).*/jQuery.inArray(usuariosAdminId, arrayUsuariosAdmin) == -1){
-            //     console.log(usuariosAdminId);
-            //     verifica = false;
-            //     console.log('verificaCodigo: ' + verifica);
-            //     return verifica;
-            // }
-       // }
-        // for (var i = 0; arrayUsuariosAdmin.length < i; i++) {
-        //     if (usuariosAdminId != $(arrayUsuariosAdmin).eq(i).attr('UsuariosAdminID')) {
-        //         verifica = true;
-        //         console.log('verificaCodigo: ' + verifica);
-        //         return verifica;
-        //     } else {
-        //         verifica = false;
-        //         console.log('verificaCodigo: ' + verifica);
-        //         return verifica;
-        //     }
-        // }
-
-        // for(var i = 0; arrayUsuariosAdmin.length > i; i++){
-        //     console.log('entre en el for');
-        //     if(usuariosAdminId == $(arrayUsuariosAdmin).eq(i).attr('UsuariosAdminID')){
-        //         console.log(i);
-        //         verifica = true;
-                
-        //     }else{
-        //         console.log(i);
-        //         console.log('no existe <3');
-        //         verifica = false
-        //         break;
-        //     }
-        // }
-        // return verifica;
-
-        // while(arrayUsuariosAdmin.length>cont) {
-
-        //     console.log('entre en el ciclo');
-        //     if (usuariosAdminId != $(arrayUsuariosAdmin).eq(cont).attr('UsuariosAdminID')) {
-        //         verifica = true;
-        //         console.log('verficaCodigo: ' + verifica);
-        //         break;
-        //     } 
-        //         cont++;
-        //         verifica = false;
-        //         console.log('verficaCodigo: ' + verifica);
-        //         continue;
-
-        // }
-        // return verifica;
-    }
-
-
-    var encuentraUsuario = () => {
-        var usuariosAdminId = $('#usuarioId').val();
-        var cont = 0;
-        var verifica = true;
-        if (usuariosAdminId != $(arrayUsuariosAdmin).eq(cont).attr('UsuariosAdminID')) {
-            return verifica;
-        } else {
-            cont = cont + 1;
-            verifica = false;
-            return verifica;
-        }
     }
 
     var validarRolId = () => {
         var rolID = $('#rol').val();
 
-        var verifica = true;
+        var verifica = false;
 
-        for (var i = 0; arrayRol.length > i; i++) {
-            if (rolID == $(arrayRol).eq(i).attr('RolID')) {
-                console.log('verficaCodigoRol: ' + verifica);
-                return verifica;
-            } else {
-                verifica = false;
-                console.log('verficaCodigoRol: ' + verifica);
-                return verifica;
+        for(var i = 0; i < arrayRol.length; i++){
+            if(rolID != $(arrayRol).eq(i).attr('RolID')){
+                console.log('verificaRol: ' + verifica);
+                verifica = true;
+                break;
             }
         }
+        return verifica;
     }
 
     var validarPreguntaSeguridadID = () => {
         var preguntaSeguridadID = $('#preguntaSeguridad').val();
 
-        var verifica = true;
+        var verifica = false;
 
         for (var i = 0; arrayPreguntaSeguridad.length > i; i++) {
-            if (preguntaSeguridadID == $(arrayPreguntaSeguridad).eq(i).attr('PreguntaSeguridadID')) {
+            if (preguntaSeguridadID != $(arrayPreguntaSeguridad).eq(i).attr('PreguntaSeguridadID')) {
                 console.log('verificaPreguntaSeguridad: ' + verifica);
-                return verifica;
-            } else {
-                verifica = false;
-                console.log('verificaPreguntaSeguridad: ' + verifica);
-                return verifica;
-            }
+                verifica = true;
+                break;
+            } 
         }
+        return verifica;
     }
 
     validar = () => {
@@ -217,7 +144,7 @@
                 alert('Contraseña es obligatorio');
                 $('#contrasenia').focus();
                 verifica = false;
-            } else if (contrasena == confirmarContrasena) {
+            } else if (contrasena != confirmarContrasena) {
                 alert('Confirmar la contraseña correctamente');
                 $('#contrasenia').focus();
                 verifica = false;
@@ -259,6 +186,8 @@
 
     var init = () => {
         cargarUsuariosAdmin();
+        cargarRoles();
+        cargarPreguntasSeguridad();
         validar();
     }
 

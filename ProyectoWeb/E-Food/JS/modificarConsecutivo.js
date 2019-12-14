@@ -24,7 +24,13 @@
                 url: "https://localhost:44360/api/Consecutivo/1",
                 type: 'PUT',
                 dataType: 'json',
-                data: data,
+                //contentType: 'application/json',
+                headers: {
+                    'Content-Type': 'application/json',
+                    //'Access-Control-Allow-Origin':'http://127.0.0.1:5500'
+                    'Access-Control-Allow-Origin':'https://localhost' //Este es muy importante para abilitar
+                },
+                data: JSON.stringify(data),
                 success: function(){
                     console.table(arrayConsecutivos);
                     alert('Se modifico el consecutivo: ' + $('#tipoConsecutivo').val());
@@ -37,7 +43,7 @@
     }
 
     var validarConsecutivo = () => {
-        var tipoConsecutivo = $('tipoConsecutivo').val();
+        var tipoConsecutivo = $('#tipoConsecutivo').val();
         verifica = false;
         console.table(arrayConsecutivos);
 
@@ -56,9 +62,9 @@
             e.preventDefault();
 
             var consecutivo = $('#consecutivo').val();
-            var tipoConsecutivo = $('tipoConsecutivo').val();
-            var prefijo = $('prefijo').val();
-            var rol = $('rol').val();
+            var tipoConsecutivo = $('#tipoConsecutivo').val();
+            var prefijo = $('#prefijo').val();
+            var rol = $('#rol').val();
 
             var verifica = true;
 
