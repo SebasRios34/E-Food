@@ -8,10 +8,10 @@ export default class Nav extends Component {
         return (
             <body>
                 <div> 
-                    <nav className="navbar navbar-dark bg-dark">
+                    <nav className="navbar navbar-dark bg-dark" >
                         <span className="navbar-brand mb-0 h1">
-                                <Link to='/' className="nav-link">E-Commerce Food
-                                </Link>
+                                <h3 to='/' className="nav-link">E-Commerce Food
+                                </h3>
                         </span>
                         <span className="navbar-brand lm-auto h1">
                                 <Link to='/productos' className="nav-link">productos

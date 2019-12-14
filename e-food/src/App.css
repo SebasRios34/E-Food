@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-}
+  }
+
 
 .App-logo {
   height: 40vmin;
@@ -42,6 +43,17 @@
   
   padding-top: 10%;
   position: relative;
+}
+
+.h3{
+  color: #ffffff;
+}
+
+
+
+.opt, .h4{
+  color: #133840;
+  font-weight: bold;
 }
 
 

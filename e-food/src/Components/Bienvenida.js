@@ -5,8 +5,9 @@ import React, { Component} from 'react';
 class Bienvenida extends Component {
     render (){
         return(
-            <div>hola bienvenida</div>
             
+            <div>hola bienvenida</div>
+          
         )
     }
 }
