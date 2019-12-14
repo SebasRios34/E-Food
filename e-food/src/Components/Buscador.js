@@ -52,22 +52,28 @@ class Buscador extends Component {
     render() {
         return (
         <form onSubmit={this.handleSubmit}>
-            <label>
-            elija una opcion:  
-                <select name="dropdown" className="ml-1 mr-1" value={this.state.dropdown} onChange={this.handleChange}>
+        <div className="row">
+            <div  className="col-10 mx-auto col-md-6 my-3">
+            <label class = "opt">
+            Elija una opcion:  
+                <select  name="dropdown" className="ml-1 mr-1" value={this.state.dropdown} onChange={this.handleChange}>
+                    <option >Seleccione</option>
                     <option value="combos">Combos</option>
                     <option value="refrescos">Refrescos</option>
                     <option value="postres">Postres</option>
-                    <option value="algoMas">algo mas</option>
+                    <option value="algoMas">Ensaladas</option>
+                    <option value="algoMas">Gaseosas</option>
                 </select>
-                <div >
+            </label>
+            </div>
+                <div className="col-10 mx-auto col-md-6 my-3">
                     <div className="input-group">
                         <input id="buttondropdown" name="Buscar" className="form-control" type="text" onChange={this.handleChange}></input> 
                     </div>
                         <input type="submit" value="Buscar" />
-                </div>
-            </label>
-            
+                    </div>
+                
+        </div>
         </form>
         );
     
