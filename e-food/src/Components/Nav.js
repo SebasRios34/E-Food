@@ -33,6 +33,8 @@ export default class Nav extends Component {
                         </Dropdown.Menu>
                     </Dropdown>
                     */}
+
+                    
                     <Buscador/>
                     </div>
                     {/*
