@@ -13,7 +13,9 @@ class ContextProvider extends Component {
         productos:[],
         detalleProducto:detalleProducto,
         precios:precios,
-        carrito:[]
+        carrito:[],
+        carritoSubTotal: 0,
+        carritoTotal: 0
     };
 
     componentDidMount(){
@@ -59,12 +61,34 @@ class ContextProvider extends Component {
         },()=>{console.log(this.state)});
     };
 
+    //metodos del carrito
+    increment = (id) =>{
+        console.log('increment');
+    }
+
+    decrement = (id) =>{
+        console.log('decrement');
+    }
+
+    removeItem = (id) =>{
+        console.log('removed');
+    }
+
+    borrarCarrito =()=>{
+        console.log('cuchau choco');
+    }
+
+
     render() {
         return (
             <Productos.Provider value={{
                 ...this.state,
                 manejoDetalle:this.manejoDetalle,
-                agregarAlCarrito:this.agregarAlCarrito
+                agregarAlCarrito:this.agregarAlCarrito,
+                increment:this.increment,
+                decrement:this.decrement,
+                removeItem:this.removeItem,
+                borrarCarrito:this.borrarCarrito
             }}>
                 {this.props.children}
             </Productos.Provider>
