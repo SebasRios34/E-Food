@@ -17,6 +17,7 @@ export const arrProductos = [
         enCarrito: false,
         cant:0,
         count:0,
+        price:1350,
         total:0
     },
     {
@@ -26,6 +27,7 @@ export const arrProductos = [
         enCarrito: false,
         cant:0,
         count:0,
+        price:7,
         total:0
     },{
         id: 3,
@@ -35,6 +37,7 @@ export const arrProductos = [
         enCarrito: false,
         cant:0,
         count:0,
+        price:1520,
         total:0
     }
 
@@ -49,6 +52,7 @@ export const detalleProducto = {
         enCarrito: false,
         cant:0,
         count:0,
+        price:1100,
         total:0
 }
 
