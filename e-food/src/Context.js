@@ -14,8 +14,8 @@ class ContextProvider extends Component {
         detalleProducto:detalleProducto,
         precios:precios,
         carrito:[],
-        carritoSubTotal: 0,
-        carritoTotal: 0
+        carritoSubTotal: 10,
+        carritoTotal: 20
     };
 
     componentDidMount(){
@@ -27,7 +27,7 @@ class ContextProvider extends Component {
         arrProductos.forEach(item => {
             const itemSolito = {...item};
             productosTemp = [...productosTemp,itemSolito];
-            
+
         })
 
         this.setState(()=>{
@@ -62,11 +62,11 @@ class ContextProvider extends Component {
     };
 
     //metodos del carrito
-    increment = (id) =>{
+    increment =(id)=>{
         console.log('increment');
     }
 
-    decrement = (id) =>{
+    decrement =(id)=>{
         console.log('decrement');
     }
 

@@ -14,6 +14,7 @@ export const arrProductos = [
         " refresco mediano",
         enCarrito: false,
         cant:0,
+        count:0,
         total:0
     },
     {
@@ -22,6 +23,7 @@ export const arrProductos = [
         contenido: "triple quesoburguesa con tocineta y queso suizo",
         enCarrito: false,
         cant:0,
+        count:0,
         total:0
     },{
         id: 3,
@@ -30,6 +32,7 @@ export const arrProductos = [
         " y bebida cero calorias endulzada con splenda",
         enCarrito: false,
         cant:0,
+        count:0,
         total:0
     }
 
@@ -43,6 +46,7 @@ export const detalleProducto = {
         " refresco mediano",
         enCarrito: false,
         cant:0,
+        count:0,
         total:0
 }
 
