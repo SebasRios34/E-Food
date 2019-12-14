@@ -22,7 +22,7 @@ export default function ItemCarrito({item, value}) {
             <div className="col-10 mx-auto col-lg-2 my-2 my-lg-0">
                 <div className="d-flex justify-content-center">
                     <div>
-                        <span className="btn btn-black mx-1" onCLick={()=>{
+                        <span className="btn btn-black mx-1" onClick={()=>{
                             decrement(id);
                         }}>
                             -
@@ -39,7 +39,7 @@ export default function ItemCarrito({item, value}) {
             <div className="col-10 mx-auto col-lg-2">
                 <span className="btn btn-green mx-1" onClick={
                     ()=>{
-                        removeItem();
+                        removeItem(id);
                     }
                 }> eliminar</span>
             </div>

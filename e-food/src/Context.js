@@ -14,8 +14,8 @@ class ContextProvider extends Component {
         detalleProducto:detalleProducto,
         precios:precios,
         carrito:[],
-        carritoSubTotal: 10,
-        carritoTotal: 20
+        carritoSubTotal: 0,
+        carritoTotal: 0
     };
 
     componentDidMount(){
@@ -53,29 +53,104 @@ class ContextProvider extends Component {
 
         const producto = productosTemp[index];
         producto.enCarrito = true;
-
+        producto.count = 1;
+        const price = producto.price;
+        producto.total = price;
         this.setState(()=>{
             return {productos: productosTemp, carrito:[...this.state.carrito, 
                 producto]
             };
-        },()=>{console.log(this.state)});
+        },()=>{this.agregarTotales();
+        });
     };
 
     //metodos del carrito
     increment =(id)=>{
-        console.log('increment');
+            let carritoTemp = [...this.state.carrito];
+            const productoSeleccionado = carritoTemp.find(item => item.id === id);
+            const index = carritoTemp.indexOf(productoSeleccionado);
+            const producto = carritoTemp[index];
+            producto.count = producto.count +1;
+            producto.total = producto.count * producto.price;
+
+            this.setState(()=>{
+                return{
+                    carrito:[...carritoTemp]
+                }
+            },()=>{
+                this.agregarTotales();
+            }
+        )
     }
 
     decrement =(id)=>{
-        console.log('decrement');
+        let carritoTemp = [...this.state.carrito];
+        const productoSeleccionado = carritoTemp.find(item => item.id === id);
+        const index = carritoTemp.indexOf(productoSeleccionado);
+        const producto = carritoTemp[index];
+        producto.count = producto.count - 1;
+        if(producto.count === 0){
+            this.removeItem(id);
+        }else{
+            producto.total = producto.count * producto.price;
+            this.setState(()=>{
+                return{
+                    carrito:[...carritoTemp]
+                }
+            },()=>{
+                this.agregarTotales();
+            }
+            )
+        }
     }
 
     removeItem = (id) =>{
-        console.log('removed');
-    }
+        let productosTemp = [...this.state.productos];
+        let carritoTemp = [...this.state.carrito];
+
+        carritoTemp = carritoTemp.filter (item=>item.id !== id);
+
+        const index = productosTemp.indexOf(this.getItem(id));
+        let productoElim = productosTemp[index];
+        // productoElim.enCarrito = false;
+        // productoElim.count = 0;
+        // productoElim.total = 0;
+
+        this.setState(()=>{
+            return{
+                carrito:[...carritoTemp],
+                productos: [...productosTemp]
+            };
+        }, ()=>{
+            this.agregarTotales();
+        });
+    
+    };
 
     borrarCarrito =()=>{
-        console.log('cuchau choco');
+        this.setState(()=>{
+            return{ carrito:[]};
+        },()=>{
+            this.setProductos();
+            this.agregarTotales();
+        });
+    }
+
+    agregarTotales =()=>{
+        let carritoSubTotal = 0;
+        this.state.carrito.map(item =>(carritoSubTotal += item.total));
+        const tempTax = carritoSubTotal * 0.1;
+        const iva = parseFloat(tempTax.toFixed(2));
+        const total = carritoSubTotal + iva;
+        this.setState(()=>{
+            return {
+                carritoSubTotal:carritoSubTotal,
+                carritoTax:iva,
+                carritoTotal:total
+            }
+            
+        })
+
     }
 
 
