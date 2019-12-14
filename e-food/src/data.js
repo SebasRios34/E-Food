@@ -1,4 +1,6 @@
 
+
+
 export const precios = {
     pequenio: 1100,
     mediano: 1350,

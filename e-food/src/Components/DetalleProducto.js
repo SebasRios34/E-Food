@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {ContextConsumer} from '../Context';
 import {Link } from 'react-router-dom';
+import axios from 'axios';
+import datajson from '../../src/datajson.json';
 
 
 
@@ -10,7 +12,10 @@ export default class DetalleProducto extends Component {
         super(props);
         this.state={
             radio: 'option1',
-            cantidad: ""
+            cantidad: "",
+            productos: [],
+            tipoPrecio: []
+            
         };
 
         this.handleOptionChange = this.handleOptionChange.bind(this);
@@ -39,6 +44,35 @@ export default class DetalleProducto extends Component {
             [name]:value
         });
         console.log(event.target.value);
+        
+    }
+
+    async getTipoPrecio() {
+        //const obj = await 
+        axios.get('https://localhost:44360/api/TipoPrecio/')
+            .then(res => {
+                res.data = JSON.parse(res.data);
+                datajson = res.data;
+                console.table(datajson);
+                console.table(res.data);
+            })
+    }
+
+    async getProductos() {
+        //const obj = await 
+        axios.get('https://localhost:44360/api/Producto/')
+            .then(res => {
+                res.data = JSON.parse(res.data);
+                const productos = res.data;
+                this.setState({productos});
+                console.table(res.data);
+                console.table(productos);
+            })
+    }
+
+    componentDidMount() {
+        this.getProductos();
+        this.getTipoPrecio();
     }
     
 
