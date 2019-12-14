@@ -12,7 +12,8 @@ class ContextProvider extends Component {
     state = {
         productos:[],
         detalleProducto:detalleProducto,
-        precios:precios
+        precios:precios,
+        carrito:[]
     };
 
     componentDidMount(){
@@ -45,7 +46,17 @@ class ContextProvider extends Component {
     };
 
     agregarAlCarrito =(id)=>{
-        console.log(`buenas buenas desde agregar al carrito.id is ${id}`);
+        let productosTemp = [...this.state.productos];
+        const index = productosTemp.indexOf(this.getItem(id));
+
+        const producto = productosTemp[index];
+        producto.enCarrito = true;
+
+        this.setState(()=>{
+            return {productos: productosTemp, carrito:[...this.state.carrito, 
+                producto]
+            };
+        },()=>{console.log(this.state)});
     };
 
     render() {

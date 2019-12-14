@@ -1,4 +1,9 @@
 
+export const precios = {
+    pequenio: 1100,
+    mediano: 1350,
+    grande:1520
+}
 
 
 export const arrProductos = [
@@ -18,7 +23,16 @@ export const arrProductos = [
         enCarrito: false,
         cant:0,
         total:0
+    },{
+        id: 3,
+        nombreProducto: "combo#3",
+        contenido: "wrap de pollo bien saludable para los chicos fit, con queso parmesano"+
+        " y bebida cero calorias endulzada con splenda",
+        enCarrito: false,
+        cant:0,
+        total:0
     }
+
 
 ]
 
@@ -32,9 +46,4 @@ export const detalleProducto = {
         total:0
 }
 
-export const precios = {
-    pequenio: 1100,
-    mediano: 1350,
-    grande:1520
-}
 

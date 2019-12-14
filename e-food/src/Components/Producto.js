@@ -18,6 +18,7 @@ export default class Producto extends Component {
                             value.manejoDetalle(id)}
                             > 
                             <Link to="/detalleProducto"><p>{contenido}</p></Link>
+                            {/* 
                             <button classsName="cart-btn" 
                                 disabled = 
                                 {enCarrito?true : false} onClick={()=> {
@@ -30,6 +31,8 @@ export default class Producto extends Component {
                                 (<i className="fas fa-cart-plus"></i>)}
                                 Agregar
                             </button>
+                                */}
+                            
                         </div>
                         )}
                         
