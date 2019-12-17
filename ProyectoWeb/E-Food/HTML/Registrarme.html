@@ -16,42 +16,45 @@
     <div class="container">
         <form action="/ProyectoWeb/E-Food/HTML/OpcionesUsuario.html">
             <div class="row">
-                    <h2 style="text-align:center">Crear Cuenta</h2>
-                    <div class="vl">
+                <h2 style="text-align:center">Crear Cuenta</h2>
+                <!-- <div class="vl">
                         <span class="vl-innertext">or</span>
-                    </div>
+                    </div> -->
 
-                    <div class="col"> 
+                <!-- <div class="col"> 
                             <a href="#" class="fb btn">
                                 <i class="fa fa-facebook fa-fw"></i>Registrar con Facebook
                             </a>
                             <a href="#" class="google btn"><i class="fa fa-google fa-fw">
                                 </i>Registrar con Google
                             </a>
-                    </div>
-                
+                    </div> -->
 
-                    <div class="col">
+
+                <div class="col">
+                    <input type="text" name="usuarioId" id="usuarioId" placeholder="UsuarioID" required>
                     <input type="text" name="usuario" id="usuario" placeholder="Usuario" required>
                     <input type="password" name="password" id="password" placeholder="Contraseña" required>
-                    <input type="password" name="rePassword" id="rePassword" placeholder="Confirmar Contraseña" required>
+                    <input type="password" name="rePassword" id="rePassword" placeholder="Confirmar Contraseña"
+                        required>
                     <input type="mail" name="correo" id="correo" placeholder="Correo Electronico" required>
                     <input list="rol" name="rol" placeholder="Rol del Usuario">
-                        <datalist id="rol">
-                            <option value="1. Administrador">1. Administrador</option>
-                            <option value="2. Seguridad">2. Seguridad</option>
-                            <option value="3. Consulta">3. Consulta</option>
-                        </datalist>
+                    <datalist id="rol">
+                        <option value="1. Administrador">1. Administrador</option>
+                        <option value="2. Seguridad">2. Seguridad</option>
+                        <option value="3. Consulta">3. Consulta</option>
+                    </datalist>
                     <input list="preguntaSeguridad" name="preguntaSeguridad" placeholder="Pregunta de Seguridad">
-                        <datalist id="preguntaSeguridad">
-                                <option value="Nombre de Primera Mascota">Nombre de Primera Mascota</option>
-                                <option value="Equipo de Basketball favorito">Equipo de Basketball favorito</option>
-                                <option value="Nombre de tu abuelo/a">Nombre de tu abuelo/a</option>
-                        </datalist>
-                    <input type="text" name="respuestaSeguridad" id="respuestaSeguridad" placeholder="Respuesta de Seguridad" required>
+                    <datalist id="preguntaSeguridad">
+                        <option value="Nombre de Primera Mascota">Nombre de Primera Mascota</option>
+                        <option value="Equipo de Basketball favorito">Equipo de Basketball favorito</option>
+                        <option value="Nombre de tu abuelo/a">Nombre de tu abuelo/a</option>
+                    </datalist>
+                    <input type="text" name="respuestaSeguridad" id="respuestaSeguridad"
+                        placeholder="Respuesta de Seguridad" required>
                     <input type="submit" value="Crear Usuario" onclick="location.href='MenuPrincipal.html'">
-                    
-                    </div>
+
+                </div>
             </div>
         </form>
     </div>

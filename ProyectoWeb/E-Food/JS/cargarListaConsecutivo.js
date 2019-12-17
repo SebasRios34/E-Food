@@ -21,7 +21,7 @@
             <td>${x.NombreRol}</td>
             <td>
                 <a href="/ProyectoWeb/E-Food/HTML/InformacionConsecutivo.html">Editar</a>
-            </td>
+            </td>   
         </tr>`
         });
 
