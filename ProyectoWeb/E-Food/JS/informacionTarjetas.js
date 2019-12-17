@@ -36,22 +36,29 @@
     }
 
     var eliminarTarjetas = () => {
+        var url = "https://localhost:44360/api/Tarjetas/" + $('#codigoTipoTarjeta').val();
 
-        $.ajax(
+        $.ajax({
+            url: url,
+            method: 'DELETE',
+            dataType: 'json',
+            data: 
             {
-                url: "https://localhost:44360/api/Tarjetas/1?CodigoTarjeta=" + $('#codigoTipoTarjeta').val(),
-                type: 'DELETE',
-                success: function () {
-                    console.table('Datos eliminado: ' + $('#codigoTipoTarjeta').val());
-                    alert('Se eliminio el dato: ');
-                },
-                error: function (a, b, error) {
-                    alert('ERROR')
-                    console.error('ERROR' + error);
-                }
-            })
+                "CodigoTarjeta": $('#codigoTipoTarjeta').val()
+            },
+            success: function (data, text, xhr) {
+                alert('Se ha eliminado la tarjeta: ' + $('#codigoTipoTarjeta').val());
+                console.log(data);
+                console.log(text);
+                console.table(xhr);
+            },
+            error: function (xhr, text, error) {
+                console.error("Error: " + error);
+            }
+        })
     }
     var modificarTarjetas = () => {
+        var url = "https://localhost:44360/api/Tarjetas/" + $('#codigoTipoTarjeta').val();
         var data =
         {
             TipoConsecutivo: 3,
@@ -59,21 +66,21 @@
             NombreTarjeta: $('#descripcion').val()
         }
 
-        $.ajax(
-            {
-                url: "https://localhost:44360/api/Tarjetas/1",
-                type: 'PUT',
-                dataType: 'json',
-                data: JSON.stringify(data),
-                success: function () {
-                    console.table(arrayTarjetas);
-                    alert('Se modifico la tarjeta: ' + $('#codigoTipoTarjeta').val());
-                },
-                error: function (a, b, error) {
-                    alert('ERROR');
-                    console.error('ERROR: ' + error);
-                }
-            })
+        $.ajax({
+            url: url,
+            method: 'PUT',
+            dataType: 'json',
+            data: data,
+            success: function (data, text, xhr) {
+                alert('Se ha modificado la tarjeta');
+                console.table(data);
+                console.log(text);
+                console.table(xhr);
+            },
+            error: function (xhr, text, error) {
+                console.error("Error: " + error);
+            }
+        })
     }
 
     var validarTarjetasId = () => {
@@ -107,7 +114,7 @@
     }
 
     var validar = () => {
-        $("[name='btnGuardar']").click(function (e) {
+        $("#btnGuardar").click(function (e) {
             e.preventDefault();
 
             var tarjetaId = $('#codigoTipoTarjeta').val();
@@ -133,10 +140,11 @@
 
             if (verifica) {
                 agregarTarjetas();
+                $(location).attr('href', 'http://127.0.0.1:5501/ProyectoWeb/E-Food/HTML/ListaTarjetas.html')
             }
         })
 
-        $("[name='btnEliminar']").click(function (e) {
+        $("#btnEliminar").click(function (e) {
             e.preventDefault();
 
             var tarjetaId = $('#codigoTipoTarjeta').val();
@@ -156,10 +164,11 @@
 
             if (verifica) {
                 eliminarTarjetas();
+                $(location).attr('href', 'http://127.0.0.1:5501/ProyectoWeb/E-Food/HTML/ListaTarjetas.html')
             }
         })
 
-        $("[name='btnModificar']").click(function (e) {
+        $("#btnModificar").click(function (e) {
             e.preventDefault();
 
             var tipoConsecutivo = $('#codigoTipoTarjeta');
@@ -184,6 +193,7 @@
 
             if(verifica){
                 modificarTarjetas();
+                $(location).attr('href', 'http://127.0.0.1:5501/ProyectoWeb/E-Food/HTML/ListaTarjetas.html')
             }
         })
     }
