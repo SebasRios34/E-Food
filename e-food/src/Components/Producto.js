@@ -11,7 +11,7 @@ export default class Producto extends Component {
     };
 
     async getProductos() {
-        //const obj = await 
+    //const obj = await 
         axios.get('https://localhost:44360/api/Producto/')
             .then(res => {
                 res.data = JSON.parse(res.data);
@@ -20,6 +20,7 @@ export default class Producto extends Component {
                 console.table(res.data);
                 console.table(productos);
             })
+           // this.setState({productos:obj.data});
     }
 
     componentDidMount() {
@@ -32,8 +33,8 @@ export default class Producto extends Component {
 
         return (
             <div>
-                {this.state.productos.map(x => <div className="col-9 mx-auto col-md-6 col-lg-3 my-3">
-                <div className="card">
+                {this.state.productos.map(x => <div className="col-10 mx-auto col-md-6 my-3">
+                <div className="card" style={{marginLeft: 15}}>
                     <ContextConsumer>
                         {(value) => (
                             <div className="img-container p-5"

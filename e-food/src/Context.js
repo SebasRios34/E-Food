@@ -112,9 +112,9 @@ class ContextProvider extends Component {
 
         const index = productosTemp.indexOf(this.getItem(id));
         let productoElim = productosTemp[index];
-        // productoElim.enCarrito = false;
-        // productoElim.count = 0;
-        // productoElim.total = 0;
+        productoElim.enCarrito = false;
+        productoElim.count = 0;
+        productoElim.total = 0;
 
         this.setState(()=>{
             return{

@@ -6,8 +6,7 @@ class Bienvenida extends Component {
     render (){
         return(
             
-            <div>hola bienvenida</div>
-          
+            <div>hola bienvenida a E-Food</div>
         )
     }
 }
