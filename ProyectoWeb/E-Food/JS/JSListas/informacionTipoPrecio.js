@@ -151,7 +151,6 @@
 
             if(verifica){
                 agregarTipoPrecio();
-                $(location).attr('href', 'http://127.0.0.1:5501/ProyectoWeb/E-Food/HTML/ListaTipoPrecio.html')
             }
         })
 
