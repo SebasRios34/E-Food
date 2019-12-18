@@ -103,7 +103,35 @@
     }
 
     var validar = () =>{
-        
+        $("[name='btnGuardar']").click(function (e){
+            var codigoTipoPrecio = $('#codigoTipoPrecio').val();
+            var nombre = $('#descripcion').val();
+            var monto = $('#monto').val();
+
+            var verifica = true;
+            
+            if(codigoTipoPrecio == ''){
+                alert('Codigo Tipo Precio es obligatorio');
+                $('#codigoTipoPrecio').focus();
+                verifica = false;
+            } else if (!validarTipoPrecioId()){
+                alert('Codigo Tipo Precio ya existe');
+                $('#codigoTipoPrecio');
+                verifica = false;
+            } else if(nombre == ''){
+                alert('Nombre es obligatorio');
+                $('#descripcion').focus();
+                verifica = false;
+            } else if(monto == ''){
+                alert('Monto es obligatorio');
+                $('#monto').focus();
+                verifica = false;
+            }
+
+            if(verifica){
+                agregarTipoPrecio();
+            }
+        })
     }
 
     var init = () => {

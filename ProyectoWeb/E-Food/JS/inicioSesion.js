@@ -20,7 +20,7 @@
         for(var i = 0; i < arrayUsuariosAdmin.length; i++){
             if((usuarioNombre == $(arrayUsuariosAdmin).eq(i).attr('UsuarioNombre')) && (contrasena == $(arrayUsuariosAdmin).eq(i).attr('Contrasena'))){
                 verifica = true;
-                console.log('Usuario: ' + usuarioNombre + '\nPassword: ' + contrasena + 'Tiene acceso!');
+                console.log('Usuario: ' + usuarioNombre + '\nPassword: ' + contrasena);
                 break;
             } 
         }
@@ -28,11 +28,13 @@
     }
 
     var validarEstado = () => {
+        var usuarioNombre = $('#usuario').val();
+
         verifica = false;
-        console.table(arrayUsuariosAdmin);
+        
 
         for(var i = 0; i < arrayUsuariosAdmin.length; i++){
-            if('Activo' == $(arrayUsuariosAdmin).eq(i).attr('Estado')){
+            if(usuarioNombre == $(arrayUsuariosAdmin).eq(i).attr('UsuarioNombre') && 'Activo' == $(arrayUsuariosAdmin).eq(i).attr('Estado')){
                 verifica = true;
                 console.log('Usuario: ' + $('#usuario').val() + ':\nEstado: Activo');
                 break;
