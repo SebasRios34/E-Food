@@ -102,8 +102,25 @@
         return verifica;
     }
 
+    var validarTipoPrecioId1 = () => {
+        var codigo = $('#codigoTipoPrecio').val();
+
+        var verifica = false;
+
+        for (var i = 0; i < arrayTipoPrecio.length; i++) {
+            if (codigo == $(agregarTipoPrecio).eq(i).attr('CodigoTipoPrecio')) {
+                verifica = true;
+                console.log('verificaCodigo: ' + verifica);
+                break;
+            }
+        }
+        return verifica;
+    }
+
     var validar = () =>{
         $("[name='btnGuardar']").click(function (e){
+            e.preventDefualt();
+
             var codigoTipoPrecio = $('#codigoTipoPrecio').val();
             var nombre = $('#descripcion').val();
             var monto = $('#monto').val();
@@ -126,16 +143,71 @@
                 alert('Monto es obligatorio');
                 $('#monto').focus();
                 verifica = false;
+            } else if((monto <= 0)){
+                alert('Monto tiene que ser mayor que 0');
+                $('#monto').focus();
+                verifica = false;
             }
 
             if(verifica){
                 agregarTipoPrecio();
             }
         })
+
+        $("[name='btnEliminar']").click(function (e){
+            e.preventDefualt();
+
+            var codigoTipoPrecio = $('#codigoTipoPrecio').val();
+
+            var verifica = true;
+
+            if(codigoTipoPrecio == ''){
+                alert('Codigo Tipo Precio es obligatorio');
+                $('#codigoTipoPrecio').focus();
+                verifica = false;
+            } else if (!validarTipoPrecioId1()){
+                alert('Codigo Tipo Precio no existe');
+                $('#codigoTipoPrecio');
+                verifica = false;
+            }
+
+            if(verifica){
+                eliminarTipoPrecio();
+            }
+        })
+
+        $("[name='btnModificar']").click(function (e){
+            e.preventDefualt();
+
+            var codigoTipoPrecio = $('#codigoTipoPrecio').val();
+            var nombre = $('#descripcion').val();
+            var monto = $('#monto').val();
+
+            var verifica = true;
+
+            if(codigoTipoPrecio == ''){
+                alert('Codigo Tipo Precio es obligatorio');
+                $('#codigoTipoPrecio').focus();
+                verifica = false;
+            } else if (!validarTipoPrecioId1()){
+                alert('Codigo Tipo Precio no existe');
+                $('#codigoTipoPrecio');
+                verifica = false;
+            } else if((monto <= 0)){
+                alert('Monto tiene que ser mayor que 0');
+                $('#monto').focus();
+                verifica = false;
+            }
+
+            if(verifica){
+                
+            }
+        })
     }
 
     var init = () => {
         cargarTiposPrecio();
+        validar();
     }
 
     init();
