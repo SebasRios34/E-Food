@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -74,70 +76,19 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th>Tipo Consecutivo</th>
                     <th>Código</th>
                     <th>Nombre</th>
                     <th>Opcion 1</th>
                     <th>Opcion 2</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Postres</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionLineaComida.html">Editar</a>
-                    </td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionLineaComida.html">Eliminar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Combos</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionLineaComida.html">Editar</a>
-                    </td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionLineaComida.html">Eliminar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Ensaladas</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionLineaComida.html">Editar</a>
-                    </td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionLineaComida.html">Eliminar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Refrescos</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionLineaComida.html">Editar</a>
-                    </td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionLineaComida.html">Eliminar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Gaseosas</td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionLineaComida.html">Editar</a>
-                    </td>
-                    <td>
-                        <a href="/ProyectoWeb/E-Food/HTML/InformacionLineaComida.html">Eliminar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <button id="btnNuevoConsecutivo" type="button" class="btn btn-info"
-            onclick="location.href='InformacionLineaComida.html'">Nueva Linea de Comida</button>
+            <tbody id="datosLineaComida" </tbody> </table> <button id="btnNuevoConsecutivo" type="button"
+                class="btn btn-info" onclick="location.href='InformacionLineaComida.html'">Nueva Linea de
+                Comida</button>
     </div>
 
-
+    <script src="/ProyectoWeb/E-Food/JS/Cargar/cargarLineaComida.js"></script>
 </body>
 
 </html>

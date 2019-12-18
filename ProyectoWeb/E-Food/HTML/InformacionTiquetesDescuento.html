@@ -100,9 +100,17 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-1 control-label" for="descuento">Descuento: </label>
+                    <label class="col-md-1 control-label" for="descuento">Descuento en Porcentaje: </label>
                     <div class="col-md-5">
-                        <input id="descuento" name="descuento" type="number" placeholder="Descuento"
+                        <input id="descuentoPorcentaje" name="descuentoPorcentaje" type="number" placeholder="Descuento Porcentaje"
+                            class="form-control input-md">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-1 control-label" for="descuento">Descuento en Monto: </label>
+                    <div class="col-md-5">
+                        <input id="descuentoMonto" name="descuentoMonto" type="number" placeholder="Descuento Monto"
                             class="form-control input-md">
                     </div>
                 </div>
@@ -112,7 +120,7 @@
                     <div class="col-md-8">
                         <button id="btnRedondoCrearConsecutivo" name="btnGuardar" type="button" class="btn btn-primary">
                             Crear</button>
-                        <button id="btnRedondoCrearConsecutivo" name=btnEliminar"" type="button" class="btn btn-primary">
+                        <button id="btnRedondoCrearConsecutivo" name="btnEliminar" type="button" class="btn btn-primary">
                             Eliminar</button>
                         <button id="btnRedondoCrearConsecutivo" name="btnModificar" type="button" class="btn btn-primary">
                             Modificar</button>
@@ -123,7 +131,7 @@
         </form>
     </div>
 
-
+<script src="/ProyectoWeb/E-Food/JS/Informacion/informacionTiquetes.js"></script>
 </body>
 
 </html>

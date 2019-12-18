@@ -57,6 +57,7 @@
             }
         })
     }
+    
     var modificarTarjetas = () => {
         var url = "https://localhost:44360/api/Tarjetas/" + $('#codigoTipoTarjeta').val();
         var data =
