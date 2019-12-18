@@ -10,6 +10,7 @@
          console.table(arrayProcesadorPago);
       });
    }
+   
 
    var cargarTarjetas = () => {
       $.get("https://localhost:44360/api/Tarjetas/", function (data, status) {

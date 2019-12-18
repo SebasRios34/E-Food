@@ -87,11 +87,11 @@
     var validarLineaComidaId = () => {
         var codigo = $('#codigoLineaComida').val();
 
-        var verifica = false;
+        var verifica = true;
 
         for (var i = 0; i < arrayLineaComida.length; i++) {
-            if (codigo != $(arrayLineaComida).eq(i).attr('codigoLineaComida')) {
-                verifica = true;
+            if (codigo == $(arrayLineaComida).eq(i).attr('CodigoLineaComida')) {
+                verifica = false;
                 console.log('verificaCodigo: ' + verifica);
                 break;
             }
@@ -100,7 +100,7 @@
     }
 
     var validar = () => {
-        $("[name = 'btnGuardar']").click(function (e){
+        $("[name = 'btnGuardar']").click(function (e) {
             e.preventDefault();
 
             var codigo = $('#codigoLineaComida').val();
@@ -108,16 +108,81 @@
 
             var verifica = true;
 
-            if(codigo == ''){
+            if (codigo == '') {
                 alert('Codigo Linea Comida es obligatorio');
                 verifica = false;
                 $('#codigoLineaComida').focus();
-            } else 
+            } else if (!validarLineaComidaId()) {
+                alert('Codigo Linea Comida ya existe');
+                verifica = false;
+                $('#codigoLineaComida').focus();
+            } else if (nombre == ''){
+                alert('Descripcion es obligatorio');
+                verifica = false;
+                $('#decripcion').focus();
+            }
+
+            if(verifica){
+                agregarLineaComida();
+                alert('Se ha agregado la linea comida: ' + nombre);
+            }
+        })
+
+        $("[name = 'btnEliminar']").click(function (e){
+            e.preventDefault();
+
+            var codigo = $('#codigoLineaComida').val();
+
+            var verifica = true;
+
+            if (codigo == '') {
+                alert('Codigo Linea Comida es obligatorio');
+                verifica = false;
+                $('#codigoLineaComida').focus();
+            } else if (validarLineaComidaId()) {
+                alert('Codigo Linea Comida no existe');
+                verifica = false;
+                $('#codigoLineaComida').focus();
+            }
+
+            if(verifica){
+                eliminarLineaComida();
+                alert('Se ha eliminado la linea comida: ' + codigo);
+            }
+        })
+
+        $("[name = 'btnModificar']").click(function (e){
+            e.preventDefault();
+
+            var codigo = $('#codigoLineaComida').val();
+            var nombre = $('#descripcion').val();
+
+            var verifica = true;
+
+            if (codigo == '') {
+                alert('Codigo Linea Comida es obligatorio');
+                verifica = false;
+                $('#codigoLineaComida').focus();
+            } else if (validarLineaComidaId()) {
+                alert('Codigo Linea Comida no existe');
+                verifica = false;
+                $('#codigoLineaComida').focus();
+            } else if (nombre == ''){
+                alert('Descripcion es obligatorio');
+                verifica = false;
+                $('#decripcion').focus();
+            }
+
+            if(verifica){
+                modificarLineaComida();
+                alert('Se ha modificado la linea comida: ' + codigo);
+            }
         })
     }
 
     var init = () => {
         cargarLineaComida();
+        validar();
     }
 
     init();

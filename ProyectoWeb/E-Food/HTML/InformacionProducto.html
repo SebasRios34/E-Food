@@ -77,9 +77,19 @@
             <fieldset id="fieldset">
 
                 <div class="form-group row">
+                    <label class="col-md-1 control-label" for="tipoConsecutivo">Tipo Consecutivo: </label>
+                    <div class="col-md-5">
+                        <select name="tipoConsecutivo" id="tipoConsecutivo">
+                            <option value="7">Administracion</option>
+                            <option value="8">Mantenimiento</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     <label class="col-md-1 control-label" for="codigoTipoTarjeta">Código: </label>
                     <div class="col-md-5">
-                        <input id="codigoTipoTarjeta" name="codigoTipoTarjeta" type="number" placeholder="Código"
+                        <input id="codigoProducto" name="codigoProducto" type="number" placeholder="Código"
                             class="form-control input-md">
                     </div>
                 </div>
@@ -96,11 +106,6 @@
                     <label class="col-md-1 control-label" for="linea">Linea: </label>
                     <div class="col-md-5">
                         <select name="linea" id="linea">
-                            <option value="">Postres</option>
-                            <option value="">Combos</option>
-                            <option value="">Ensaladas</option>
-                            <option value="">Refrescos</option>
-                            <option value="">Gaseosas</option>
                         </select>
                     </div>
                 </div>
@@ -114,28 +119,35 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-1 control-label" for="foto">Foto: </label>
+                    <label class="col-md-1 control-label" for="tipoPrecio">Tipo Precio: </label>
                     <div class="col-md-5">
-                        <input type="file" id="file" accept="image/*" onchange="mostrar()"/>
-                        <br>
-                        <img id="img" style="width: 60%; height: 90%;"/>
+                        <select name="tipoPrecio" id="tipoPrecio">
+                            <option value="">Postres</option>
+                            <option value="">Combos</option>
+                            <option value="">Ensaladas</option>
+                            <option value="">Refrescos</option>
+                            <option value="">Gaseosas</option>
+                        </select>
                     </div>
                 </div>
+
 
                 <div class="form-group row">
                     <label class="col-md-2 control-label" for="btnRedondo"></label>
                     <div class="col-md-8">
-                        <button id="btnRedondoTarjetas" type="button" class="btn btn-primary">
+                        <button id="btnRedondoTarjetas" name="btnGuardar" type="button" class="btn btn-primary">
                             Guardar</button>
-                        <button id="btnRedondoTarjetas" type="button" class="btn btn-primary">
+                        <button id="btnRedondoTarjetas" name="btnEliminar" type="button" class="btn btn-primary">
                             Eliminar</button>
+                        <button id="btnRedondoTarjetas" name="btnModificar" type="button" class="btn btn-primary">
+                            Modificar</button>
                     </div>
                 </div>
             </fieldset>
         </form>
     </div>
 
-    <script src="/ProyectoWeb/E-Food/JS/Informacion/informacionProductoFoto.js"></script>
+    <script src="/ProyectoWeb/E-Food/JS/Informacion/informacionProducto.js"></script>
 
 
 </body>
