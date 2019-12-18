@@ -14,7 +14,7 @@
         var data =
         {
             "TipoConsecutivo": $('#tipoConsecutivo').val(),
-            "CodigoTipoPrecio": $('#codigoTipoPrecio'),
+            "CodigoTipoPrecio": $('#codigoTipoPrecio1').val(),
             "PrecioMonto": $('#monto').val(),
             "NombrePrecio": $('#descripcion').val()
         }
@@ -27,7 +27,7 @@
                 data: data,
                 success: function (a, b, xhr) {
                     console.table('Datos insertados: ' + data);
-                    alert('Se ingreso la tabla: ' + $('#codigoTipoPrecio').val());
+                    alert('Se ingreso la tabla: ' + $('#codigoTipoPrecio1').val());
                     console.table(xhr);
                 },
                 error: function (a, b, error) {
@@ -38,7 +38,7 @@
     }
 
     var eliminarTipoPrecio = () => {
-        var url = "https://localhost:44360/api/TipoPrecio/" + $('#codigoTipoPrecio').val();
+        var url = "https://localhost:44360/api/TipoPrecio/" + $('#codigoTipoPrecio1').val();
 
         $.ajax({
             url: url,
@@ -46,10 +46,10 @@
             dataType: 'json',
             data:
             {
-                "CodigoTipoPrecio": $('#codigoTipoPrecio').val()
+                "CodigoTipoPrecio": $('#codigoTipoPrecio1').val()
             },
             success: function (data, text, xhr) {
-                alert('Se ha eliminado el tipo de precio: ' + $('#codigoTipoPrecio').val());
+                alert('Se ha eliminado el tipo de precio: ' + $('#codigoTipoPrecio1').val());
                 console.log(data);
                 console.log(text);
                 console.table(xhr);
@@ -61,11 +61,11 @@
     }
 
     var modificarTipoPrecio = () => {
-        var url = "https://localhost:44360/api/TipoPrecio/" + $('#codigoTipoPrecio').val();
+        var url = "https://localhost:44360/api/TipoPrecio/" + $('#codigoTipoPrecio1').val();
         var data =
         {
             "TipoConsecutivo": $('#tipoConsecutivo').val(),
-            "CodigoTipoPrecio": $('#codigoTipoPrecio'),
+            "CodigoTipoPrecio": $('#codigoTipoPrecio1').val(),
             "PrecioMonto": $('#monto').val(),
             "NombrePrecio": $('#descripcion').val()
         }
@@ -88,12 +88,12 @@
     }
 
     var validarTipoPrecioId = () => {
-        var codigo = $('#codigoTipoPrecio').val();
+        var codigo = $('#codigoTipoPrecio1').val();
 
         var verifica = false;
 
         for (var i = 0; i < arrayTipoPrecio.length; i++) {
-            if (codigo != $(agregarTipoPrecio).eq(i).attr('CodigoTipoPrecio')) {
+            if (codigo != $(arrayTipoPrecio).eq(i).attr('CodigoTipoPrecio')) {
                 verifica = true;
                 console.log('verificaCodigo: ' + verifica);
                 break;
@@ -103,12 +103,12 @@
     }
 
     var validarTipoPrecioId1 = () => {
-        var codigo = $('#codigoTipoPrecio').val();
+        var codigo = $('#codigoTipoPrecio1').val();
 
         var verifica = false;
 
         for (var i = 0; i < arrayTipoPrecio.length; i++) {
-            if (codigo == $(agregarTipoPrecio).eq(i).attr('CodigoTipoPrecio')) {
+            if (codigo == $(arrayTipoPrecio).eq(i).attr('CodigoTipoPrecio')) {
                 verifica = true;
                 console.log('verificaCodigo: ' + verifica);
                 break;
@@ -119,9 +119,9 @@
 
     var validar = () =>{
         $("[name='btnGuardar']").click(function (e){
-            e.preventDefualt();
+            e.preventDefault();
 
-            var codigoTipoPrecio = $('#codigoTipoPrecio').val();
+            var codigoTipoPrecio = $('#codigoTipoPrecio1').val();
             var nombre = $('#descripcion').val();
             var monto = $('#monto').val();
 
@@ -129,11 +129,11 @@
             
             if(codigoTipoPrecio == ''){
                 alert('Codigo Tipo Precio es obligatorio');
-                $('#codigoTipoPrecio').focus();
+                $('#codigoTipoPrecio1').focus();
                 verifica = false;
             } else if (!validarTipoPrecioId()){
                 alert('Codigo Tipo Precio ya existe');
-                $('#codigoTipoPrecio');
+                $('#codigoTipoPrecio1');
                 verifica = false;
             } else if(nombre == ''){
                 alert('Nombre es obligatorio');
@@ -151,35 +151,37 @@
 
             if(verifica){
                 agregarTipoPrecio();
+                $(location).attr('href', 'http://127.0.0.1:5501/ProyectoWeb/E-Food/HTML/ListaTipoPrecio.html')
             }
         })
 
         $("[name='btnEliminar']").click(function (e){
-            e.preventDefualt();
+            e.preventDefault();
 
-            var codigoTipoPrecio = $('#codigoTipoPrecio').val();
+            var codigoTipoPrecio = $('#codigoTipoPrecio1').val();
 
             var verifica = true;
 
             if(codigoTipoPrecio == ''){
                 alert('Codigo Tipo Precio es obligatorio');
-                $('#codigoTipoPrecio').focus();
+                $('#codigoTipoPrecio1').focus();
                 verifica = false;
             } else if (!validarTipoPrecioId1()){
                 alert('Codigo Tipo Precio no existe');
-                $('#codigoTipoPrecio');
+                $('#codigoTipoPrecio1');
                 verifica = false;
             }
 
             if(verifica){
                 eliminarTipoPrecio();
+                $(location).attr('href', 'http://127.0.0.1:5501/ProyectoWeb/E-Food/HTML/ListaTipoPrecio.html')
             }
         })
 
         $("[name='btnModificar']").click(function (e){
-            e.preventDefualt();
+            e.preventDefault();
 
-            var codigoTipoPrecio = $('#codigoTipoPrecio').val();
+            var codigoTipoPrecio = $('#codigoTipoPrecio1').val();
             var nombre = $('#descripcion').val();
             var monto = $('#monto').val();
 
@@ -187,20 +189,21 @@
 
             if(codigoTipoPrecio == ''){
                 alert('Codigo Tipo Precio es obligatorio');
-                $('#codigoTipoPrecio').focus();
+                $('#codigoTipoPrecio1').focus();
                 verifica = false;
             } else if (!validarTipoPrecioId1()){
                 alert('Codigo Tipo Precio no existe');
-                $('#codigoTipoPrecio');
+                $('#codigoTipoPrecio1');
                 verifica = false;
-            } else if((monto <= 0)){
+            } else if((monto < -1)){
                 alert('Monto tiene que ser mayor que 0');
                 $('#monto').focus();
                 verifica = false;
             }
 
             if(verifica){
-                
+                modificarTipoPrecio();
+                $(location).attr('href', 'http://127.0.0.1:5501/ProyectoWeb/E-Food/HTML/ListaTipoPrecio.html')
             }
         })
     }
