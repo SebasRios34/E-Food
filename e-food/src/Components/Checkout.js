@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import InfoUsuario from './InfoUsuario';
-import InfoTarjetaUsuario from './InfoTarjetaUsuario';
-import ConfirmacionUsuario from './ConfirmacionUsuario';
+import InfoUsuario from './Pagos/InfoUsuario';
+import InfoTarjetaUsuario from './Pagos/InfoTarjetaUsuario';
+import ConfirmacionUsuario from './Pagos/ConfirmacionUsuario';
 import Facebook from './Facebook';
+import MetodoPago from './Pagos/MetodoPago';
+import InfoCheque from './Pagos/InfoCheque';
 
 
 
@@ -12,11 +14,12 @@ export default class Checkout extends Component {
         paso: 1,
         nombre: '',
         apellidos: '',
-        telefono:0,
+        telefono:'',
         direccionEnvio:'',
-        numTarjeta:0
+        numTarjeta:''
     }
 
+    //para moverse de un case a otro
     siguientePaso =()=>{
         const {paso} = this.state;
         this.setState({
@@ -28,6 +31,30 @@ export default class Checkout extends Component {
         const {paso} = this.state;
         this.setState({
             paso: paso - 1
+        });
+    }
+
+    //para ir de metodo de pago a cheque
+    //y de cheque de vuelta a metodo de pago
+    saltarACheque = ()=>{
+        const {paso} =this.state;
+        this.setState({
+            paso: paso + 2
+        })
+    }
+
+    devolverseDeCheque = ()=>{
+        const {paso} =this.state;
+        this.setState({
+            paso: paso - 2
+        })
+    }
+
+    //para direccionar al usuario a confirmacion
+    confirmacion=()=>{
+        const {paso} = this.state;
+        this.setState({
+            paso: paso + 3
         });
     }
 
@@ -47,6 +74,7 @@ export default class Checkout extends Component {
 
         switch(paso){
             case 1:
+                {/*introduccion de los datos del cliente*/}
                 return (
                     <React.Fragment>
                         <div className="card card-body col-md-6 row">
@@ -65,26 +93,56 @@ export default class Checkout extends Component {
                     </React.Fragment>
                 )
             case 2:
+                {/*metodo de pago del cliente */}
                 return(
                     <div>
-                        <h3>Ingrese los datos de su tarjeta</h3>
-                        <hr/>
-                        <InfoTarjetaUsuario 
+
+                        <MetodoPago
                         siguientePaso={this.siguientePaso}
                         manejoCambio ={this.manejoCambio}
-                        pasoAnterior={this.pasoAnterior}
-                        values = {values}>
-                        </InfoTarjetaUsuario>
+                        pasoAnterior ={this.pasoAnterior}
+                        saltarACheque = {this.saltarACheque}
+                        devolverseDeCheque = {this.devolverseDeCheque}
+                        confirmacion = {this.confirmacion}
+                        values = {values}/>
 
                     </div>
                 )
             case 3:
+                {/*en caso que escoja tarjetas */}
                 return(
                     <div>
-                        <h3>Confirmacion de datos</h3>
-                        <ConfirmacionUsuario>
-
-                        </ConfirmacionUsuario>
+                    
+                        <h3>Ingrese los datos de su tarjeta</h3>
+                        <hr/>
+                        <InfoTarjetaUsuario
+                        siguientePaso={this.siguientePaso}
+                        manejoCambio ={this.manejoCambio}
+                        pasoAnterior ={this.pasoAnterior}
+                        saltarACheque = {this.saltarACheque}
+                        values = {values}/>
+                    </div>
+                )
+            case 4: 
+                {/*en caso que escoja  cheques*/}
+                return(
+                    <div
+                    siguientePaso={this.siguientePaso}
+                    manejoCambio ={this.manejoCambio}
+                    devolverseDeCheque = {this.devolverseDeCheque}
+                    values = {values}>
+                        <InfoCheque/>
+                        
+                    </div>
+                )
+            case 5:
+                {/*confirmacion del usuario */}
+                return(
+                    <div
+                    siguientePaso={this.siguientePaso}
+                    manejoCambio ={this.manejoCambio}
+                    values = {values}>
+                        <ConfirmacionUsuario/>
                     </div>
                 )
         }

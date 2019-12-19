@@ -1,0 +1,156 @@
+import React, { Component } from 'react'
+import TextField from 'material-ui/TextField';
+import RadioButton from 'material-ui/RadioButton'
+import { MuiThemeProvider } from 'material-ui/styles';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import RaisedButton from 'material-ui/RaisedButton';
+
+export default class InfoTarjetaUsuario extends Component {
+    
+        state={
+            tipoTarjeta:'',
+            numTarjeta:'',
+            mesExpiracion:'',
+            anioExpiracion:''
+        };
+        handleChange = this.handleChange.bind(this);
+        
+    
+
+
+    handleChange(event){
+        console.log(event.target.value);
+        const {name, value} = event.target;
+        this.setState({
+            [name]: value
+        });
+    }
+
+    continuar = e=>{
+        e.preventDefault();
+        this.props.siguientePaso();
+        }
+    
+    back = e=>{
+        e.preventDefault();
+        this.props.pasoAnterior();
+        }
+        
+    saltar = e=>{
+        e.preventDefault();
+        this.props.saltarACheque();
+        }
+
+    
+    validarTarjeta = e =>{
+        e.preventDefault();
+        if(this.state.tipoTarjeta === 'visa' || this.state.tipoTarjeta ==='Visa' || this.state.tipoTarjeta === 'VISA'){
+            
+            if(this.state.numTarjeta.startsWith('1')){
+                console.log('codigo de tarjeta visa, todo bien ')
+            }else if(this.state.numTarjeta.startsWith('2')){
+                console.log('codigo de tarjeta mastercard, verificar numero o tipo de tarjeta')
+            }else{
+                console.log('codigo invalido, favor verificar')
+            }
+        }else if(this.state.tipoTarjeta === 'mastercard' || this.state.tipoTarjeta ==='Mastercard' || this.state.tipoTarjeta === 'MASTERCARD'){
+            if(this.state.numTarjeta.startsWith('2')){
+                console.log('codigo de mastercard, todo bien')
+            }else if(this.state.numTarjeta.startsWith('1')){
+                console.log('codigo de visa, favor verificar numero o tipo de tarjeta')
+            }else{
+                console.log('codigo invalido, favor verificar de nuevo')
+            }
+        }else{
+            console.log('tipo de tarjeta invalido')
+        }
+
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log('Valor del tipo: ' + this.state.tipoTarjeta);
+        console.log('Valor del numero de tarjeta: ' + this.state.numTarjeta);
+        let arreglo = {
+            "tipo": this.state.tipoTarjeta,
+            "num": this.state.numTarjeta
+        }
+        console.log(arreglo);
+    }
+        
+    
+    render() {
+
+        const { values, manejoCambio } = this.props;
+
+        return (
+            <MuiThemeProvider>
+                <form onSubmit={this.handleSubmit}>
+                    <React.Fragment>
+                        
+                        <TextField
+                            name="tipoTarjeta"
+                            hintText="ej. Visa/Mastercard"
+                            floatingLabelText="Tipo de tarjeta"
+                            onChange={this.handleChange}
+                            value={this.state.tipoTarjeta}>
+                            
+                        </TextField>
+                        <br/>
+                        <TextField
+                        name="numTarjeta"
+                        hintText="digite el numero de su tarjeta"
+                        floatingLabelText="Numero de tarjeta"
+                        onChange={this.handleChange}
+                        value ={this.state.numTarjeta}>
+                        </TextField>
+                        <br/>
+                        <TextField
+                        name="mesExpiracion"
+                        hintText="mes de expiracion de la tarjeta ej. 01, 04"
+                        floatingLabelText="Mes"
+                        onChange={this.handleChange}
+                        value={this.state.mesExpiracion}>
+                        </TextField>
+                        <br/>
+                        <TextField
+                        name="anioExpiracion"
+                        hintText="año de expiracion de la tarjeta. ej. 2024"
+                        floatingLabelText="Año"
+                        onChange={this.handleChange}
+                        value={this.state.anioExpiracion}>
+                        </TextField>
+                        <br/>
+                        <TextField
+                        hintText="codigo"
+                        floatingLabelText="CVV"
+                        onChange={this.handleChange}>
+                        </TextField>
+                        <br/>
+                        <br/>
+                        
+                        <RaisedButton
+                        label="Regresar"
+                        primary={false}
+                        //style={StyleSheet.button}
+                        onClick={this.back}>
+                        </RaisedButton>
+                        
+                        <button
+                        className="success"
+                        //style={StyleSheet.button}
+                        onClick={this.validarTarjeta}>
+                        Procesar</button>
+
+                        <RaisedButton 
+                        label ="Siguiente"
+                        primary={true}
+                        onClick={this.saltar}>
+
+                        </RaisedButton>
+                    </React.Fragment>
+                </form>
+            </MuiThemeProvider>
+        )
+    }
+}
