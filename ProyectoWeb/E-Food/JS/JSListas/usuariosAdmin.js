@@ -71,9 +71,6 @@
            <td>
                <a id="editarUsuario" href="/ProyectoWeb/E-Food/HTML/InformacionUsuarios.html">Editar</a>
            </td>
-           <td>
-               <a id="eliminarUsuario" href="/ProyectoWeb/E-Food/HTML/InformacionUsuarios.html">Eliminar</a>
-           </td>
        </tr>`;
         });
 

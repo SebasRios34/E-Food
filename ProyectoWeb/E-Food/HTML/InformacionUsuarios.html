@@ -102,24 +102,49 @@
                 <div class="form-group row">
                     <label class="col-md-1 control-label" for="rol">Rol: </label>
                     <div class="col-md-5">
-                        <input id="rol" name="rol" type="text" placeholder="Descuento"
+                        <select name="rol" id="rol">
+                            <option value="1">Administracion</option>
+                            <option value="2">Seguridad</option>
+                            <option value="3">Mantenimiento</option>
+                            <option value="4">Consulta</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-1 control-label" for="rol">Pregunta Seguridad: </label>
+                    <div class="col-md-5">
+                        <select name="preguntaSeguridad" id="preguntaSeguridad">
+                            <option value="1">Nombre de Primera Mascota</option>
+                            <option value="2">Deporte Favorito</option>
+                            <option value="3">Nombre de Colegio</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-1 control-label" for="respuesta">Respuesta Seguridad: </label>
+                    <div class="col-md-5">
+                        <input id="respuesta" name="respuesta" type="text" placeholder="Respuesta"
                             class="form-control input-md">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-2 control-label" for="btnRedondo"></label>
-                    <div class="col-md-8">
-                        <button id="btnRedondoCrearConsecutivo" type="button" class="btn btn-primary">
-                            Crear</button>
+                    <label class="col-md-1 control-label" for="estado">Estado: </label>
+                    <div class="col-md-5">
+                        <select name="estado" id="estado">
+                            <option value="Activo">Activo</option>
+                            <option value="Inactico">Inactico</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-2 control-label" for="btnRedondo"></label>
                     <div class="col-md-8">
-                        <button id="btnRedondoCrearConsecutivo" type="button" class="btn btn-primary">
-                            Eliminar</button>
+                        <button id="btnRedondoCrearConsecutivo" name="btnModificar" type="button" class="btn btn-primary">
+                            Modificar</button>
                     </div>
                 </div>
                 
@@ -127,7 +152,7 @@
         </form>
     </div>
 
-
+<script src="/ProyectoWeb/E-Food/JS/Informacion/informacionUsuarios.js"></script>
 </body>
 
 </html>
