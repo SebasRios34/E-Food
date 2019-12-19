@@ -68,8 +68,8 @@ body {
   /* Two-column layout */
   .col {
     float: left;
-    width: 50%;
-    margin: auto;
+    width: 60%;
+    margin: 33%;
     padding: 0 50px;
     margin-top: 6px;
   }
