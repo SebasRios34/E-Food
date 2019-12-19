@@ -7,11 +7,31 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {ContextProvider} from './Context';
 import webPack from 'react-bootstrap';
+import Facebook from './Components/Facebook';
+
+const handleSocialLogin = (user) => {
+    console.log(user)
+    }
+    
+const handleSocialLoginFailure = (err) => {
+    console.error(err)
+    }
+
 
 ReactDOM.render(
 <ContextProvider>
 <Router>
 <App />
+    {/* 
+    <Facebook
+            provider='facebook'
+            appId='2443297292611367'
+            onLoginSuccess={handleSocialLogin}
+            onLoginFailure={handleSocialLoginFailure}
+            >
+            Login with Facebook
+    </Facebook>
+        */}
 </Router>
 </ContextProvider>, document.getElementById('root'));
 

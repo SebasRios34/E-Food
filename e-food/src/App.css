@@ -78,3 +78,8 @@
   border-radius: 0 !important;
   border:0.1rem solid rgb(33, 116, 44) !important;
 }
+
+.card.card-body.col-md-6.row{
+  align-content: center;
+  align-items: center;
+}

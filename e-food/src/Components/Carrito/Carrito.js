@@ -15,7 +15,7 @@ export default class Carrito extends Component {
                         if(carrito.length > 0 ){
                             return(
                                 <React.Fragment>
-                                <h3>El carrito Cuchau</h3>
+                                <h3>Su carrito de Comidas</h3>
                                 <ColumnasDelCarrito/>
                                 <ListaCarrito value = {value}/>
                                 <TotalCarrito value = {value}/>
