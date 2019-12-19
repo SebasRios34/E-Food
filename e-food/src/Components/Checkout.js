@@ -14,9 +14,9 @@ export default class Checkout extends Component {
         paso: 1,
         nombre: '',
         apellidos: '',
-        telefono:0,
+        telefono:'',
         direccionEnvio:'',
-        numTarjeta:0
+        numTarjeta:''
     }
 
     //para moverse de un case a otro
@@ -54,7 +54,7 @@ export default class Checkout extends Component {
     confirmacion=()=>{
         const {paso} = this.state;
         this.setState({
-            paso: 5
+            paso: paso + 3
         });
     }
 
@@ -95,26 +95,32 @@ export default class Checkout extends Component {
             case 2:
                 {/*metodo de pago del cliente */}
                 return(
-                    <div
-                    siguientePaso={this.siguientePaso}
-                    manejoCambio ={this.manejoCambio}
-                    values = {values}>
-                        
-                        <MetodoPago/>
+                    <div>
+
+                        <MetodoPago
+                        siguientePaso={this.siguientePaso}
+                        manejoCambio ={this.manejoCambio}
+                        pasoAnterior ={this.pasoAnterior}
+                        saltarACheque = {this.saltarACheque}
+                        devolverseDeCheque = {this.devolverseDeCheque}
+                        confirmacion = {this.confirmacion}
+                        values = {values}/>
 
                     </div>
                 )
             case 3:
                 {/*en caso que escoja tarjetas */}
                 return(
-                    <div
-                    siguientePaso={this.siguientePaso}
-                    manejoCambio ={this.manejoCambio}
-                    values = {values}>
+                    <div>
+                    
                         <h3>Ingrese los datos de su tarjeta</h3>
                         <hr/>
-                        <InfoTarjetaUsuario/>
-
+                        <InfoTarjetaUsuario
+                        siguientePaso={this.siguientePaso}
+                        manejoCambio ={this.manejoCambio}
+                        pasoAnterior ={this.pasoAnterior}
+                        saltarACheque = {this.saltarACheque}
+                        values = {values}/>
                     </div>
                 )
             case 4: 
@@ -123,6 +129,7 @@ export default class Checkout extends Component {
                     <div
                     siguientePaso={this.siguientePaso}
                     manejoCambio ={this.manejoCambio}
+                    devolverseDeCheque = {this.devolverseDeCheque}
                     values = {values}>
                         <InfoCheque/>
                         
