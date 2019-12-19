@@ -32,7 +32,7 @@ export default class InfoUsuario extends Component {
                     hintText="Ingrese sus apellidos"
                     floatingLabelText="Apellidos"
                     onChange={manejoCambio('apellidos')}
-                    defaultValue ={values.nombre}>
+                    defaultValue ={values.apellidos}>
                     </TextField>
                     <br/>
                     <TextField

@@ -42,34 +42,39 @@ class Buscador extends Component {
         // </Link>
     }
 
+    
+
     handleInput(event){
         const target = event.target;
         this.setState({
             [target.name]: target.value
         })
     }
+
+    
     
     render() {
+
         return (
-        <form onSubmit={this.handleSubmit}>
-        <div className="row">
-            <div  className="col-10 mx-auto col-md-6 my-3">
-            <label class = "opt">
-            Elija una opcion:  
-                <select  name="dropdown" className="ml-1 mr-1" value={this.state.dropdown} onChange={this.handleChange}>
-                    <option >Seleccione</option>
-                    <option value="combos">Combos</option>
-                    <option value="refrescos">Refrescos</option>
-                    <option value="postres">Postres</option>
-                    <option value="algoMas">Ensaladas</option>
-                    <option value="algoMas">Gaseosas</option>
-                </select>
-            </label>
-            </div>
-               
-                
-        </div>
-        </form>
+        <React.Fragment>
+            <form onSubmit={this.handleSubmit}>
+                <div className="row">
+                    <div  className="col-10 mx-auto col-md-6 my-3">
+                        <label class = "opt">
+                        Elija una opcion:  
+                            <select  name="dropdown" className="ml-1 mr-1" value={this.state.dropdown} onChange={this.handleChange}>
+                                <option >Seleccione</option>
+                                <option value="combos">Combos</option>
+                                <option value="refrescos">Refrescos</option>
+                                <option value="postres">Postres</option>
+                                <option value="algoMas">Ensaladas</option>
+                                <option value="algoMas">Gaseosas</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </React.Fragment>
         );
     
     }

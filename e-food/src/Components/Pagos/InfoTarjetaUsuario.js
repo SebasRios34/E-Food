@@ -11,11 +11,11 @@ export default class InfoTarjetaUsuario extends Component {
         this.props.siguientePaso();
         }
     
-        back = e=>{
-            e.preventDefault();
-            this.props.pasoAnterior();
-            }
-            
+    back = e=>{
+        e.preventDefault();
+        this.props.pasoAnterior();
+        }
+        
     
     render() {
 
