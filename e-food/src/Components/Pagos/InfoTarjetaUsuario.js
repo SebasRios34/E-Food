@@ -6,12 +6,12 @@ import RaisedButton from 'material-ui/RaisedButton';
 export default class InfoTarjetaUsuario extends Component {
     
         state={
-            tipoTarjeta:'',
-            numTarjeta:'',
+    //         tipoTarjeta:'',
+    //         numTarjeta:'',
             mesExpiracion:'',
             anioExpiracion:'',
-            booleano:true
-        };
+    //         booleano:true
+            };
         handleChange = this.handleChange.bind(this);
         
         
@@ -40,61 +40,10 @@ export default class InfoTarjetaUsuario extends Component {
         this.props.saltarACheque();
         }
 
-    
-    validarTarjeta = e =>{
-        var variable = false;
-        e.preventDefault();
-        if(this.state.tipoTarjeta === 'visa' || this.state.tipoTarjeta ==='Visa' || this.state.tipoTarjeta === 'VISA'){
-            if(this.state.numTarjeta.startsWith('1')){
-                console.log('codigo de tarjeta visa, todo bien ')
-                this.setState({
-                    booleano:variable
-                })
-                
-            }else if(this.state.numTarjeta.startsWith('2')){
-                console.log('codigo de tarjeta mastercard, verificar numero o tipo de tarjeta')
-                variable = true;
-                this.setState({
-                    booleano:variable
-                })
-            }else{
-                console.log('codigo invalido, favor verificar')
-                variable = true;
-                this.setState({
-                    booleano:variable
-                })
-            }
-        }else if(this.state.tipoTarjeta === 'mastercard' || this.state.tipoTarjeta ==='Mastercard' || this.state.tipoTarjeta === 'MASTERCARD'){
-            if(this.state.numTarjeta.startsWith('2')){
-                console.log('codigo de mastercard, todo bien')
-                this.setState({
-                    booleano:variable
-                })
-            }else if(this.state.numTarjeta.startsWith('1')){
-                console.log('codigo de visa, favor verificar numero o tipo de tarjeta')
-                variable = true;
-                this.setState({
-                    booleano:variable
-                })
-            }else{
-                console.log('codigo invalido, favor verificar de nuevo')
-                variable = true;
-                this.setState({
-                    booleano:variable
-                })
-            }
-        }else{
-            console.log('tipo de tarjeta invalido')
-            variable = true;
-                this.setState({
-                    booleano:variable
-                })
-        }
-        this.isEnabled(variable);
-    }
-    
     render() {
 
+            const {values, manejoCambio, validarTarjeta} = this.props;
+            
         return (
             <MuiThemeProvider>
                 <React.Fragment>
@@ -103,8 +52,8 @@ export default class InfoTarjetaUsuario extends Component {
                         name="tipoTarjeta"
                         hintText="ej. Visa/Mastercard"
                         floatingLabelText="Tipo de tarjeta"
-                        onChange={this.handleChange}
-                        value={this.state.tipoTarjeta}>
+                        onChange={manejoCambio('tipo')}
+                        defaultValue={values.tipo}>
                         
                     </TextField>
                     <br/>
@@ -112,8 +61,8 @@ export default class InfoTarjetaUsuario extends Component {
                     name="numTarjeta"
                     hintText="digite el numero de su tarjeta"
                     floatingLabelText="Numero de tarjeta"
-                    onChange={this.handleChange}
-                    value ={this.state.numTarjeta}>
+                    onChange={manejoCambio('numPago')}
+                    defaultValue ={values.numPago}>
                     </TextField>
                     <br/>
                     <TextField
@@ -150,14 +99,14 @@ export default class InfoTarjetaUsuario extends Component {
                     <button
                     className="success"
                     //style={StyleSheet.button}
-                    onClick={this.validarTarjeta}>
+                    onClick={validarTarjeta}>
                     Procesar</button>
 
                     <RaisedButton 
                     name="siguiente"
                     label ="Siguiente"
                     primary={true}
-                    disabled={this.state.booleano}
+                    disabled={values.booleano}
                     onClick={this.saltar}>
 
                     </RaisedButton>

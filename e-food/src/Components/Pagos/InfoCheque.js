@@ -54,6 +54,8 @@ export default class InfoCheque extends Component {
         }
     }
     render() {
+
+        const { values, manejoCambio } = this.props;
         return(
             <MuiThemeProvider>
                 <React.Fragment>
@@ -61,7 +63,7 @@ export default class InfoCheque extends Component {
                     name="numeroCheque"
                     hintText="Ingrese el numero de cheque"
                     floatingLabelText="Numero cheque"
-                    onChange={this.handleChange}
+                    onChange={manejoCambio('numPago')}
                     value={this.state.numeroCheque}>
                     </TextField>
                     <br/>
@@ -69,8 +71,8 @@ export default class InfoCheque extends Component {
                     name="cuentaCheque"
                     hintText="ingrese el numero de cuenta"
                     floatingLabelText="Cuenta"
-                    onChange={this.handleChange}
-                    defaultValue ={this.state.cuentaCheque}>
+                    onChange={manejoCambio('cuenta')}
+                    value ={this.state.cuentaCheque}>
                     </TextField>
                     <br/>
                     <br/>

@@ -17,7 +17,12 @@ export default class Checkout extends Component {
         apellidos: '',
         telefono:'',
         direccionEnvio:'',
-        numTarjeta:''
+        metodoPago:'',
+        tipo:'',
+        numPago:'',
+        cuenta:'',
+        total:'',
+        booleano: true
     }
 
     inicio =()=>{
@@ -25,6 +30,7 @@ export default class Checkout extends Component {
             paso: 1
         })
     }
+
 
     //para moverse de un case a otro
     siguientePaso =()=>{
@@ -68,15 +74,67 @@ export default class Checkout extends Component {
     manejoCambio =(input)=> e =>{
         this.setState({[input]: e.target.value})
     }
+
+    validarTarjeta = e =>{
+        var variable = false;
+        e.preventDefault();
+        if(this.state.tipo === 'visa' || this.state.tipo ==='Visa' || this.state.tipo === 'VISA'){
+            if(this.state.numPago.startsWith('1')){
+                console.log('codigo de tarjeta visa, todo bien ')
+                this.setState({
+                    booleano:variable
+                })
+                
+            }else if(this.state.numPago.startsWith('2')){
+                console.log('codigo de tarjeta mastercard, verificar numero o tipo de tarjeta')
+                variable = true;
+                this.setState({
+                    booleano:variable
+                })
+            }else{
+                console.log('codigo invalido, favor verificar')
+                variable = true;
+                this.setState({
+                    booleano:variable
+                })
+            }
+        }else if(this.state.tipo === 'mastercard' || this.state.tipo ==='Mastercard' || this.state.tipo === 'MASTERCARD'){
+            if(this.state.numPago.startsWith('2')){
+                console.log('codigo de mastercard, todo bien')
+                this.setState({
+                    booleano:variable
+                })
+            }else if(this.state.numPago.startsWith('1')){
+                console.log('codigo de visa, favor verificar numero o tipo de tarjeta')
+                variable = true;
+                this.setState({
+                    booleano:variable
+                })
+            }else{
+                console.log('codigo invalido, favor verificar de nuevo')
+                variable = true;
+                this.setState({
+                    booleano:variable
+                })
+            }
+        }else{
+            console.log('tipo de tarjeta invalido')
+            variable = true;
+                this.setState({
+                    booleano:variable
+                })
+        }
+    }
     
     render() {
 
         const {paso} = this.state;
-        const {nombre, apellidos, telefono, direccionEnvio,
-        numTarjeta} = this.state;
+        const {nombre, apellidos, telefono, direccionEnvio, metodoPago,
+        tipo, numPago, cuenta, total, booleano
+        } = this.state;
 
-        const values ={ nombre, apellidos, telefono,
-        direccionEnvio, numTarjeta};
+        const values ={nombre, apellidos, telefono, direccionEnvio, metodoPago,
+            tipo, numPago, cuenta, total, booleano};
 
 
         switch(paso){
@@ -127,6 +185,7 @@ export default class Checkout extends Component {
                         manejoCambio ={this.manejoCambio}
                         pasoAnterior ={this.pasoAnterior}
                         saltarACheque = {this.saltarACheque}
+                        validarTarjeta = {this.validarTarjeta}
                         values = {values}/>
                     </div>
                 )
