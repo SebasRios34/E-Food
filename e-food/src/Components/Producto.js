@@ -6,9 +6,15 @@ import axios from 'axios';
 
 export default class Producto extends Component {
 
-    state = {
-        productos: []
-    };
+    constructor(props){
+        super(props);
+        this.state = {
+            productos: []
+        }
+    }
+    // state = {
+    //     productos: []
+    // };
 
     async getProductos() {
         //const obj = await 

@@ -47,6 +47,10 @@ export default class DetalleProducto extends Component {
         
     }
 
+    selectionarUnico(event) {
+        console.log(event.target.value);
+    }
+
     async getTipoPrecio() {
         //const obj = await 
         axios.get('https://localhost:44360/api/TipoPrecio/')
@@ -88,7 +92,7 @@ export default class DetalleProducto extends Component {
                             <div className="row">
                                 <div className="col-10 mx-auto text-center">
                                     <h2>
-                                        Producto: {nombreProducto}
+                                        Producto: {this.state.productos.NombreProducto}
                                     </h2>
                                 </div>
                             </div>
@@ -100,14 +104,23 @@ export default class DetalleProducto extends Component {
                                         <h5 className="text-title text-uppercase text-muted mt-3 mb-2 ">
                                             Contenido: 
                                         </h5>
-                                        <h6 className="row">{contenido}</h6>
+                                        <h6 className="row"></h6>
                                     </div>
                                     <br/>
                                     {/*precios*/}
                                     <div className="card card-body">
                                         <h5>Precios: </h5>
                                         <form onSubmit={this.handleSubmit}>
-                                            <div className="radio">
+                                            {this.state.tipoPrecio.map(x => 
+                                            <div className="radio" onChange={this.selectionarUnico.bind(this)}>
+                                                <label>
+                                                    <input type="radio" value={x.CodigoTipoPrecio} 
+                                                            checked={this.state.selectedOption === x.CodigoTipoPrecio} 
+                                                            onChange={this.handleOptionChange} />
+                                                    {x.NombrePrecio} - {x.PrecioMonto}
+                                                </label>
+                                            </div>)}
+                                            {/* <div className="radio">
                                                 <label>
                                                     <input type="radio" value="option1" 
                                                             checked={this.state.selectedOption === 'option1'} 
@@ -131,7 +144,7 @@ export default class DetalleProducto extends Component {
                                                     Grande - {grande}
                                                 </label>
                                                 <br/>
-                                            </div>
+                                            </div> */}
                                             {/*cantidad de platos a carrito*/}
                                                 <h6> Cantidad: </h6>
                                                 <input type="int" name="cantidad"  className="col-md-2" onChange={this.handleOptionChange}></input>
