@@ -4,8 +4,8 @@ import InfoTarjetaUsuario from './Pagos/InfoTarjetaUsuario';
 import ConfirmacionUsuario from './Pagos/ConfirmacionUsuario';
 import MetodoPago from './Pagos/MetodoPago';
 import InfoCheque from './Pagos/InfoCheque';
-import Facebook from './Facebook';
 import GoogleLogin from './GoogleLogin';
+import DragDrop from './Login/DragDrop/index'
 import OrdenExitosa from './Pagos/OrdenExitosa';
 import OrdenCancelada from './Pagos/OrdenCancelada';
 
@@ -199,7 +199,7 @@ export default class Checkout extends Component {
                         <div>
                 <h2>Facebook Login</h2>   
                 <p>
-                    <FacebookLogin/>
+                    <DragDrop/>
                 </p>
             </div>
                         

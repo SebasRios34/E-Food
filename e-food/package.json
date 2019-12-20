@@ -18,6 +18,7 @@
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.0.7",
     "react-google-login-component": "^0.9.3",
+    "react-reorder": "^3.0.0-alpha.7",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "react-social-login": "^3.4.6",
