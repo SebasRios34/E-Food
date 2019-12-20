@@ -4,8 +4,8 @@ import InfoTarjetaUsuario from './Pagos/InfoTarjetaUsuario';
 import ConfirmacionUsuario from './Pagos/ConfirmacionUsuario';
 import MetodoPago from './Pagos/MetodoPago';
 import InfoCheque from './Pagos/InfoCheque';
-import Facebook from './Facebook';
-import GoogleLogin from './GoogleLogin';
+
+import FacebookLogin from './Login/FacebookLogin'
 
 
 
@@ -94,10 +94,12 @@ export default class Checkout extends Component {
                             values = {values}>
                             </InfoUsuario>
                         </div>
-                        <div class>
-                            <Facebook/>
-                            <GoogleLogin/>
-                        </div>
+                        <div>
+                <h2>Facebook Login</h2>   
+                <p>
+                    <FacebookLogin/>
+                </p>
+            </div>
                         
                         
                     </React.Fragment>
