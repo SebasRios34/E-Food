@@ -20,7 +20,7 @@ export default class dataNew extends Component{
             .then(res => {
                 res.data = JSON.parse(res.data);
                 const lineaComida = res.data;
-                this.setState({ lineaComida });
+                this.setState({ lineaComida: lineaComida });
                 console.table(lineaComida);
             })
         //this.setState({productos:obj.data});
@@ -32,7 +32,7 @@ export default class dataNew extends Component{
             .then(res => {
                 res.data = JSON.parse(res.data);
                 const procesadorPago = res.data;
-                this.setState({ procesadorPago });
+                this.setState({ procedorPago: procesadorPago });
                 console.table(procesadorPago);
             })
         //this.setState({productos:obj.data});
@@ -44,7 +44,7 @@ export default class dataNew extends Component{
             .then(res => {
                 res.data = JSON.parse(res.data);
                 const productos = res.data;
-                this.setState({ productos });
+                this.setState({ productos: productos });
                 console.table(productos);
             })
         //this.setState({productos:obj.data});
@@ -56,7 +56,7 @@ export default class dataNew extends Component{
             .then(res => {
                 res.data = JSON.parse(res.data);
                 const tiqueteDescuento = res.data;
-                this.setState({ tiqueteDescuento });
+                this.setState({ tiqueteDescuento: tiqueteDescuento });
                 console.table(tiqueteDescuento);
             })
         //this.setState({productos:obj.data});
@@ -68,7 +68,7 @@ export default class dataNew extends Component{
             .then(res => {
                 res.data = JSON.parse(res.data);
                 const tipoPrecio = res.data;
-                this.setState({ tipoPrecio });
+                this.setState({ tipoPrecio: tipoPrecio });
                 console.table(tipoPrecio);
             })
         //this.setState({productos:obj.data});
