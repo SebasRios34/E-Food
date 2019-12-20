@@ -7,16 +7,17 @@ import axios from 'axios';
 
 export default class Producto extends Component {
 
-
-        state = {
+    constructor(props) {
+        super(props);
+        this.state = {
             contenido: '',
             productos: [],
             detalleProducto: detalleProducto
         }
-        updateInputValue = this.updateInputValue.bind(this);
-        handleSubmit = this.handleSubmit.bind(this);
+        this.updateInputValue = this.updateInputValue.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-        
     updateInputValue(e) {
         this.setState({
             contenido: e.target.value
@@ -34,11 +35,8 @@ export default class Producto extends Component {
             .then(res => {
                 res.data = JSON.parse(res.data);
                 const productos = res.data;
-                this.state.productos.setState({ 
-                    productos 
-                });
+                this.setState({ productos });
                 console.table(productos);
-
             })
         //this.setState({productos:obj.data});
     }
@@ -85,7 +83,7 @@ export default class Producto extends Component {
                                 <div className="card-header" >{x.CodigoProducto} - {x.NombreProducto}</div>
 
                                 <div className="card-body">
-                                    <Link className="card-text" value={x.Contenido} onClick={this.manejoDetalle} to="/detalleProducto">{x.Contenido}</Link>
+                                    <Link className="card-text" value={x.Contenido} onClick={this.manejoDetalle(x.CodigoProducto)} to="/detalleProducto">{x.Contenido}</Link>
                                 </div>
 
                             </div>)}

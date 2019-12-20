@@ -52,6 +52,14 @@ export default class InfoUsuario extends Component {
                     defaultValue={values.direccionEnvio}
                     />
                     <br/>
+                    <TextField
+                    hintText="Ingrese su numero telefonico"
+                    floatingLabelText="Telefono"
+                    onChange={manejoCambio('telefono')}
+                    defaultValue ={values.telefono}>
+                    </TextField>
+                    <br/>
+                    <br/>
                     <RaisedButton
                     label="Continuar"
                     primary={true}
