@@ -52,9 +52,9 @@ export default class DetalleProducto extends Component {
         axios.get('https://localhost:44360/api/TipoPrecio/')
             .then(res => {
                 res.data = JSON.parse(res.data);
-                const productos = res.data;
-                this.setState({productos});
-                console.table(datajson);
+                const tipoPrecio = res.data;
+                this.setState({tipoPrecio});
+                console.table(tipoPrecio);
                 console.table(res.data);
             })
     }
