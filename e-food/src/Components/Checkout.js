@@ -20,6 +20,12 @@ export default class Checkout extends Component {
         numTarjeta:''
     }
 
+    inicio =()=>{
+        this.setState({
+            paso: 1
+        })
+    }
+
     //para moverse de un case a otro
     siguientePaso =()=>{
         const {paso} = this.state;
@@ -127,23 +133,28 @@ export default class Checkout extends Component {
             case 4: 
                 {/*en caso que escoja  cheques*/}
                 return(
-                    <div
-                    siguientePaso={this.siguientePaso}
-                    manejoCambio ={this.manejoCambio}
-                    devolverseDeCheque = {this.devolverseDeCheque}
-                    values = {values}>
-                        <InfoCheque/>
+                    <div>
+                    <h3>Ingrese los datos de su cheque</h3>
+                        <hr/>
+                        <InfoCheque
+                        siguientePaso={this.siguientePaso}
+                        manejoCambio ={this.manejoCambio}
+                        devolverseDeCheque = {this.devolverseDeCheque}
+                        values = {values}/>
                         
                     </div>
                 )
             case 5:
                 {/*confirmacion del usuario */}
                 return(
-                    <div
-                    siguientePaso={this.siguientePaso}
-                    manejoCambio ={this.manejoCambio}
-                    values = {values}>
-                        <ConfirmacionUsuario/>
+                    <div>
+                        <h3>Confirmacion de datos</h3>
+                        <hr/>
+                        <ConfirmacionUsuario
+                        siguientePaso={this.siguientePaso}
+                        manejoCambio ={this.manejoCambio}
+                        inicio = {this.inicio}
+                        values = {values}/>
                     </div>
                 )
         }
