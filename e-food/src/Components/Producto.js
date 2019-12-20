@@ -7,17 +7,16 @@ import axios from 'axios';
 
 export default class Producto extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
+
+        state = {
             contenido: '',
             productos: [],
             detalleProducto: detalleProducto
         }
-        this.updateInputValue = this.updateInputValue.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+        updateInputValue = this.updateInputValue.bind(this);
+        handleSubmit = this.handleSubmit.bind(this);
 
+        
     updateInputValue(e) {
         this.setState({
             contenido: e.target.value
@@ -35,8 +34,11 @@ export default class Producto extends Component {
             .then(res => {
                 res.data = JSON.parse(res.data);
                 const productos = res.data;
-                this.setState({ productos });
+                this.state.productos.setState({ 
+                    productos 
+                });
                 console.table(productos);
+
             })
         //this.setState({productos:obj.data});
     }
