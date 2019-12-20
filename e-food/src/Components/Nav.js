@@ -14,7 +14,7 @@ export default class Nav extends Component {
                                 </h3>
                         </span>
                         <span className="navbar-brand lm-auto h1">
-                                <Link to='/productos' className="nav-link">productos
+                                <Link to='/productos' className="nav-link">Productos
                                 </Link>
                         </span>
                     </nav>
