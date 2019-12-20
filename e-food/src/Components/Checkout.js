@@ -18,7 +18,7 @@ export default class Checkout extends Component {
         apellidos: '',
         telefono:'',
         direccionEnvio:'',
-        metodoPago:'',
+        metodoPago:'Efectivo',
         tipo:'',
         numPago:'',
         cuenta:'',
@@ -125,6 +125,7 @@ export default class Checkout extends Component {
                     booleano:variable
                 })
         }
+        this.MetodoPago();
     }
     
     validarCheque = e =>{
@@ -147,6 +148,23 @@ export default class Checkout extends Component {
             variable = true
             this.setState({
                 booleano:variable
+            })
+        }
+        this.MetodoPago();
+    }
+
+    MetodoPago=()=>{
+        if(this.state.tipo.length > 0 && this.state.numPago.length > 0){
+            this.setState({
+                metodoPago:'tarjetas'
+            })
+        }else if(this.state.numPago.length > 0 && this.state.cuenta.length > 0){
+            this.setState({
+                metodoPago:'cheque'
+            })
+        }else{
+            this.setState({
+                metodoPago:'efectivo'
             })
         }
     }
@@ -196,6 +214,7 @@ export default class Checkout extends Component {
                         saltarACheque = {this.saltarACheque}
                         devolverseDeCheque = {this.devolverseDeCheque}
                         confirmacion = {this.confirmacion}
+                        metodoPago = {this.MetodoPago}
                         values = {values}/>
 
                     </div>

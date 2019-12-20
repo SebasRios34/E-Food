@@ -12,6 +12,7 @@ export default class ConfirmacionUsuario extends Component {
 
         const { values: {nombre, apellidos, telefono, direccionEnvio, metodoPago,
         tipo, numPago, cuenta, total }} = this.props;
+
         return (
             <React.Fragment>
                 <MuiThemeProvider>

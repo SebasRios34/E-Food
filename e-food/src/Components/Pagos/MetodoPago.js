@@ -25,9 +25,18 @@ export default class MetodoPago extends Component {
         this.props.confirmacion();
     }
 
+    // MetodoPago=(e)=>{
+    //     e.preventDefault();
+    //     if(button.name === "tarjeta"){
+    //         this.setState({
+    //             metodoPago:'tarjetas'
+    //         })
+    //     }
+    // }
+
     render() {
 
-        const { values, manejoCambio } = this.props;
+        const { values, manejoCambio, metodoPago } = this.props;
         
         return (
             <React.Fragment>
@@ -38,6 +47,7 @@ export default class MetodoPago extends Component {
                     </h3>
                     <hr/>
                         <button
+                        //onChange={manejoCambio('metodoPago')}
                         onClick={this.confirmacion}>
                             Efectivo
                         </button>
