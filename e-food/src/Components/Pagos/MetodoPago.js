@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import RaisedButton from 'material-ui/RaisedButton';
+import { MuiThemeProvider } from 'material-ui/styles';
 
 export default class MetodoPago extends Component {
     
@@ -29,6 +31,7 @@ export default class MetodoPago extends Component {
         
         return (
             <React.Fragment>
+                <MuiThemeProvider>
                 <div>
                     <h3>
                         Escoja un metodo de pago:
@@ -43,7 +46,18 @@ export default class MetodoPago extends Component {
                     <button onClick={this.continuar}>
                         Tarjeta
                     </button>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <RaisedButton
+                        label="Regresar"
+                        primary={false}
+                        //style={StyleSheet.button}
+                        onClick={this.back}>
+                        </RaisedButton>
                 </div>
+                </MuiThemeProvider>
             </React.Fragment>
         )
     }
