@@ -5,6 +5,7 @@ import ConfirmacionUsuario from './Pagos/ConfirmacionUsuario';
 import MetodoPago from './Pagos/MetodoPago';
 import InfoCheque from './Pagos/InfoCheque';
 import Facebook from './Facebook';
+import GoogleLogin from './GoogleLogin';
 
 
 
@@ -153,7 +154,9 @@ export default class Checkout extends Component {
                         </div>
                         <div class>
                             <Facebook/>
+                            <GoogleLogin/>
                         </div>
+                        
                         
                     </React.Fragment>
                 )
