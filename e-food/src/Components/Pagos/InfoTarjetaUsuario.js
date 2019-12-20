@@ -11,11 +11,12 @@ export default class InfoTarjetaUsuario extends Component {
             tipoTarjeta:'',
             numTarjeta:'',
             mesExpiracion:'',
-            anioExpiracion:''
+            anioExpiracion:'',
+            booleano:true
         };
         handleChange = this.handleChange.bind(this);
         
-    
+        
 
 
     handleChange(event){
@@ -43,28 +44,55 @@ export default class InfoTarjetaUsuario extends Component {
 
     
     validarTarjeta = e =>{
+        var variable = false;
         e.preventDefault();
         if(this.state.tipoTarjeta === 'visa' || this.state.tipoTarjeta ==='Visa' || this.state.tipoTarjeta === 'VISA'){
-            
             if(this.state.numTarjeta.startsWith('1')){
                 console.log('codigo de tarjeta visa, todo bien ')
+                this.setState({
+                    booleano:variable
+                })
+                
             }else if(this.state.numTarjeta.startsWith('2')){
                 console.log('codigo de tarjeta mastercard, verificar numero o tipo de tarjeta')
+                variable = true;
+                this.setState({
+                    booleano:variable
+                })
             }else{
                 console.log('codigo invalido, favor verificar')
+                variable = true;
+                this.setState({
+                    booleano:variable
+                })
             }
         }else if(this.state.tipoTarjeta === 'mastercard' || this.state.tipoTarjeta ==='Mastercard' || this.state.tipoTarjeta === 'MASTERCARD'){
             if(this.state.numTarjeta.startsWith('2')){
                 console.log('codigo de mastercard, todo bien')
+                this.setState({
+                    booleano:variable
+                })
             }else if(this.state.numTarjeta.startsWith('1')){
                 console.log('codigo de visa, favor verificar numero o tipo de tarjeta')
+                variable = true;
+                this.setState({
+                    booleano:variable
+                })
             }else{
                 console.log('codigo invalido, favor verificar de nuevo')
+                variable = true;
+                this.setState({
+                    booleano:variable
+                })
             }
         }else{
             console.log('tipo de tarjeta invalido')
+            variable = true;
+                this.setState({
+                    booleano:variable
+                })
         }
-
+        this.isEnabled(variable);
     }
 
     handleSubmit(event) {
@@ -77,11 +105,21 @@ export default class InfoTarjetaUsuario extends Component {
         }
         console.log(arreglo);
     }
+
+    isEnabled =(variable)=>{
+        if(variable === true ){
+            console.log('llegue al booleano');
+            console.log(variable);
+            return false;
+        }else{
+            console.log('llegue a isEnabled pero soy false')
+            return true;
+        }
         
+    }
+
     
     render() {
-
-        const { values, manejoCambio } = this.props;
 
         return (
             <MuiThemeProvider>
@@ -143,8 +181,10 @@ export default class InfoTarjetaUsuario extends Component {
                         Procesar</button>
 
                         <RaisedButton 
+                        name="siguiente"
                         label ="Siguiente"
                         primary={true}
+                        disabled={this.state.booleano}
                         onClick={this.saltar}>
 
                         </RaisedButton>
