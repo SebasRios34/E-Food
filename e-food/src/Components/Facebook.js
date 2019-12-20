@@ -6,8 +6,7 @@ export default class Facebook extends Component {
     isLoggedIn: false,
     userID: "",
     name: "",
-    email: "",
-    picture: ""
+    email: ""
   };
 
   responseFacebook = response => {
@@ -17,8 +16,7 @@ export default class Facebook extends Component {
       isLoggedIn: true,
       userID: response.userID,
       name: response.name,
-      email: response.email,
-      picture: response.picture.data.url
+      email: response.email
     });
   };
 

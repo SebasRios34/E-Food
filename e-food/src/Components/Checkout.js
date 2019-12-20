@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import InfoUsuario from './Pagos/InfoUsuario';
 import InfoTarjetaUsuario from './Pagos/InfoTarjetaUsuario';
 import ConfirmacionUsuario from './Pagos/ConfirmacionUsuario';
-import Facebook from './Facebook';
 import MetodoPago from './Pagos/MetodoPago';
 import InfoCheque from './Pagos/InfoCheque';
+import Facebook from './Facebook';
 
 
 
