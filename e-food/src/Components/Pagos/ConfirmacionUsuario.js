@@ -8,6 +8,16 @@ export default class ConfirmacionUsuario extends Component {
         e.preventDefault();
         this.props.inicio();
     }
+
+    saltarDos = (e)=>{
+        e.preventDefault();
+        this.props.saltarACheque();
+    }
+
+    siguientePaso = (e)=>{
+        e.preventDefault();
+        this.props.siguientePaso();
+    }
     render() {
 
         const { values: {nombre, apellidos, telefono, direccionEnvio, metodoPago,
@@ -57,10 +67,15 @@ export default class ConfirmacionUsuario extends Component {
                         />
                     </List>
                     <RaisedButton
-                    name="inicio"
-                    label ="Inicio"
+                    name="Cancelar"
+                    label ="Cancelar"
+                    primary={false}
+                    onClick={this.saltarDos}/>
+                    <RaisedButton
+                    name="siguiente"
+                    label ="Siguiente"
                     primary={true}
-                    onClick={this.inicio}/>
+                    onClick={this.siguientePaso}/>
                 </MuiThemeProvider>
             </React.Fragment>
         )

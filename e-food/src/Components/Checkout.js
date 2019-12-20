@@ -6,6 +6,8 @@ import MetodoPago from './Pagos/MetodoPago';
 import InfoCheque from './Pagos/InfoCheque';
 import Facebook from './Facebook';
 import GoogleLogin from './GoogleLogin';
+import OrdenExitosa from './Pagos/OrdenExitosa';
+import OrdenCancelada from './Pagos/OrdenCancelada';
 
 
 
@@ -259,8 +261,27 @@ export default class Checkout extends Component {
                         <ConfirmacionUsuario
                         siguientePaso={this.siguientePaso}
                         manejoCambio ={this.manejoCambio}
+                        saltarACheque ={this.saltarACheque}
                         inicio = {this.inicio}
                         values = {values}/>
+                    </div>
+                )
+            case 6:
+                {/*pantalla de success */}
+                return(
+                    <div>
+                        <h3>¡Orden existosa!</h3>
+                        <hr/>
+                        <OrdenExitosa/>
+                    </div>
+                )
+            case 7:
+                {/*pantalla de cancelar */}
+                return(
+                    <div>
+                        <h3>¡Orden Cancelada!</h3>
+                        <hr/>
+                        <OrdenCancelada/>
                     </div>
                 )
         }
