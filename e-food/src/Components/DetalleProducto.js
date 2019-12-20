@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
-import {ContextConsumer} from '../Context';
-import {Link } from 'react-router-dom';
+import { ContextConsumer } from '../Context';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import datajson from '../../src/datajson.json';
 
 
 
 export default class DetalleProducto extends Component {
-    
+
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             radio: 'option1',
             cantidad: "",
             productos: [],
             tipoPrecio: []
-            
+
         };
 
         this.handleOptionChange = this.handleOptionChange.bind(this);
@@ -27,7 +27,7 @@ export default class DetalleProducto extends Component {
         console.log('Valor del radio: ' + this.state.radio);
         console.log('valor de cantidad: ' + this.state.cantidad);
 
-        let arreglo ={
+        let arreglo = {
             'radio': this.state.radio,
             'cantidad': this.state.cantidad
         }
@@ -35,16 +35,20 @@ export default class DetalleProducto extends Component {
     }
 
     handleOptionChange(event) {
-        
+
         console.log(event.target);
 
-        const {name, value} = event.target;
+        const { name, value } = event.target;
         this.setState({
             selectedOption: event.target.value,
-            [name]:value
+            [name]: value
         });
         console.log(event.target.value);
-        
+
+    }
+
+    selectionarUnico(event) {
+        console.log(event.target.value);
     }
 
     async getTipoPrecio() {
@@ -53,7 +57,7 @@ export default class DetalleProducto extends Component {
             .then(res => {
                 res.data = JSON.parse(res.data);
                 const tipoPrecio = res.data;
-                this.setState({tipoPrecio});
+                this.setState({ tipoPrecio });
                 console.table(tipoPrecio);
                 console.table(res.data);
             })
@@ -65,30 +69,53 @@ export default class DetalleProducto extends Component {
             .then(res => {
                 res.data = JSON.parse(res.data);
                 const productos = res.data;
-                this.setState({productos});
+                this.setState({ productos });
                 console.table(res.data);
                 console.table(productos);
             })
     }
 
+    getItem = (id) => {
+        const producto = this.state.productos.find(item => item.CodigoProducto === id);
+        return producto;
+    }
+
+    manejoDetalle = id => {
+        const producto = this.getItem(id);
+        this.setState(() => {
+            return { DetalleProducto: producto }
+        })
+    };
+
+    setProductos = () => {
+        const temporal = [];
+        this.state.productos.forEach(item => {
+            const mostrarItem = { ...item };
+            temporal = { ...temporal, mostrarItem };
+        })
+        this.setState(() => {
+            return { productos: temporal }
+        })
+    }
+
     componentDidMount() {
         this.getProductos();
         this.getTipoPrecio();
+        this.setProductos();
     }
-    
+
 
     render() {
         return (
             <ContextConsumer>
-                {(value) =>{
-                    const {id, nombreProducto, contenido, cant} = value.detalleProducto;
-                    const {pequenio, mediano, grande} = value.precios;
+                {(value) => {
+                    const { id, contenido } = this.props
                     return (
                         <div className="container py-5">
                             <div className="row">
                                 <div className="col-10 mx-auto text-center">
                                     <h2>
-                                        Producto: {nombreProducto}
+                                        Producto: {this.state.productos.NombreProducto}
                                     </h2>
                                 </div>
                             </div>
@@ -98,16 +125,25 @@ export default class DetalleProducto extends Component {
                                     {/*esto deberia de tener una imagen aqui */}
                                     <div>
                                         <h5 className="text-title text-uppercase text-muted mt-3 mb-2 ">
-                                            Contenido: 
+                                            Contenido: {this.detalleProducto}
                                         </h5>
-                                        <h6 className="row">{contenido}</h6>
+                                        <h6 className="row"></h6>
                                     </div>
-                                    <br/>
+                                    <br />
                                     {/*precios*/}
                                     <div className="card card-body">
                                         <h5>Precios: </h5>
                                         <form onSubmit={this.handleSubmit}>
-                                            <div className="radio">
+                                            {this.state.tipoPrecio.map(x =>
+                                                <div className="radio" onChange={this.selectionarUnico.bind(this)}>
+                                                    <label>
+                                                        <input type="radio" value={x.CodigoTipoPrecio}
+                                                            checked={this.state.selectedOption === x.CodigoTipoPrecio}
+                                                            onChange={this.handleOptionChange} />
+                                                        {x.NombrePrecio} - {x.PrecioMonto}
+                                                    </label>
+                                                </div>)}
+                                            {/* <div className="radio">
                                                 <label>
                                                     <input type="radio" value="option1" 
                                                             checked={this.state.selectedOption === 'option1'} 
@@ -131,11 +167,11 @@ export default class DetalleProducto extends Component {
                                                     Grande - {grande}
                                                 </label>
                                                 <br/>
-                                            </div>
+                                            </div> */}
                                             {/*cantidad de platos a carrito*/}
-                                                <h6> Cantidad: </h6>
-                                                <input type="int" name="cantidad"  className="col-md-2" onChange={this.handleOptionChange}></input>
-                                                <button type="submit" 
+                                            <h6> Cantidad: </h6>
+                                            <input type="int" name="cantidad" className="col-md-2" onChange={this.handleOptionChange}></input>
+                                            <button type="submit"
                                                 onClick={() => {
                                                     value.agregarAlCarrito(id);
                                                 }}>Agregar</button>

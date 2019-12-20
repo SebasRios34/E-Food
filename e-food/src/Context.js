@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {arrProductos, detalleProducto, precios} from './data';
+import axios from 'axios';
 
 
 const Productos = React.createContext();
@@ -35,8 +36,20 @@ class ContextProvider extends Component {
         })
     };
 
+    async getProductos() {
+        //const obj = await 
+        axios.get('https://localhost:44360/api/Producto/')
+            .then(res => {
+                res.data = JSON.parse(res.data);
+                const productos = res.data;
+                this.setState({productos});
+                console.table(res.data);
+                console.table(productos);
+            })
+    }
+
     getItem = (id) => {
-        const producto = this.state.productos.find(item => item.id === id);
+        const producto = this.state.productos.find(item => item.CodigoProducto === id);
         return producto;
     }
 

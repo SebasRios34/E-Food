@@ -1,14 +1,33 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import DetalleProducto from './DetalleProducto';
 import { ContextConsumer } from '../Context';
 import axios from 'axios';
 
 export default class Producto extends Component {
 
-    state = {
-        productos: []
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            contenido: '',
+            productos: [],
+            detalleProducto: detalleProducto
+        }
+        this.updateInputValue = this.updateInputValue.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    updateInputValue(e) {
+        this.setState({
+            contenido: e.target.value
+        });
+
+    }
+
+    handleSubmit() {
+        console.log('Your input value is: ' + this.state.contenido);
+    }
 
     async getProductos() {
         //const obj = await 
@@ -17,14 +36,37 @@ export default class Producto extends Component {
                 res.data = JSON.parse(res.data);
                 const productos = res.data;
                 this.setState({ productos });
-                console.table(res.data);
                 console.table(productos);
             })
         //this.setState({productos:obj.data});
     }
 
+    getItem = (id) => {
+        const producto = this.state.productos.find(item => item.CodigoProducto === id);
+        return producto;
+    }
+
+    manejoDetalle = id => {
+        const producto = this.getItem(id);
+        this.setState(() => {
+            return { DetalleProducto: producto }
+        })
+    };
+
+    setProductos = () => {
+        const temporal = [];
+        this.state.productos.forEach(item => {
+            const mostrarItem = { ...item };
+            temporal = { ...temporal, mostrarItem };
+        })
+        this.setState(() => {
+            return { productos: temporal }
+        })
+    }
+
     componentDidMount() {
         this.getProductos();
+        this.setProductos();
     }
 
     render() {
@@ -38,10 +80,10 @@ export default class Producto extends Component {
                         {this.state.productos.map(x =>
                             <div className="col-md-4">
 
-                                <div className="card-header">{x.CodigoProducto} - {x.NombreProducto}</div>
+                                <div className="card-header" >{x.CodigoProducto} - {x.NombreProducto}</div>
 
                                 <div className="card-body">
-                                    <Link className="card-text" to="/detalleProducto">{x.Contenido}</Link>
+                                    <Link className="card-text" value={x.Contenido} onClick={this.manejoDetalle} to="/detalleProducto">{x.Contenido}</Link>
                                 </div>
 
                             </div>)}
@@ -94,6 +136,18 @@ export default class Producto extends Component {
 //     </div>)}
 // </div>
 //     )
+
+const detalleProducto = {
+    id: 1,
+    nombreProducto: "combo#1",
+    contenido: "papas medianas, sandwich de pollo, tocineta, tomate y queso" +
+        " refresco mediano",
+    enCarrito: false,
+    cant: 0,
+    count: 0,
+    price: 1100,
+    total: 0
+}
 
 Producto.propType = {
     producto: PropTypes.shape({
