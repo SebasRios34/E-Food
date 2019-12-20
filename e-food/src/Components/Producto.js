@@ -41,17 +41,17 @@ export default class Producto extends Component {
         //this.setState({productos:obj.data});
     }
 
-    getItem = (id) => {
-        const producto = this.state.productos.find(item => item.CodigoProducto === id);
-        return producto;
-    }
+    // getItem = (id) => {
+    //     const producto = this.state.productos.find(item => item.CodigoProducto === id);
+    //     return producto;
+    // }
 
-    manejoDetalle = id => {
-        const producto = this.getItem(id);
-        this.setState(() => {
-            return { DetalleProducto: producto }
-        })
-    };
+    // manejoDetalle = id => {
+    //     const producto = this.getItem(id);
+    //     this.setState(() => {
+    //         return { DetalleProducto: producto }
+    //     })
+    // };
 
     setProductos = () => {
         const temporal = [];
@@ -83,7 +83,7 @@ export default class Producto extends Component {
                                 <div className="card-header" >{x.CodigoProducto} - {x.NombreProducto}</div>
 
                                 <div className="card-body">
-                                    <Link className="card-text" value={x.Contenido} onClick={this.manejoDetalle(x.CodigoProducto)} to="/detalleProducto">{x.Contenido}</Link>
+                                    <Link className="card-text" value={x.Contenido} to="/detalleProducto">{x.Contenido}</Link>
                                 </div>
 
                             </div>)}
