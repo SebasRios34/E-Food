@@ -25,7 +25,8 @@ export default class Checkout extends Component {
         numPago:'',
         cuenta:'',
         total:'',
-        booleano: true
+        booleano: true,
+        cupo:''
     }
 
     inicio =()=>{
@@ -175,11 +176,11 @@ export default class Checkout extends Component {
 
         const {paso} = this.state;
         const {nombre, apellidos, telefono, direccionEnvio, metodoPago,
-        tipo, numPago, cuenta, total, booleano
+        tipo, numPago, cuenta, total, booleano, cupon
         } = this.state;
 
         const values ={nombre, apellidos, telefono, direccionEnvio, metodoPago,
-            tipo, numPago, cuenta, total, booleano};
+            tipo, numPago, cuenta, total, booleano, cupon};
 
 
         switch(paso){

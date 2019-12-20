@@ -14,6 +14,11 @@ export default class InfoUsuario extends Component {
     e.preventDefault();
     this.props.siguientePaso();
     }
+
+    validaCupon=(e)=>{
+        e.preventDefault();
+        {/*aqui va el metodo para validar si el cupon tiene validez o no*/}
+    }
     
     render() {
 
@@ -53,13 +58,19 @@ export default class InfoUsuario extends Component {
                     />
                     <br/>
                     <TextField
-                    hintText="Ingrese su numero telefonico"
-                    floatingLabelText="Telefono"
-                    onChange={manejoCambio('telefono')}
-                    defaultValue ={values.telefono}>
+                    hintText="Ingrese su numero de cupon"
+                    floatingLabelText="Cupon"
+                    onChange={manejoCambio('cupon')}
+                    defaultValue ={values.cupon}>
                     </TextField>
                     <br/>
                     <br/>
+                    <RaisedButton
+                    label="Continuar"
+                    primary={false}
+                    //style={StyleSheet.button}
+                    onClick={this.validaCupon}>
+                    </RaisedButton>
                     <RaisedButton
                     label="Continuar"
                     primary={true}
