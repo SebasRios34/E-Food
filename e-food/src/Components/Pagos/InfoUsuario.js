@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField';
 import { MuiThemeProvider } from 'material-ui/styles';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import RaisedButton from 'material-ui/RaisedButton';
+import Facebook from '../Login/FacebookLogin/index';
 //import moduleName from 'module';
 
 
@@ -51,15 +52,19 @@ export default class InfoUsuario extends Component {
                     defaultValue={values.direccionEnvio}
                     />
                     <br/>
-
-
                     <RaisedButton
                     label="Continuar"
                     primary={true}
                     //style={StyleSheet.button}
                     onClick={this.continuar}>
                     </RaisedButton>
-                    
+                    <hr/>
+                    <div>
+                        <h2>Facebook Login</h2>   
+                            <p>
+                                <Facebook/>
+                            </p>
+                    </div>
                 </React.Fragment>
             </MuiThemeProvider>
         )

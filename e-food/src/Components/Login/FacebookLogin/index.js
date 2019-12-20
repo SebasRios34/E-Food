@@ -19,10 +19,10 @@ class FacebookLogin extends Component{
         
         window.fbAsyncInit = function() {
             window.FB.init({
-              appId      : config.facebook,
-              cookie     : true,  // enable cookies to allow the server to access the session
-              xfbml      : true,  // parse social plugins on this page
-              version    : 'v2.8' // use version 2.1
+                appId      : config.facebook,
+                cookie     : true,  // enable cookies to allow the server to access the session
+                xfbml      : true,  // parse social plugins on this page
+                version    : 'v2.8' // use version 2.1
             });
         };
     }
@@ -36,7 +36,7 @@ class FacebookLogin extends Component{
         window.FB.login(
             function(resp){
                 this.statusChangeCallback(resp);
-            }.bind(this),{ scope : 'email' });
+            }.bind(this),{ scope : 'email'});
     }
     
     checkLoginState() {
@@ -76,6 +76,9 @@ class FacebookLogin extends Component{
     }
 
     render(){
+
+        const {values, manejoCambio} = this.props
+        
         return(
             <img src={facebook} title="facebook login" alt="facebook" onClick={ () => this.facebookLogin() } />
         )

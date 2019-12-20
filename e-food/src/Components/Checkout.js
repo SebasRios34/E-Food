@@ -4,9 +4,8 @@ import InfoTarjetaUsuario from './Pagos/InfoTarjetaUsuario';
 import ConfirmacionUsuario from './Pagos/ConfirmacionUsuario';
 import MetodoPago from './Pagos/MetodoPago';
 import InfoCheque from './Pagos/InfoCheque';
-import GoogleLogin from './GoogleLogin';
-import Facebook from './Login/FacebookLogin/index';
-import DragDrop from './Login/DragDrop/index'
+//import GoogleLogin from './GoogleLogin';
+//import DragDrop from './Login/DragDrop/index'
 import OrdenExitosa from './Pagos/OrdenExitosa';
 import OrdenCancelada from './Pagos/OrdenCancelada';
 
@@ -196,15 +195,8 @@ export default class Checkout extends Component {
                             manejoCambio ={this.manejoCambio}
                             values = {values}>
                             </InfoUsuario>
+
                         </div>
-                        <div>
-                <h2>Facebook Login</h2>   
-                <p>
-                    <Facebook/>
-                </p>
-            </div>
-                        
-                        
                     </React.Fragment>
                 )
             case 2:
