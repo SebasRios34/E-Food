@@ -74,16 +74,16 @@
                 for (var i = 0; i < arrayUsuariosAdmin.length; i++) {
                     if ((usuarioNombre == $(arrayUsuariosAdmin).eq(i).attr('UsuarioNombre')) && 1 == $(arrayUsuariosAdmin).eq(i).attr('RolID')) {
                         alert(usuarioNombre + " ha entrado como usuario administrativo");
-                        $(location).attr('href', 'http://127.0.0.1:5501/ProyectoWeb/E-Food/HTML/MenuPrincipal.html')
+                        $(location).attr('href', 'http://127.0.0.1:5502/ProyectoWeb/E-Food/HTML/MenuPrincipal.html')
                     } else if ((usuarioNombre == $(arrayUsuariosAdmin).eq(i).attr('UsuarioNombre')) && 2 == $(arrayUsuariosAdmin).eq(i).attr('RolID')) {
                         alert(usuarioNombre + " ha entrado como usuario de seguridad");
-                        $(location).attr('href', 'http://127.0.0.1:5501/ProyectoWeb/E-Food/HTML/MenuPrincipalSeguridad.html')
+                        $(location).attr('href', 'http://127.0.0.1:5502/ProyectoWeb/E-Food/HTML/MenuPrincipalSeguridad.html')
                     } else if ((usuarioNombre == $(arrayUsuariosAdmin).eq(i).attr('UsuarioNombre')) && 3 == $(arrayUsuariosAdmin).eq(i).attr('RolID')) {
                         alert(usuarioNombre + " ha entrado como usuario de mantenimiento");
-                        $(location).attr('href', 'http://127.0.0.1:5501/ProyectoWeb/E-Food/HTML/MenuPrincipal.html')
+                        $(location).attr('href', 'http://127.0.0.1:5502/ProyectoWeb/E-Food/HTML/MenuPrincipal.html')
                     } else if ((usuarioNombre == $(arrayUsuariosAdmin).eq(i).attr('UsuarioNombre')) && 4 == $(arrayUsuariosAdmin).eq(i).attr('RolID')) {
                         alert(usuarioNombre + " ha entrado como usuario de consulta");
-                        $(location).attr('href', 'http://127.0.0.1:5501/ProyectoWeb/E-Food/HTML/MenuPrincipalConsulta.html')
+                        $(location).attr('href', 'http://127.0.0.1:5502/ProyectoWeb/E-Food/HTML/MenuPrincipalConsulta.html')
                     }
                 }
             }
