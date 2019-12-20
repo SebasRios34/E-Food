@@ -12,7 +12,7 @@ export default class Producto extends Component {
 
     async getProductos() {
     //const obj = await 
-        axios.get('https://localhost:44360/api/Producto/')
+        await axios.get('https://localhost:44360/api/Producto/')
             .then(res => {
                 res.data = JSON.parse(res.data);
                 const productos = res.data;
@@ -20,7 +20,7 @@ export default class Producto extends Component {
                 console.table(res.data);
                 console.table(productos);
             })
-           // this.setState({productos:obj.data});
+           //this.setState({productos:obj.data});
     }
 
     componentDidMount() {
