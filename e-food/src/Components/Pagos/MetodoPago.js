@@ -48,6 +48,9 @@ export default class MetodoPago extends Component {
                     </button>
                     <br/>
                     <br/>
+                    <button onClick={this.saltarACheque}>
+                        Cheque
+                    </button>
                     <br/>
                     <br/>
                     <RaisedButton
