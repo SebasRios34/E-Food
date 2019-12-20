@@ -127,6 +127,30 @@ export default class Checkout extends Component {
         }
     }
     
+    validarCheque = e =>{
+        var variable = false;
+        if(this.state.numPago.length > 0){
+            if(this.state.cuenta.length > 0){
+                alert('se ha procesado con satisfaccion');
+                this.setState({
+                    booleano:variable
+                })
+            }else{
+                alert('el numero de cuenta es requerido');
+                variable = true
+                this.setState({
+                    booleano:variable
+                })
+            }
+        }else{
+            alert('el numero de cheque es requerido');
+            variable = true
+            this.setState({
+                booleano:variable
+            })
+        }
+    }
+
     render() {
 
         const {paso} = this.state;
@@ -202,6 +226,7 @@ export default class Checkout extends Component {
                         siguientePaso={this.siguientePaso}
                         manejoCambio ={this.manejoCambio}
                         devolverseDeCheque = {this.devolverseDeCheque}
+                        validarCheque = {this.validarCheque}
                         values = {values}/>
                         
                     </div>
