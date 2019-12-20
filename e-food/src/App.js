@@ -10,6 +10,7 @@ import Productos from './Components/Productos';
 import Checkout from './Components/Checkout';
 import DetalleProducto from './Components/DetalleProducto';
 import './App.css';
+import Facebook from './Components/Facebook'
 
 
 function App() {

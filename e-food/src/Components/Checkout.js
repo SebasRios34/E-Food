@@ -10,6 +10,7 @@ import InfoCheque from './Pagos/InfoCheque';
 
 export default class Checkout extends Component {
     
+    
     state ={
         paso: 1,
         nombre: '',
