@@ -37,6 +37,10 @@ export default class Producto extends Component {
                 res.data = JSON.parse(res.data);
                 const productos = res.data;
                 this.setState({ productos });
+<<<<<<< HEAD
+=======
+                console.table(productos);
+>>>>>>> parent of 6d83ca6... intento de llenar productos con datos del api
             })
         //this.setState({productos:obj.data});
     }
