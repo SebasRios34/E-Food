@@ -39,7 +39,7 @@ export default function ItemCarrito({item, value}) {
             <div className="col-10 mx-auto col-lg-2">
                 <span className="btn btn-green mx-1" onClick={
                     ()=>{
-                        removeItem(id);
+                        removeItem();
                     }
                 }> eliminar</span>
             </div>

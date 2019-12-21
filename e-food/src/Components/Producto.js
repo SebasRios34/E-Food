@@ -81,7 +81,7 @@ export default class Producto extends Component {
                             <div className="col-md-4">
 
                                 <div className="card-header" >{x.CodigoProducto} - {x.NombreProducto}</div>
-                                
+
                                 <div className="card-body">
                                     <Link className="card-text" value={x.Contenido} to="/detalleProducto">{x.Contenido}</Link>
                                 </div>
@@ -90,6 +90,30 @@ export default class Producto extends Component {
                     </div>
                 </div>
             </div>
+            // <ContextConsumer>
+            //     {(value) => (
+            //         <div className="img-container p-5"
+            //             onClick={() =>
+            //                 value.manejoDetalle(id)}
+            //         >
+            //             <Link to="/detalleProducto"><p>{contenido}</p></Link>
+            //             <button classsName="cart-btn"
+            //                 disabled=
+            //                 {enCarrito ? true : false} onClick={() => {
+            //                     value.agregarAlCarrito(id)
+            //                 }}>
+            //                 {enCarrito ?
+            //                     (<p ClassName="text-capitaliza mb-0 "
+            //                         disabled>
+            //                         en el carrito
+            //                     </p>) :
+            //                     (<i className="fas fa-cart-plus"></i>)}
+            //                 Agregar
+            //                 </button>
+            //         </div>
+            //     )}
+
+            // </ContextConsumer>
         )
     }
 }

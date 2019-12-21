@@ -104,7 +104,7 @@ export default class DetalleProducto extends Component {
         return (
             <ContextConsumer>
                 {(value) => {
-                    const { id, contenido } = value.detalleProducto;
+                    const { id, CodigoProducto, contenido } = value.detalleProducto;
                     return (
                         <div className="container py-5">
                             <div className="row">
@@ -129,21 +129,12 @@ export default class DetalleProducto extends Component {
                                     <div className="card card-body">
                                         <h5>Precios: </h5>
                                         <form onSubmit={this.handleSubmit}>
-                                            {this.state.tipoPrecio.map(x =>
-                                                <div className="radio">
-                                                    <label>
-                                                        <input type="radio" value={x.CodigoTipoPrecio}
-                                                            checked={this.state.selectedOption === x.CodigoTipoPrecio}
-                                                            onChange={this.handleOptionChange} />
-                                                        {x.NombrePrecio} - {x.PrecioMonto}
-                                                    </label>
-                                                </div>)}
-                                            {/* <div className="radio">
+                                            <div className="radio">
                                                 <label>
                                                     <input type="radio" value="option1" 
                                                             checked={this.state.selectedOption === 'option1'} 
                                                             onChange={this.handleOptionChange} />
-                                                    Pequeño - {pequenio}
+                                                    Pequeño - 1000
                                                 </label>
                                             </div>
                                             <div className="radio">
@@ -151,7 +142,7 @@ export default class DetalleProducto extends Component {
                                                     <input type="radio" value="option2" 
                                                             checked={this.state.selectedOption === 'option2'} 
                                                             onChange={this.handleOptionChange} />
-                                                        Mediano - {mediano}
+                                                        Mediano - 2000
                                                 </label>
                                             </div>
                                             <div className="radio">
@@ -159,16 +150,16 @@ export default class DetalleProducto extends Component {
                                                     <input type="radio" value="option3" 
                                                             checked={this.state.selectedOption === 'option3'} 
                                                             onChange={this.handleOptionChange} />
-                                                    Grande - {grande}
+                                                    Grande - 3000
                                                 </label>
                                                 <br/>
                                             </div> */}
                                             {/*cantidad de platos a carrito*/}
-                                            {/* <h6> Cantidad: </h6>
-                                            <input type="int" name="cantidad" className="col-md-2" onChange={this.handleOptionChange}></input> */}
+                                             <h6> Cantidad: </h6>
+                                            <input type="int" name="cantidad" className="col-md-2" onChange={this.handleOptionChange}></input>
                                             <button type="submit"
                                                 onClick={() => {
-                                                    value.agregarAlCarrito(id);
+                                                    value.agregarAlCarrito(CodigoProducto);
                                                 }}>Agregar</button>
                                             <div>
 

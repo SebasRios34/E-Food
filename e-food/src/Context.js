@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {arrProductos, detalleProducto, precios, Producto} from './data';
+import { arrProductos, detalleProducto, precios, Producto } from './data';
 import axios from 'axios';
 
 
@@ -9,70 +9,91 @@ const Productos = React.createContext();
 //Consumer
 
 class ContextProvider extends Component {
-    
+
     state = {
-        productos:[],
-        detalleProducto:detalleProducto,
-        precios:precios,
-        carrito:[],
+        productos: [],
+        detalleProducto: detalleProducto,
+        precios: precios,
+        carrito: [],
         carritoSubTotal: 0,
+        carritoTax: 0,
         carritoTotal: 0
     };
 
-    componentDidMount(){
+    componentDidMount() {
         this.setProductos();
+
     }
 
-    setProductos =()=>{
+
+
+    setProductos = () => {
         let productosTemp = [];
         Producto.forEach(item => {
-            const itemSolito = {...item};
-            productosTemp = [...productosTemp,itemSolito];
+            const itemSolito = { ...item };
+            productosTemp = [...productosTemp, itemSolito];
 
         })
 
-        this.setState(()=>{
-            return {productos: productosTemp}
+        this.setState(() => {
+            return { productos: productosTemp }
         })
     };
 
-    // async getProductos() {
-    //     //const obj = await 
-    //     axios.get('https://localhost:44360/api/Producto/')
-    //         .then(res => {
-    //             let productosTemp = [];
-    //             res.data = JSON.parse(res.data);
-    //             const productos = res.data;
-    //             this.setState({productos});
-    //             console.table(res.data);
-    //             console.table(productos);
-    //             productos.forEach(item => {
-    //                 const itemSolito = {...item};
-    //                 productosTemp = [...productosTemp,itemSolito];
-    //             })
-    //             console.table(this.state.productos);
-    //             console.table(productosTemp);
-                
+    async getProductos() {
+        //const obj = await 
+        axios.get('https://localhost:44360/api/Producto/')
+            .then(res => {
+                let productosTemp = [];
+                res.data = JSON.parse(res.data);
+                const productos = res.data;
+                this.setState({ productos });
+                console.table(res.data);
+                console.table(productos);
+                productos.forEach(item => {
+                    const itemSolito = { ...item };
+                    productosTemp = [...productosTemp, itemSolito];
+                })
+                console.table(this.state.productos);
+                console.table(productosTemp);
 
-    //             this.setState(()=>{
-    //                 return {productos:productosTemp}
-    //             })
-    //         })
-    // }
+                this.setState(() => {
+                    return { productos: productosTemp }
+                })
+            })
+    }
 
     getItem = (id) => {
         const producto = this.state.productos.find(item => item.CodigoProducto === id);
         return producto;
     }
 
-    manejoDetalle = id =>{
+    manejoDetalle = id => {
         const producto = this.getItem(id);
-        this.setState(() =>{
-            return {detalleProducto:producto}
+        this.setState(() => {
+            return { detalleProducto: producto }
         })
     };
 
-    agregarAlCarrito =(id)=>{
+
+    // agregarAlCarrito = (id) => {
+    //     let productosTemp = [...this.state.productos];
+    //     const index = productosTemp.indexOf(this.getItem(id));
+
+    //     const producto = productosTemp[index];
+    //     producto.enCarrito = true;
+    //     product.count = 1;
+    //     const price = producto.price;
+    //     product.total = price;
+    //     this.setState(() => {
+    //         return {
+    //             productos: productosTemp, carrito: [...this.state.carrito,
+    //                 producto]
+    //         };
+    //     }, () => { console.log(this.state) });
+    // };
+
+    agregarAlCarrito = (id) => {
         let productosTemp = [...this.state.productos];
         const index = productosTemp.indexOf(this.getItem(id));
 
@@ -81,59 +102,61 @@ class ContextProvider extends Component {
         producto.count = 1;
         const price = producto.price;
         producto.total = price;
-        this.setState(()=>{
-            return {productos: productosTemp, carrito:[...this.state.carrito, 
-                producto]
+        this.setState(() => {
+            return {
+                productos: productosTemp, carrito: [...this.state.carrito,
+                    producto]
             };
-        },()=>{this.agregarTotales();
+        }, () => {
+            this.agregarTotales();
         });
     };
 
     //metodos del carrito
-    increment =(id)=>{
-            let carritoTemp = [...this.state.carrito];
-            const productoSeleccionado = carritoTemp.find(item => item.id === id);
-            const index = carritoTemp.indexOf(productoSeleccionado);
-            const producto = carritoTemp[index];
-            producto.count = producto.count +1;
-            producto.total = producto.count * producto.price;
+    increment = (id) => {
+        let carritoTemp = [...this.state.carrito];
+        const productoSeleccionado = carritoTemp.find(item => item.id === id);
+        const index = carritoTemp.indexOf(productoSeleccionado);
+        const producto = carritoTemp[index];
+        producto.count = producto.count + 1;
+        producto.total = producto.count * producto.price;
 
-            this.setState(()=>{
-                return{
-                    carrito:[...carritoTemp]
-                }
-            },()=>{
-                this.agregarTotales();
+        this.setState(() => {
+            return {
+                carrito: [...carritoTemp]
             }
+        }, () => {
+            this.agregarTotales();
+        }
         )
     }
 
-    decrement =(id)=>{
+    decrement = (id) => {
         let carritoTemp = [...this.state.carrito];
         const productoSeleccionado = carritoTemp.find(item => item.id === id);
         const index = carritoTemp.indexOf(productoSeleccionado);
         const producto = carritoTemp[index];
         producto.count = producto.count - 1;
-        if(producto.count === 0){
+        if (producto.count === 0) {
             this.removeItem(id);
-        }else{
+        } else {
             producto.total = producto.count * producto.price;
-            this.setState(()=>{
-                return{
-                    carrito:[...carritoTemp]
+            this.setState(() => {
+                return {
+                    carrito: [...carritoTemp]
                 }
-            },()=>{
+            }, () => {
                 this.agregarTotales();
             }
             )
         }
     }
 
-    removeItem = (id) =>{
+    removeItem = (id) => {
         let productosTemp = [...this.state.productos];
         let carritoTemp = [...this.state.carrito];
 
-        carritoTemp = carritoTemp.filter (item=>item.id !== id);
+        carritoTemp = carritoTemp.filter(item => item.id !== id);
 
         const index = productosTemp.indexOf(this.getItem(id));
         let productoElim = productosTemp[index];
@@ -141,39 +164,39 @@ class ContextProvider extends Component {
         productoElim.count = 0;
         productoElim.total = 0;
 
-        this.setState(()=>{
-            return{
-                carrito:[...carritoTemp],
+        this.setState(() => {
+            return {
+                carrito: [...carritoTemp],
                 productos: [...productosTemp]
             };
-        }, ()=>{
+        }, () => {
             this.agregarTotales();
         });
-    
+
     };
 
-    borrarCarrito =()=>{
-        this.setState(()=>{
-            return{ carrito:[]};
-        },()=>{
+    borrarCarrito = () => {
+        this.setState(() => {
+            return { carrito: [] };
+        }, () => {
             this.setProductos();
             this.agregarTotales();
         });
     }
 
-    agregarTotales =()=>{
+    agregarTotales = () => {
         let carritoSubTotal = 0;
-        this.state.carrito.map(item =>(carritoSubTotal += item.total));
+        this.state.carrito.map(item => (carritoSubTotal += item.total));
         const tempTax = carritoSubTotal * 0.1;
         const iva = parseFloat(tempTax.toFixed(2));
         const total = carritoSubTotal + iva;
-        this.setState(()=>{
+        this.setState(() => {
             return {
-                carritoSubTotal:carritoSubTotal,
-                carritoTax:iva,
-                carritoTotal:total
+                carritoSubTotal: carritoSubTotal,
+                carritoTax: iva,
+                carritoTotal: total
             }
-            
+
         })
 
     }
@@ -183,12 +206,13 @@ class ContextProvider extends Component {
         return (
             <Productos.Provider value={{
                 ...this.state,
-                manejoDetalle:this.manejoDetalle,
-                agregarAlCarrito:this.agregarAlCarrito,
-                increment:this.increment,
-                decrement:this.decrement,
-                removeItem:this.removeItem,
-                borrarCarrito:this.borrarCarrito
+                manejoDetalle: this.manejoDetalle,
+                agregarAlCarrito: this.agregarAlCarrito,
+                increment: this.increment,
+                decrement: this.decrement,
+                removeItem: this.removeItem,
+                borrarCarrito: this.borrarCarrito,
+                agregarAlCarrito:this.agregarAlCarrito
             }}>
                 {this.props.children}
             </Productos.Provider>
@@ -198,4 +222,4 @@ class ContextProvider extends Component {
 
 const ContextConsumer = Productos.Consumer;
 
-export {ContextProvider, ContextConsumer};
+export { ContextProvider, ContextConsumer };

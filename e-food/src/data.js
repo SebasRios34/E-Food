@@ -18,7 +18,7 @@ export const arrProductos = [
         enCarrito: false,
         cant: 0,
         count: 0,
-        price: 1350,
+        price: 1300,
         total: 0
     },
     {
@@ -27,7 +27,7 @@ export const arrProductos = [
         contenido: "triple quesoburguesa con tocineta y queso suizo",
         enCarrito: false,
         cant: 0,
-        count: 0,
+        count: 1,
         price: 7,
         total: 0
     }, {
@@ -37,7 +37,7 @@ export const arrProductos = [
             " y bebida cero calorias endulzada con splenda",
         enCarrito: false,
         cant: 0,
-        count: 0,
+        count: 1,
         price: 1520,
         total: 0
     }
@@ -52,12 +52,12 @@ export var detalleProducto = {
         " refresco mediano",
     enCarrito: false,
     cant: 0,
-    count: 0,
+    count: 1,
     price: 1100,
     total: 0
 }
 
-export var Producto = [{}]
+export const Producto = [{}]
 
 export default class data extends Component{
     async getProductos() {

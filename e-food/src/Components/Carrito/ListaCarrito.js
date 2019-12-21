@@ -2,7 +2,7 @@ import React from 'react'
 import ItemCarrito from './ItemCarrito';
 
 export default function ListaCarrito({value}) {
-    
+
     const {carrito} = value;
     console.log(value, carrito);
 
@@ -11,7 +11,7 @@ export default function ListaCarrito({value}) {
             {carrito.map(item=>{
                 return <ItemCarrito key={item.id} item = {item} value = {value}/>
             })}
-            
+
         </div>
     )
 }

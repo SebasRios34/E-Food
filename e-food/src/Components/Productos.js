@@ -12,7 +12,7 @@ export default class Productos extends Component {
                         <ContextConsumer>
                             {(value)=>{
                             return value.productos.map( product =>{
-                                return <Producto key = {product.CodigoProducto} 
+                                return <Producto key = {product.id}
                                 product={product}/>
                             })
                             }}
