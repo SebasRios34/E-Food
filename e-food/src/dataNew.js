@@ -2,16 +2,24 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-export default class dataNew extends Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            lineaComida: [],
-            procesadorPago: [],
-            producto: [],
-            tiquetesDescuento: [],
-            tiposPrecio: []
-        }
+export default class dataNew extends Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         lineaComida: [],
+    //         procesadorPago: [],
+    //         producto: [],
+    //         tiquetesDescuento: [],
+    //         tiposPrecio: []
+    //     }
+    // }
+
+    state = {
+        lineaComida: [],
+        procesadorPago: [],
+        producto: [],
+        tiquetesDescuento: [],
+        tiposPrecio: []
     }
 
     async getLineaComida() {
@@ -52,14 +60,15 @@ export default class dataNew extends Component{
 
     async getTiquetesDescuento() {
         //const obj = await 
+        var tiqueteDescuento;
         await axios.get('https://localhost:44360/api/TiqueteDescuento/')
             .then(res => {
                 res.data = JSON.parse(res.data);
-                const tiqueteDescuento = res.data;
+                tiqueteDescuento = res.data;
                 this.setState({ tiqueteDescuento: tiqueteDescuento });
-                console.table(tiqueteDescuento);
+                console.table(this.state.tiquetesDescuento);
             })
-        //this.setState({productos:obj.data});
+
     }
 
     async getTipoPrecio() {
@@ -75,10 +84,16 @@ export default class dataNew extends Component{
     }
 
     componentDidMount() {
-        this.getLineaComida();
         this.getProcesadorPago();
+        this.getLineaComida();
         this.getProductos();
         this.getTiquetesDescuento();
         this.getTipoPrecio();
     }
+
+    render() {
+        console.table(this.state.procesadorPago);
+        return (<div></div>)
+    }
+
 }

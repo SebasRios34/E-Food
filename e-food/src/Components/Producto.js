@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import DetalleProducto from './DetalleProducto';
 import { ContextConsumer } from '../Context';
 import axios from 'axios';
+import dataNew from '../dataNew';
 
 export default class Producto extends Component {
 
@@ -36,7 +37,6 @@ export default class Producto extends Component {
                 res.data = JSON.parse(res.data);
                 const productos = res.data;
                 this.setState({ productos });
-                console.table(productos);
             })
         //this.setState({productos:obj.data});
     }
@@ -74,14 +74,14 @@ export default class Producto extends Component {
         const { id, nombreProducto, contenido, enCarrito } = this.props.product;
 
         return (
-            <div className="album py-5 bg-light">
-                <div className="container">
+            <div className="album py-5 ">
+                <div className="container" style={{marginLeft:"10%", color: "red"}}>
                     <div className="row">
                         {this.state.productos.map(x =>
                             <div className="col-md-4">
 
                                 <div className="card-header" >{x.CodigoProducto} - {x.NombreProducto}</div>
-
+                                
                                 <div className="card-body">
                                     <Link className="card-text" value={x.Contenido} to="/detalleProducto">{x.Contenido}</Link>
                                 </div>

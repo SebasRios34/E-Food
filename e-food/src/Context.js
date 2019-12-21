@@ -20,31 +20,42 @@ class ContextProvider extends Component {
     };
 
     componentDidMount(){
-        this.setProductos();
+        this.getProductos();
     }
 
-    setProductos =()=>{
-        let productosTemp = [];
-        arrProductos.forEach(item => {
-            const itemSolito = {...item};
-            productosTemp = [...productosTemp,itemSolito];
+    // setProductos =()=>{
+    //     let productosTemp = [];
+    //     arrProductos.forEach(item => {
+    //         const itemSolito = {...item};
+    //         productosTemp = [...productosTemp,itemSolito];
 
-        })
+    //     })
 
-        this.setState(()=>{
-            return {productos:productosTemp}
-        })
-    };
+    //     this.setState(()=>{
+    //         return {productos:productosTemp}
+    //     })
+    // };
 
     async getProductos() {
         //const obj = await 
         axios.get('https://localhost:44360/api/Producto/')
             .then(res => {
+                let productosTemp = [];
                 res.data = JSON.parse(res.data);
                 const productos = res.data;
                 this.setState({productos});
                 console.table(res.data);
                 console.table(productos);
+                productos.forEach(item => {
+                    const itemSolito = {...item};
+                    productosTemp = [...productosTemp,itemSolito];
+                })
+                console.table(this.state.productos);
+                console.table(productosTemp);
+
+                this.setState(()=>{
+                    return {productos:productosTemp}
+                })
             })
     }
 

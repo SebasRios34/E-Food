@@ -47,9 +47,7 @@ export default class DetalleProducto extends Component {
 
     }
 
-    selectionarUnico(event) {
-        console.log(event.target.value);
-    }
+
 
     async getTipoPrecio() {
         //const obj = await 
@@ -63,17 +61,17 @@ export default class DetalleProducto extends Component {
             })
     }
 
-    async getProductos() {
-        //const obj = await 
-        axios.get('https://localhost:44360/api/Producto/')
-            .then(res => {
-                res.data = JSON.parse(res.data);
-                const productos = res.data;
-                this.setState({ productos });
-                console.table(res.data);
-                console.table(productos);
-            })
-    }
+    // async getProductos() {
+    //     //const obj = await 
+    //     axios.get('https://localhost:44360/api/Producto/')
+    //         .then(res => {
+    //             res.data = JSON.parse(res.data);
+    //             const productos = res.data;
+    //             this.setState({ productos });
+    //             console.table(res.data);
+    //             console.table(productos);
+    //         })
+    // }
 
     getItem = (id) => {
         const producto = this.state.productos.find(item => item.CodigoProducto === id);
@@ -99,7 +97,6 @@ export default class DetalleProducto extends Component {
     }
 
     componentDidMount() {
-        this.getProductos();
         this.getTipoPrecio();
         this.setProductos();
     }
@@ -109,7 +106,7 @@ export default class DetalleProducto extends Component {
         return (
             <ContextConsumer>
                 {(value) => {
-                    const { id, contenido } = this.props
+                    const { id, contenido } = value.detalleProducto;
                     return (
                         <div className="container py-5">
                             <div className="row">
@@ -125,7 +122,7 @@ export default class DetalleProducto extends Component {
                                     {/*esto deberia de tener una imagen aqui */}
                                     <div>
                                         <h5 className="text-title text-uppercase text-muted mt-3 mb-2 ">
-                                            Contenido: {this.detalleProducto}
+                                            Contenido: {contenido}
                                         </h5>
                                         <h6 className="row"></h6>
                                     </div>
@@ -135,7 +132,7 @@ export default class DetalleProducto extends Component {
                                         <h5>Precios: </h5>
                                         <form onSubmit={this.handleSubmit}>
                                             {this.state.tipoPrecio.map(x =>
-                                                <div className="radio" onChange={this.selectionarUnico.bind(this)}>
+                                                <div className="radio">
                                                     <label>
                                                         <input type="radio" value={x.CodigoTipoPrecio}
                                                             checked={this.state.selectedOption === x.CodigoTipoPrecio}
@@ -169,8 +166,8 @@ export default class DetalleProducto extends Component {
                                                 <br/>
                                             </div> */}
                                             {/*cantidad de platos a carrito*/}
-                                            <h6> Cantidad: </h6>
-                                            <input type="int" name="cantidad" className="col-md-2" onChange={this.handleOptionChange}></input>
+                                            {/* <h6> Cantidad: </h6>
+                                            <input type="int" name="cantidad" className="col-md-2" onChange={this.handleOptionChange}></input> */}
                                             <button type="submit"
                                                 onClick={() => {
                                                     value.agregarAlCarrito(id);
