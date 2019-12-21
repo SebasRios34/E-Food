@@ -39,10 +39,9 @@
 }
 
 .col-md-3.pedido{
-  width: 30%;
-  
-  padding-top: 10%;
+  padding: 25px 50px 75px 100px;
   position: relative;
+  margin: 25px 50px 75px 100px;
 }
 
 .btn-black{
@@ -82,4 +81,8 @@
 .card.card-body.col-md-6.row{
   align-content: center;
   align-items: center;
+}
+
+#Div2Pedido{
+  margin : 4.5%
 }

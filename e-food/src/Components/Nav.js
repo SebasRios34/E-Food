@@ -14,7 +14,7 @@ export default class Nav extends Component {
                                 </h3>
                         </span>
                         <span className="navbar-brand lm-auto h1">
-                                <Link to='/productos' className="nav-link">Productos
+                                <Link to='/productos' className="nav-link" style={{ color: '#ffffff'}}>Productos
                                 </Link>
                         </span>
                     </nav>

@@ -74,7 +74,7 @@ class Buscador extends Component {
 
         return (
             <React.Fragment>
-                <form onSubmit={this.handleSubmit}>
+                {/* <form onSubmit={this.handleSubmit}>
                     <div className="row">
                         <div className="col-10 mx-auto col-md-6 my-3">
                             <label class="opt">
@@ -85,7 +85,7 @@ class Buscador extends Component {
                             </label>
                         </div>
                     </div>
-                </form>
+                </form> */}
             </React.Fragment>
         );
 
