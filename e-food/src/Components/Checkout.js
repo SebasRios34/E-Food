@@ -192,7 +192,7 @@ export default class Checkout extends Component {
 
                     <React.Fragment>
                         <div className="card card-body col-md-6 row">
-                            <h3>ingrese sus datos</h3>
+                            <h3>Ingrese sus datos</h3>
                             <hr />
                             <InfoUsuario
                                 siguientePaso={this.siguientePaso}
