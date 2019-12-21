@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {arrProductos, detalleProducto, precios} from './data';
+import {arrProductos, detalleProducto, precios, Producto} from './data';
 import axios from 'axios';
 
 
@@ -20,44 +20,45 @@ class ContextProvider extends Component {
     };
 
     componentDidMount(){
-        this.getProductos();
+        this.setProductos();
     }
 
-    // setProductos =()=>{
-    //     let productosTemp = [];
-    //     arrProductos.forEach(item => {
-    //         const itemSolito = {...item};
-    //         productosTemp = [...productosTemp,itemSolito];
+    setProductos =()=>{
+        let productosTemp = [];
+        Producto.forEach(item => {
+            const itemSolito = {...item};
+            productosTemp = [...productosTemp,itemSolito];
 
-    //     })
+        })
 
-    //     this.setState(()=>{
-    //         return {productos:productosTemp}
-    //     })
-    // };
+        this.setState(()=>{
+            return {productos: productosTemp}
+        })
+    };
 
-    async getProductos() {
-        //const obj = await 
-        axios.get('https://localhost:44360/api/Producto/')
-            .then(res => {
-                let productosTemp = [];
-                res.data = JSON.parse(res.data);
-                const productos = res.data;
-                this.setState({productos});
-                console.table(res.data);
-                console.table(productos);
-                productos.forEach(item => {
-                    const itemSolito = {...item};
-                    productosTemp = [...productosTemp,itemSolito];
-                })
-                console.table(this.state.productos);
-                console.table(productosTemp);
+    // async getProductos() {
+    //     //const obj = await 
+    //     axios.get('https://localhost:44360/api/Producto/')
+    //         .then(res => {
+    //             let productosTemp = [];
+    //             res.data = JSON.parse(res.data);
+    //             const productos = res.data;
+    //             this.setState({productos});
+    //             console.table(res.data);
+    //             console.table(productos);
+    //             productos.forEach(item => {
+    //                 const itemSolito = {...item};
+    //                 productosTemp = [...productosTemp,itemSolito];
+    //             })
+    //             console.table(this.state.productos);
+    //             console.table(productosTemp);
+                
 
-                this.setState(()=>{
-                    return {productos:productosTemp}
-                })
-            })
-    }
+    //             this.setState(()=>{
+    //                 return {productos:productosTemp}
+    //             })
+    //         })
+    // }
 
     getItem = (id) => {
         const producto = this.state.productos.find(item => item.CodigoProducto === id);

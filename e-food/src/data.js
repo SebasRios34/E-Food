@@ -1,3 +1,5 @@
+import React, { Component } from "react";
+import axios from 'axios';
 
 
 
@@ -43,7 +45,7 @@ export const arrProductos = [
 
 ]
 
-export const detalleProducto = {
+export var detalleProducto = {
     id: 1,
     nombreProducto: "combo#1",
     contenido: "papas medianas, sandwich de pollo, tocineta, tomate y queso" +
@@ -55,4 +57,27 @@ export const detalleProducto = {
     total: 0
 }
 
+export var Producto = [{}]
+
+export default class data extends Component{
+    async getProductos() {
+        //const obj = await 
+        await axios.get('https://localhost:44360/api/Producto/')
+            .then(res => {
+                res.data = JSON.parse(res.data);
+                Producto = res.data;
+                console.table(Producto);
+            })
+        //this.setState({productos:obj.data});
+    }
+
+    componentDidMount(){
+        this.getProductos();
+    }
+
+    render(){
+        console.table(Producto);
+        return(<div>aaa</div>)
+    }
+}
 
