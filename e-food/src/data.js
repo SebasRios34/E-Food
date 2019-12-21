@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
-
-
 export const precios = {
     pequenio: 1100,
     mediano: 1350,
@@ -42,7 +40,6 @@ export const arrProductos = [
         total: 0
     }
 
-
 ]
 
 export var detalleProducto = {
@@ -75,9 +72,4 @@ export default class data extends Component{
         this.getProductos();
     }
 
-    render(){
-        console.table(Producto);
-        return(<div>aaa</div>)
-    }
 }
-
