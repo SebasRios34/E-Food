@@ -8,7 +8,10 @@ import Nav from './Components/Nav';
 import Pedido from './Components/Pedido';
 import Productos from './Components/Productos';
 import Checkout from './Components/Checkout';
+import DetalleProducto from './Components/DetalleProducto';
 import './App.css';
+import Data from './data';
+import {ContextProvider, ContextConsumer} from './Context';
 
 
 function App() {
@@ -23,6 +26,7 @@ function App() {
           <Route path="/producto" component={Producto}></Route>
           <Route path="/productos" component={Productos}></Route>
           <Route path="/checkout" component={Checkout}></Route>
+          <Route path="/detalleProducto" component={DetalleProducto}></Route>
         </Switch>
       </div>
     </body>
