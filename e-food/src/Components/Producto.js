@@ -41,10 +41,10 @@ export default class Producto extends Component {
         //this.setState({productos:obj.data});
     }
 
-    // getItem = (id) => {
-    //     const producto = this.state.productos.find(item => item.CodigoProducto === id);
-    //     return producto;
-    // }
+    getItem = (id) => {
+        const producto = this.state.productos.find(item => item.CodigoProducto === id);
+        return producto;
+    }
 
     // manejoDetalle = id => {
     //     const producto = this.getItem(id);

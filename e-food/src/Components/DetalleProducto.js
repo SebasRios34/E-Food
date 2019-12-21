@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import datajson from '../../src/datajson.json';
 
-
-
 export default class DetalleProducto extends Component {
 
     constructor(props) {
