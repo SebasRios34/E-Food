@@ -84,19 +84,19 @@ export default class Checkout extends Component {
         e.preventDefault();
         if (this.state.tipo === 'visa' || this.state.tipo === 'Visa' || this.state.tipo === 'VISA') {
             if (this.state.numPago.startsWith('1')) {
-                console.log('codigo de tarjeta visa, todo bien ')
+                alert('codigo de tarjeta visa, todo bien ')
                 this.setState({
                     booleano: variable
                 })
 
             } else if (this.state.numPago.startsWith('2')) {
-                console.log('codigo de tarjeta mastercard, verificar numero o tipo de tarjeta')
+                alert('codigo de tarjeta mastercard, verificar numero o tipo de tarjeta')
                 variable = true;
                 this.setState({
                     booleano: variable
                 })
             } else {
-                console.log('codigo invalido, favor verificar')
+                alert('codigo invalido, favor verificar')
                 variable = true;
                 this.setState({
                     booleano: variable
@@ -104,18 +104,18 @@ export default class Checkout extends Component {
             }
         } else if (this.state.tipo === 'mastercard' || this.state.tipo === 'Mastercard' || this.state.tipo === 'MASTERCARD') {
             if (this.state.numPago.startsWith('2')) {
-                console.log('codigo de mastercard, todo bien')
+                alert('codigo de mastercard, todo bien')
                 this.setState({
                     booleano: variable
                 })
             } else if (this.state.numPago.startsWith('1')) {
-                console.log('codigo de visa, favor verificar numero o tipo de tarjeta')
+                alert('codigo de visa, favor verificar numero o tipo de tarjeta')
                 variable = true;
                 this.setState({
                     booleano: variable
                 })
             } else {
-                console.log('codigo invalido, favor verificar de nuevo')
+                alert('codigo invalido, favor verificar de nuevo')
                 variable = true;
                 this.setState({
                     booleano: variable
