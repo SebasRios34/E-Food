@@ -108,26 +108,11 @@
    var validarProcesadorId = () => {
       var codigo = $('#codigoMetodoPago').val();
 
-      var verifica = false;
-
-      for (var i = 0; i < arrayProcesadorPago.length; i++) {
-         if (codigo != $(arrayProcesadorPago).eq(i).attr('CodigoProcesador')) {
-            verifica = true;
-            console.log('verificaCodigo: ' + verifica);
-            break;
-         }
-      }
-      return verifica;
-   }
-
-   var validarProcesadorId2 = () => {
-      var codigo = $('#codigoMetodoPago').val();
-
-      var verifica = false;
+      var verifica = true;
 
       for (var i = 0; i < arrayProcesadorPago.length; i++) {
          if (codigo == $(arrayProcesadorPago).eq(i).attr('CodigoProcesador')) {
-            verifica = true;
+            verifica = false;
             console.log('verificaCodigo: ' + verifica);
             break;
          }
@@ -138,11 +123,11 @@
    var validarTarjetaId2 = () => {
       var tarjetaId = $('#codigoTarjeta').val();
 
-      var verifica = false;
+      var verifica = true;
 
       for (var i = 0; i < arrayTarjetas.length; i++) {
          if (tarjetaId == $(arrayTarjetas).eq(i).attr('CodigoTarjeta')) {
-            verifica = true;
+            verifica = false;
             console.log('verificaCodigo: ' + verifica);
             break;
          }
@@ -196,7 +181,7 @@
             alert('Codigo tarjeta es obligatorio');
             verifica = false;
             $('#codigoTarjeta').focus();
-         } else if (!validarTarjetaId2()) {
+         } else if (validarTarjetaId2()) {
             alert('Codigo tarjeta no existe');
             verifica = false;
             $('#procesador').focus();
@@ -218,7 +203,7 @@
             alert('Codigo Procesador es obligatorio');
             verifica = false;
             $('#codigoMetodoPago').focus();
-         } else if (!validarProcesadorId2()) {
+         } else if (validarProcesadorId()) {
             alert('Codigo Procesador ya existe');
             verifica = false;
             $('#codigoMetodoPago').focus();
@@ -240,11 +225,11 @@
             alert('Codigo Procesador es obligatorio');
             verifica = false;
             $('#codigoMetodoPago').focus();
-         } else if (!validarProcesadorId()) {
-            alert('Codigo Procesador ya existe');
+         } else if (validarProcesadorId()) {
+            alert('Codigo Procesador no existe');
             verifica = false;
             $('#codigoMetodoPago').focus();
-         } else if (!validarTarjetaId2()) {
+         } else if (validarTarjetaId2()) {
             alert('Codigo tarjeta no existe');
             verifica = false;
             $('#procesador').focus();

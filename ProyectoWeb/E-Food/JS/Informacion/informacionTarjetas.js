@@ -87,26 +87,11 @@
     var validarTarjetasId = () => {
         var tarjetaId = $('#codigoTipoTarjeta').val();
 
-        var verifica = false;
-
-        for (var i = 0; i < arrayTarjetas.length; i++) {
-            if (tarjetaId != $(arrayTarjetas).eq(i).attr('CodigoTarjeta')) {
-                verifica = true;
-                console.log('verificaCodigo: ' + verifica);
-                break;
-            }
-        }
-        return verifica;
-    }
-
-    var validarTarjetaId2 = () => {
-        var tarjetaId = $('#codigoTipoTarjeta').val();
-
-        var verifica = false;
+        var verifica = true;
 
         for (var i = 0; i < arrayTarjetas.length; i++) {
             if (tarjetaId == $(arrayTarjetas).eq(i).attr('CodigoTarjeta')) {
-                verifica = true;
+                verifica = false;
                 console.log('verificaCodigo: ' + verifica);
                 break;
             }
@@ -156,7 +141,7 @@
                 alert('Codigo Tarjeta es obligatorio');
                 verifica = false;
                 $('#codigoTipoTarjeta').focus();
-            } else if (!validarTarjetaId2()) {
+            } else if (validarTarjetasId()) {
                 alert('Codigo Tarjeta no existe');
                 verifica = false;
                 $('#codigoTipoTarjeta').focus();
@@ -181,7 +166,7 @@
                 alert('Introduzca un consecutivo');
                 $('#codigoTipoTarjeta').focus();
                 verifica = false;
-            } else if (!validarTarjetaId2()) {
+            } else if (validarTarjetasId()) {
                 alert('Codigo Tarjeta no existe');
                 verifica = false;
                 $('#codigoTipoTarjeta').focus();
