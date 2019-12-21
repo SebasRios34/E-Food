@@ -212,7 +212,8 @@ class ContextProvider extends Component {
                 decrement: this.decrement,
                 removeItem: this.removeItem,
                 borrarCarrito: this.borrarCarrito,
-                agregarAlCarrito:this.agregarAlCarrito
+                agregarAlCarrito:this.agregarAlCarrito,
+                agregarTotales: this.agregarTotales
             }}>
                 {this.props.children}
             </Productos.Provider>
